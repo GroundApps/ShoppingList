@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aboutLibraries_description_name">ShoppingList</string>
+    <string name="aboutLibraries_description_showIcon">true</string>
+    <string name="aboutLibraries_description_showVersion">false</string>
+    <string name="aboutLibraries_description_text">
+        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!]]>
+    </string>
+    <string name="aboutLibraries_description_special1_name">GitHub</string>
+    <string name="aboutLibraries_description_special1_text">Check this project out on GitHub!</string>
+    <string name="aboutLibraries_description_special3_name">Changelog</string>
+    <string name="aboutLibraries_description_special3_text">
+        <![CDATA[
+        <i>Version 1.0.0</i><br />
+        - Initial version]]>
+    </string>
+</resources>

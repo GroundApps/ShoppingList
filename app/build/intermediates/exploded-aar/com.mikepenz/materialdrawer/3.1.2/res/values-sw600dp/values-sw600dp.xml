@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values-sw600dp/dimens.xml -->
+    <eat-comment/>
+    <dimen name="material_drawer_vertical_padding">24dp</dimen>
+    <dimen name="material_drawer_width">400dp</dimen>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="Host"
+        android:key="host"
+        android:summary="Host + location of api.php"
+        android:inputType="textUri|textNoSuggestions"
+        android:hint="https://janb.org/sholi/"/>
+
+    <EditTextPreference android:title="AuthKey"
+        android:key="authkey"
+        android:summary="Please provide your authentication token (defined in api.php)"
+        android:inputType="textPassword|textNoSuggestions"/>
+
+</PreferenceScreen><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/xml/preferences.xml -->

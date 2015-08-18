@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mikepenz.aboutlibraries"
+    android:versionCode="511"
+    android:versionName="5.1.1" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="22" />
+
+    <application>
+        <activity android:name="com.mikepenz.aboutlibraries.ui.LibsActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values-v19/dimens.xml -->
+    <eat-comment/>
+    <dimen name="tool_bar_top_padding">25dp</dimen>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values-v19/styles.xml -->
+    <eat-comment/>
+    <style name="MaterialDrawerTheme.ActionBar.TranslucentStatus" parent="MaterialDrawerTheme.ActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.ActionBar.TranslucentStatus" parent="MaterialDrawerTheme.Light.ActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.DarkToolbar.ActionBar.TranslucentStatus" parent="MaterialDrawerTheme.Light.DarkToolbar.ActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus" parent="MaterialDrawerTheme.Light.DarkToolbar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.TranslucentStatus" parent="MaterialDrawerTheme.Light">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.TranslucentStatus" parent="MaterialDrawerTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+</resources>

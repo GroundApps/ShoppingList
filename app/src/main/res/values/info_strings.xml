@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_SwipeActionAdapter"></string>
+    <string name="library_SwipeActionAdapter_author">Wouter Dullaert</string>
+    <string name="library_materialdialogs_authorWebsite">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryName">SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryDescription">SwipeActionAdapter is a library that provides a simple API to create Mailbox-like action when swiping in a ListView.</string>
+    <string name="library_AnimatedGridView_libraryWebsite">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryVersion">1.4.4</string>
+    <string name="library_SwipeActionAdapter_isOpenSource">true</string>
+    <string name="library_SwipeActionAdapter_repositoryLink">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_materialdialogs_classPath">com.wdullaer.swipeactionadapter</string>
+    <string name="library_SwipeActionAdapter_licenseId">apache_2_0</string>
+</resources>

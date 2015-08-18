@@ -1,0 +1,125 @@
+package org.janb.shoppinglist.fragments;
+
+import android.app.ListFragment;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.janb.shoppinglist.R;
+import org.janb.shoppinglist.model.ShoppingListAdapter;
+import org.janb.shoppinglist.model.ShoppingListItem;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class CacheListFragment extends ListFragment {
+
+    private ListView mListView;
+    private List<ShoppingListItem> ShoppingListItemList;
+    private Context context;
+
+    public CacheListFragment() {
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        if (((AppCompatActivity)getActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Cached Version");
+        }
+        context = getActivity().getApplicationContext();
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_sholiitem_list_cached, container, false);
+        mListView = (ListView) rootView.findViewById(android.R.id.list);
+        mListView.setEmptyView(rootView.findViewById(android.R.id.empty));
+        return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
+    }
+
+    private void getListFromCache() {
+        ShoppingListItemList = new ArrayList<>();
+        SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        parseJSON(prefs.getString("cached_list", ""));
+        if (ShoppingListItemList.size() > 0) {
+            ShoppingListAdapter shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+            setListAdapter(shopListAdapter);
+        } else {
+            setEmptyText("The last time the list was loaded successfully, it was empty.");
+        }
+    }
+
+    public void setEmptyText(CharSequence emptyText) {
+        View emptyView = mListView.getEmptyView();
+
+        if (emptyView instanceof TextView) {
+            ((TextView) emptyView).setText(emptyText);
+        }
+    }
+
+    public void parseJSON(String jsondata) {
+        String item_title;
+        String item_count;
+        JSONArray array = null;
+        ShoppingListItem itemData = null;
+        try {
+            array = new JSONArray(jsondata);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (array != null){
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject row = null;
+                try {
+                    row = array.getJSONObject(i);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    assert row != null;
+                    item_title = row.getString("item");
+                    item_count = row.getString("count");
+                    itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                ShoppingListItemList.add(itemData);
+            }
+        } else {
+            Log.i("SHOPPING LIST", "No data from cached version");
+        }
+
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        getListFromCache();
+    }
+
+}

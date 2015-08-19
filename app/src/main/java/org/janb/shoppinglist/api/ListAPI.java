@@ -173,7 +173,6 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
                     break;
 
             }
-            
         } catch (UnknownHostException | ConnectException e) {
             listener.onQueryError(ERROR_CONNECT);
             this.cancel(true);

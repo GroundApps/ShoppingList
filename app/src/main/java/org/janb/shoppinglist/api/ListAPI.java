@@ -58,6 +58,8 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
     public static final  int ERROR_AUTH = 903;
     public static final  int ERROR_404 = 904;
     public static final  int ERROR_URL = 905;
+    public static final  int ERROR_NO_HOST = 906;
+    public static final  int ERROR = 999;
 
     ResultsListener listener;
     SharedPreferences prefs;
@@ -81,6 +83,11 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String AUTHKEY = prefs.getString("authkey", "");
         String URL = prefs.getString("host", "");
+        if(URL.isEmpty()){
+            listener.onQueryError(ERROR_NO_HOST);
+            this.cancel(true);
+            return null;
+        }
         HashMap<String,String> parameters = new HashMap<>();
 
         switch (chosenfunction){
@@ -172,12 +179,9 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
         } catch (MalformedURLException e) {
             listener.onQueryError(ERROR_URL);
             this.cancel(true);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            listener.onQueryError(ERROR);
+            this.cancel(true);
         }
         return response;
     }

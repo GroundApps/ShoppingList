@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="define_SwipeActionAdapter"></string>
-    <string name="library_SwipeActionAdapter_author">Wouter Dullaert</string>
-    <string name="library_materialdialogs_authorWebsite">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <string name="library_SwipeActionAdapter_libraryName">SwipeActionAdapter</string>
-    <string name="library_SwipeActionAdapter_libraryDescription">SwipeActionAdapter is a library that provides a simple API to create Mailbox-like action when swiping in a ListView.</string>
-    <string name="library_AnimatedGridView_libraryWebsite">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <string name="library_SwipeActionAdapter_libraryVersion">1.4.4</string>
-    <string name="library_SwipeActionAdapter_isOpenSource">true</string>
-    <string name="library_SwipeActionAdapter_repositoryLink">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <string name="library_materialdialogs_classPath">com.wdullaer.swipeactionadapter</string>
-    <string name="library_SwipeActionAdapter_licenseId">apache_2_0</string>
+    <string name="define_SwipeActionAdapter" translatable="false"></string>
+    <string name="library_SwipeActionAdapter_author" translatable="false">Wouter Dullaert</string>
+    <string name="library_materialdialogs_authorWebsite" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryName" translatable="false">SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryDescription" translatable="false">SwipeActionAdapter is a library that provides a simple API to create Mailbox-like action when swiping in a ListView.</string>
+    <string name="library_AnimatedGridView_libraryWebsite" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryVersion" translatable="false">1.4.4</string>
+    <string name="library_SwipeActionAdapter_isOpenSource" translatable="false">true</string>
+    <string name="library_SwipeActionAdapter_repositoryLink" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_materialdialogs_classPath" translatable="false">com.wdullaer.swipeactionadapter</string>
+    <string name="library_SwipeActionAdapter_licenseId" translatable="false">apache_2_0</string>
+
+    <string name="define_FruitsAndVegetables" translatable="false"></string>
+    <string name="library_FruitsAndVegetables_author" translatable="false">Penn State</string>
+    <string name="library_FruitsAndVegetables_libraryName" translatable="false">FruitsAndVegetables</string>
+    <string name="library_FruitsAndVegetables_libraryDescription" translatable="false">A picture of locally grown vegetables and fruits.</string>
+    <string name="library_FruitsAndVegetables_repositoryLink" translatable="false">https://www.flickr.com/photos/pennstatelive/9242445730/</string>
 </resources>

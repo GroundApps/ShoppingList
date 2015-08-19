@@ -59,7 +59,7 @@ public class FavoriteListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Favorites");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_favorites));
         context = getActivity().getApplicationContext();
     }
 
@@ -87,7 +87,7 @@ public class FavoriteListFragment extends ListFragment {
                 context,
                 R.layout.row_favorites,
                 R.id.text,
-                new ArrayList<String>(Arrays.asList(content))
+                new ArrayList<>(Arrays.asList(content))
         );
         mAdapter = new SwipeActionAdapter(stringAdapter);
         mAdapter.setListView(getListView());
@@ -140,7 +140,7 @@ public class FavoriteListFragment extends ListFragment {
         super.onStart();
         favorites = getFavorites();
         if(favorites.isEmpty()){
-            setEmptyText("You have no favorites yet. Add some!");
+            setEmptyText(getResources().getString(R.string.empty_view_favorites));
         } else {
             generateList();
         }
@@ -148,8 +148,8 @@ public class FavoriteListFragment extends ListFragment {
 
     private List<String> getFavorites() {
         SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
-        JSONArray jsonArray = null;
-        favorites = new ArrayList<String>();
+        JSONArray jsonArray;
+        favorites = new ArrayList<>();
         try {
             jsonArray = new JSONArray(prefs.getString("favorites", ""));
 

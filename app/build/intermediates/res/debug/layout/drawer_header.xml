@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="170dp"
         android:background="@drawable/header"
         android:id="@+id/imageView"
-        android:layout_weight="0.07" />
+        android:alpha="0.6"
+        android:contentDescription="@string/header_detail" />
 
-</LinearLayout><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/layout/drawer_header.xml -->
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/header_title" />
+    <TextView
+        android:id="@+id/header_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/header_title"
+        android:layout_marginTop="80dp"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/header_detail" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/layout/drawer_header.xml -->

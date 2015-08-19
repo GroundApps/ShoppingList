@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings_activity_settings.xml -->
-    <eat-comment/>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -901,7 +873,7 @@
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/refs.xml -->
     <eat-comment/>
-    <item name="fragment_sholiitem" type="layout">@layout/fragment_sholiitem_list</item>
+    <item name="fragment_sholiitem" type="layout">@layout/fragment_list</item>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -923,27 +895,31 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/shoppinglist_description.xml -->
     <eat-comment/>
-    <string name="aboutLibraries_description_name">ShoppingList</string>
-    <string name="aboutLibraries_description_showIcon">true</string>
-    <string name="aboutLibraries_description_showVersion">false</string>
-    <string name="aboutLibraries_description_special1_name">GitHub</string>
-    <string name="aboutLibraries_description_special1_text">Check this project out on GitHub!</string>
-    <string name="aboutLibraries_description_special3_name">Changelog</string>
-    <string name="aboutLibraries_description_special3_text">
+    <string name="aboutLibraries_description_name" translatable="false">ShoppingList</string>
+    <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
+    <string name="aboutLibraries_description_showVersion" translatable="false">false</string>
+    <string name="aboutLibraries_description_special1_name" translatable="false">GitHub</string>
+    <string name="aboutLibraries_description_special1_text" translatable="false">Check this project out on GitHub!</string>
+    <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
+    <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
         <i>Version 1.0.0</i><br />
         - Initial version]]>
     </string>
-    <string name="aboutLibraries_description_text">
+    <string name="aboutLibraries_description_text" translatable="false">
         <![CDATA[I love OpenSource!<br>Thank you for your great libraries!]]>
     </string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="action_settings">Settings</string>
+    <string name="action_clearlist">Clear list</string>
     <string name="app_name">ShoppingList</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="cache">See cached version</string>
+    <string name="cancel">Cancel</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="define_AboutLibraries">year;owner</string>
@@ -952,7 +928,8 @@
     <string name="define_AndroidIconics">year;owner</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
     <eat-comment/>
-    <string name="define_SwipeActionAdapter"/>
+    <string name="define_FruitsAndVegetables" translatable="false"/>
+    <string name="define_SwipeActionAdapter" translatable="false"/>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="define_int_ActionBarPullToRefresh">year;owner</string>
@@ -1076,16 +1053,23 @@
     <eat-comment/>
     <string name="define_materialdrawer">year;owner</string>
     <string name="drawer_close">Close</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
-    <eat-comment/>
-    <string name="drawer_header_title">ShoppingList</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.2/res/values/values.xml -->
-    <eat-comment/>
     <string name="drawer_open">Open</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="empty_view_cache">The last time the list was loaded, it was empty.</string>
+    <string name="empty_view_favorites">No favorites yet… Add some!</string>
+    <string name="empty_view_list">Nothing on you list… for now :)</string>
+    <string name="error_auth">The server rejected the supplied auth key!</string>
+    <string name="error_connect">Could not connect to the server at: </string>
+    <string name="error_general">An unexpected error occurred. Please post an issue on GitHub!</string>
+    <string name="error_no_host">Please configure host and authkey in Settings.</string>
+    <string name="error_not_found">API could not be access on the supplied host.</string>
+    <string name="error_response">The server sent a response that did not make sense!</string>
+    <string name="error_server_error">The server did not send any content back. Likely due to an internal server error.</string>
+    <string name="error_url">The supplied URL for the api is not a valid URL.</string>
+    <string name="github_url" translatable="false">https://github.com/J-8/ShoppingList</string>
+    <string name="header_detail" translatable="false">For all your hungry needs</string>
+    <string name="header_title" translatable="false">ShoppingList</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="library_AboutLibraries_author">Mike Penz</string>
@@ -1213,7 +1197,7 @@
     <string name="library_AndroidViewPager_licenseId">apache_2_0</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
     <eat-comment/>
-    <string name="library_AnimatedGridView_libraryWebsite">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_AnimatedGridView_libraryWebsite" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="library_AppCompat_author">AOSP</string>
@@ -1364,6 +1348,14 @@
     <string name="library_FloatingActionButton_libraryWebsite">https://github.com/makovkastar/FloatingActionButton</string>
     <string name="library_FloatingActionButton_licenseId">mit</string>
     <string name="library_FloatingActionButton_repositoryLink">https://github.com/makovkastar/FloatingActionButton</string>
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
+    <eat-comment/>
+    <string name="library_FruitsAndVegetables_author" translatable="false">Penn State</string>
+    <string name="library_FruitsAndVegetables_libraryDescription" translatable="false">A picture of locally grown vegetables and fruits.</string>
+    <string name="library_FruitsAndVegetables_libraryName" translatable="false">FruitsAndVegetables</string>
+    <string name="library_FruitsAndVegetables_repositoryLink" translatable="false">https://www.flickr.com/photos/pennstatelive/9242445730/</string>
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
+    <eat-comment/>
     <string name="library_GooglePlayServices_author">AOSP</string>
     <string name="library_GooglePlayServices_authorWebsite">https://source.android.com/</string>
     <string name="library_GooglePlayServices_isOpenSource">false</string>
@@ -1624,13 +1616,13 @@
     <string name="library_SupportLibrary_year">2015</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
     <eat-comment/>
-    <string name="library_SwipeActionAdapter_author">Wouter Dullaert</string>
-    <string name="library_SwipeActionAdapter_isOpenSource">true</string>
-    <string name="library_SwipeActionAdapter_libraryDescription">SwipeActionAdapter is a library that provides a simple API to create Mailbox-like action when swiping in a ListView.</string>
-    <string name="library_SwipeActionAdapter_libraryName">SwipeActionAdapter</string>
-    <string name="library_SwipeActionAdapter_libraryVersion">1.4.4</string>
-    <string name="library_SwipeActionAdapter_licenseId">apache_2_0</string>
-    <string name="library_SwipeActionAdapter_repositoryLink">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_author" translatable="false">Wouter Dullaert</string>
+    <string name="library_SwipeActionAdapter_isOpenSource" translatable="false">true</string>
+    <string name="library_SwipeActionAdapter_libraryDescription" translatable="false">SwipeActionAdapter is a library that provides a simple API to create Mailbox-like action when swiping in a ListView.</string>
+    <string name="library_SwipeActionAdapter_libraryName" translatable="false">SwipeActionAdapter</string>
+    <string name="library_SwipeActionAdapter_libraryVersion" translatable="false">1.4.4</string>
+    <string name="library_SwipeActionAdapter_licenseId" translatable="false">apache_2_0</string>
+    <string name="library_SwipeActionAdapter_repositoryLink" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="library_Timber_author">Jake Wharton</string>
@@ -2101,8 +2093,8 @@
     <string name="library_materialdialogs_author">Aidan Follestad</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
     <eat-comment/>
-    <string name="library_materialdialogs_authorWebsite">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <string name="library_materialdialogs_classPath">com.wdullaer.swipeactionadapter</string>
+    <string name="library_materialdialogs_authorWebsite" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
+    <string name="library_materialdialogs_classPath" translatable="false">com.wdullaer.swipeactionadapter</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="library_materialdialogs_isOpenSource">true</string>
@@ -2988,33 +2980,23 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE B
     <string name="nav_item_favorites">Favorites</string>
     <string name="nav_item_home">List</string>
     <string name="nav_item_settings">Settings</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings_activity_settings.xml -->
-    <eat-comment/>
-    <string name="pref_default_display_name">John Smith</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-    <string name="pref_header_general">General</string>
-    <string name="pref_header_notifications">Notifications</string>
-    <string name="pref_ringtone_silent">Silent</string>
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="new_entry">New Entry</string>
+    <string name="new_entry_from_favorite">Favorites</string>
+    <string name="ok">OK</string>
+    <string name="retry">Retry</string>
+    <string name="settings">Go to settings</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="title_activity_preference">PreferenceActivity</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings_activity_settings.xml -->
-    <eat-comment/>
-    <string name="title_activity_settings">Settings</string>
+    <string name="success">Success</string>
+    <string name="title_about">About ShoppingList</string>
+    <string name="title_cached">Cached Version</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_main">ShoppingList</string>
+    <string name="title_settings">Settings</string>
+    <string name="toast_no_favorites">You have no favorites yet. Add some!</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="version">Version</string>

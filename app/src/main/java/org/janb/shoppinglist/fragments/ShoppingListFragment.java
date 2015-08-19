@@ -48,7 +48,6 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
 
     SwipeActionAdapter mAdapter;
     private ListView mListView;
-    private ShoppingListAdapter  shopListAdapter;
     private List<ShoppingListItem> ShoppingListItemList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListAPI api;
@@ -63,7 +62,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Shopping List");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_main));
         context = getActivity().getApplicationContext();
         setHasOptionsMenu(true);
     }
@@ -71,7 +70,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_sholiitem_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         mListView = (ListView) rootView.findViewById(android.R.id.list);
         mListView.setEmptyView(rootView.findViewById(android.R.id.empty));
         swipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swipe_container);
@@ -152,8 +151,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         dialog = new MaterialDialog.Builder(getActivity())
                 .title(ShoppingListItemList.get(position).getItemTitle())
                 .customView(R.layout.dialog_update_item,true)
-                .positiveText("OK")
-                .negativeText("Abbruch")
+                .positiveText(getResources().getString(R.string.ok))
+                .negativeText(getResources().getString(R.string.cancel))
                 .callback(new MaterialDialog.ButtonCallback() {
                     @Override
                     public void onPositive(MaterialDialog dialog) {
@@ -165,7 +164,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                                 isFavorite = false;
                             }
                         }
-                    }})
+                    }
+                })
                 .show();
         TextView dialog_update_count = (TextView) dialog.findViewById(R.id.dialog_update_count);
         dialog_update_count.setText(item_count);
@@ -193,8 +193,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     }
 
     public void parseJSON(String jsondata) {
-        String item_title = null;
-        String item_count = null;
+        String item_title, item_count;
         JSONArray array = null;
         ShoppingListItem itemData = null;
         try {
@@ -211,6 +210,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     e.printStackTrace();
                 }
                 try {
+                    assert row != null;
                     item_title = row.getString("item");
                     item_count = row.getString("count");
                     itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count));
@@ -234,7 +234,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
         prefs.edit().putString("cached_list", list).apply();
         parseJSON(list);
-        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        ShoppingListAdapter shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
         mAdapter = new SwipeActionAdapter(shopListAdapter);
         mAdapter.setListView(getListView());
         setListAdapter(mAdapter);
@@ -270,7 +270,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         });
         mAdapter.notifyDataSetChanged();
         if(mAdapter.isEmpty()){
-            setEmptyText("Nothing on your list... for now :)");
+            setEmptyText(getResources().getString(R.string.empty_view_list));
         }
     }
 
@@ -285,34 +285,43 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 action_main.animate().translationYBy(80);
             }
         }, 1800);
-        Snackbar.make(action_main, "Success", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(action_main, getResources().getString(R.string.success), Snackbar.LENGTH_SHORT).show();
         getList();
     }
 
     @Override
     public void onQueryError(int errorDescription) {
         resetRefreshing();
-        ErrorFragment errFR = null;
+        ErrorFragment errFR;
+        Bundle args = new Bundle();
         switch (errorDescription){
             case ListAPI.ERROR_AUTH:
-                errFR = new ErrorFragment("Auth failure", "The server rejected the supplied auth key!");
+                args.putString("error_code", getResources().getString(R.string.error_auth));
                 break;
             case ListAPI.ERROR_404:
-                errFR = new ErrorFragment("API not found", "API could not be access on the supplied host.");
+                args.putString("error_code", getResources().getString(R.string.error_not_found));
                 break;
             case ListAPI.ERROR_CONNECT:
-                errFR = new ErrorFragment("Connection failed", "Could not connect to the server at: " + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("host","none configured!"));
+                args.putString("error_code", getResources().getString(R.string.error_connect) + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("host", "none configured!"));
                 break;
             case ListAPI.ERROR_SERVER:
-                errFR = new ErrorFragment("Server failure", "The server did not send any content back.");
+                args.putString("error_code", getResources().getString(R.string.error_server_error));
                 break;
             case ListAPI.ERROR_RESPONSE:
-                errFR = new ErrorFragment("Server failure", "The server sent a response that did not make sense!");
+                args.putString("error_code", getResources().getString(R.string.error_response));
                 break;
             case ListAPI.ERROR_URL:
-                errFR = new ErrorFragment("Server failure", "The supplied URL ("+PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("host","none configured!")+") is not valid.");
+                args.putString("error_code", getResources().getString(R.string.error_url));
+                break;
+            case ListAPI.ERROR_NO_HOST:
+                args.putString("error_code", getResources().getString(R.string.error_no_host));
+                break;
+            case ListAPI.ERROR:
+                args.putString("error_code", getResources().getString(R.string.error_general));
                 break;
         }
+        errFR = new ErrorFragment();
+        errFR.setArguments(args);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_container, errFR);
@@ -336,30 +345,31 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
             case R.id.main_action_a:
                 action_main.collapse();
                 dialog = new MaterialDialog.Builder(getActivity())
-                        .customView(R.layout.dialog_add_custom,true)
-                        .positiveText("OK")
-                        .negativeText("Abbruch")
-                        .callback(new MaterialDialog.ButtonCallback() {
-                            @Override
-                            public void onPositive(MaterialDialog dialog) {
-                                TextView dialog_add_custom_what = (TextView) dialog.findViewById(R.id.dialog_add_custom_what);
-                                TextView dialog_add_custom_how_much = (TextView) dialog.findViewById(R.id.dialog_add_custom_how_much);
-                                if (!dialog_add_custom_what.getText().toString().isEmpty()) {
-                                        saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString());
-                                        if (isFavorite) {
-                                            addToFavorites(dialog_add_custom_what.getText().toString());
-                                            isFavorite = false;
+                        .customView(R.layout.dialog_add_custom, true)
+                        .positiveText(getResources().getString(R.string.ok))
+                        .negativeText(getResources().getString(R.string.cancel))
+                                .callback(new MaterialDialog.ButtonCallback() {
+                                    @Override
+                                    public void onPositive(MaterialDialog dialog) {
+                                        TextView dialog_add_custom_what = (TextView) dialog.findViewById(R.id.dialog_add_custom_what);
+                                        TextView dialog_add_custom_how_much = (TextView) dialog.findViewById(R.id.dialog_add_custom_how_much);
+                                        if (!dialog_add_custom_what.getText().toString().isEmpty()) {
+                                            saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString());
+                                            if (isFavorite) {
+                                                addToFavorites(dialog_add_custom_what.getText().toString());
+                                                isFavorite = false;
+                                            }
                                         }
-                                }
-                            }})
-                        .show();
+                                    }
+                                })
+                                .show();
                 dialog.findViewById(R.id.dialog_add_custom_what).requestFocus();
                 dialog.findViewById(R.id.dialog_add_custom_favorite).setOnClickListener(this);
                 break;
             case R.id.main_action_b:
                 final List<String> favorites = getFavorites();
                 if (favorites.isEmpty()){
-                    Toast.makeText(context, "No favorites yet. Add some!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getResources().getString(R.string.toast_no_favorites), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 final String[] simpleArray = new String[ favorites.size() ];
@@ -370,13 +380,13 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                if(which != -1){
+                                if (which != -1) {
                                     saveItem(simpleArray[which], "1");
                                 }
                                 return true;
                             }
                         })
-                        .positiveText("Ok")
+                        .positiveText(getResources().getString(R.string.ok))
                         .show();
                 break;
             case R.id.dialog_add_custom_favorite:

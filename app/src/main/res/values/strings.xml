@@ -1,17 +1,47 @@
 <resources>
     <string name="app_name">ShoppingList</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_clearlist">Clear list</string>
 
-    <string name="drawer_header_title">ShoppingList</string>
     <string name="nav_item_home">List</string>
     <string name="nav_item_favorites">Favorites</string>
     <string name="nav_item_settings">Settings</string>
     <string name="nav_item_about">About</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_preference">PreferenceActivity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_main">ShoppingList</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_about">About ShoppingList</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_cached">Cached Version</string>
+
+
+    <string name="error_connect">Could not connect to the server at: </string>
+    <string name="error_not_found">API could not be access on the supplied host.</string>
+    <string name="error_server_error">The server did not send any content back. Likely due to an internal server error.</string>
+    <string name="error_auth">The server rejected the supplied auth key!</string>
+    <string name="error_response">The server sent a response that did not make sense!</string>
+    <string name="error_url">The supplied URL for the api is not a valid URL.</string>
+    <string name="error_no_host">Please configure host and authkey in Settings.</string>
+    <string name="error_general">An unexpected error occurred. Please post an issue on GitHub!</string>
+
+    <string name="toast_no_favorites">You have no favorites yet. Add some!</string>
+
+    <string name="success">Success</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="retry">Retry</string>
+    <string name="cache">See cached version</string>
+    <string name="settings">Go to settings</string>
+
+    <string name="empty_view_favorites">No favorites yet… Add some!</string>
+    <string name="empty_view_list">Nothing on you list… for now :)</string>
+    <string name="empty_view_cache">The last time the list was loaded, it was empty.</string>
+
+    <string name="header_title" translatable="false">ShoppingList</string>
+    <string name="header_detail" translatable="false">For all your hungry needs</string>
+    <string name="github_url" translatable="false">https://github.com/J-8/ShoppingList</string>
+
+    <string name="new_entry">New Entry</string>
+    <string name="new_entry_from_favorite">Favorites</string>
 
 </resources>

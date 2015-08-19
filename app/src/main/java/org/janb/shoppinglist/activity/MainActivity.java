@@ -1,16 +1,16 @@
 package org.janb.shoppinglist.activity;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.LibsBuilder;
@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         buildDrawer();
         displayList();
+
+
     }
 
 
@@ -52,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withHeader(R.layout.drawer_header)
+                .withTranslucentStatusBar(false)
                 .withActionBarDrawerToggle(true)
-                .withActionBarDrawerToggleAnimated(true)
+                .withActionBarDrawerToggleAnimated(false)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.nav_item_home).withTag(CONSTS.TAG_LIST).withIcon(R.drawable.ic_toc_black_),
                         new PrimaryDrawerItem().withName(R.string.nav_item_favorites).withTag(CONSTS.TAG_FAVORITES).withIcon(R.drawable.ic_star_rate_black)
@@ -82,8 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 displayFavorites();
                 break;
             case CONSTS.TAG_SETTINGS:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
+                openSettings();
                 break;
             case CONSTS.TAG_ABOUT:
                 new LibsBuilder()
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public boolean onExtraClicked(View view, Libs.SpecialButton specialButton) {
                             if(specialButton == Libs.SpecialButton.SPECIAL1){
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/J-8/ShoppingList"));
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.github_url)));
                                 startActivity(browserIntent);
                             }
                             return false;
@@ -149,10 +150,15 @@ public class MainActivity extends AppCompatActivity {
                             return false;
                         }
                     })
-                    .withActivityTitle("About ShoppingList")
+                    .withActivityTitle(getResources().getString(R.string.title_about))
                     .start(this);
                 break;
         }
+    }
+
+    private void openSettings() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     @Override

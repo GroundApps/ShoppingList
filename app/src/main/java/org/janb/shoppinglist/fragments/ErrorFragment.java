@@ -2,8 +2,11 @@ package org.janb.shoppinglist.fragments;
 
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,21 +16,23 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.janb.shoppinglist.R;
+import org.janb.shoppinglist.activity.SettingsActivity;
 
 public class ErrorFragment extends Fragment implements View.OnClickListener {
 
-    private String errorTitle;
     private String errorDescription;
+    private Boolean showButtons, gotoSettings;
 
-    public ErrorFragment(String errorTitle, String errorDescription) {
-        this.errorTitle = errorTitle;
-        this.errorDescription = errorDescription;
+    public ErrorFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        Bundle b = getArguments();
+        this.errorDescription = b.getString("error_code");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_main));
     }
 
     @Override
@@ -37,9 +42,12 @@ public class ErrorFragment extends Fragment implements View.OnClickListener {
         TextView errorTV = (TextView)rootView.findViewById(R.id.error_tv_description);
         errorTV.setText(errorDescription);
         Button btnRetry = (Button) rootView.findViewById(R.id.error_btn_retry);
-        btnRetry.setOnClickListener(this);
         Button btnCache = (Button) rootView.findViewById(R.id.error_btn_cache);
+        Button btnSettings = (Button) rootView.findViewById(R.id.error_btn_settings);
+        btnRetry.setOnClickListener(this);
         btnCache.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
+
         return rootView;
     }
 
@@ -66,6 +74,9 @@ public class ErrorFragment extends Fragment implements View.OnClickListener {
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
+            case R.id.error_btn_settings:
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
 
         }
     }

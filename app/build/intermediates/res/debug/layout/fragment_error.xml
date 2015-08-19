@@ -8,9 +8,8 @@
 
     <TextView
         android:layout_width="271dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="The server sent an error message and we display it."
         android:id="@+id/error_tv_description"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
@@ -20,15 +19,22 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Retry"
+        android:text="@string/retry"
         android:id="@+id/error_btn_retry"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="See cached version"
+        android:text="@string/cache"
         android:id="@+id/error_btn_cache"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:id="@+id/error_btn_settings"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/layout/fragment_error.xml -->

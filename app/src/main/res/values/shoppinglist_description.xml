@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="aboutLibraries_description_name">ShoppingList</string>
-    <string name="aboutLibraries_description_showIcon">true</string>
-    <string name="aboutLibraries_description_showVersion">false</string>
-    <string name="aboutLibraries_description_text">
+    <string name="aboutLibraries_description_name" translatable="false">ShoppingList</string>
+    <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
+    <string name="aboutLibraries_description_showVersion" translatable="false">false</string>
+    <string name="aboutLibraries_description_text" translatable="false">
         <![CDATA[I love OpenSource!<br>Thank you for your great libraries!]]>
     </string>
-    <string name="aboutLibraries_description_special1_name">GitHub</string>
-    <string name="aboutLibraries_description_special1_text">Check this project out on GitHub!</string>
-    <string name="aboutLibraries_description_special3_name">Changelog</string>
-    <string name="aboutLibraries_description_special3_text">
+    <string name="aboutLibraries_description_special1_name" translatable="false">GitHub</string>
+    <string name="aboutLibraries_description_special1_text" translatable="false">Check this project out on GitHub!</string>
+    <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
+    <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
         <i>Version 1.0.0</i><br />
         - Initial version]]>

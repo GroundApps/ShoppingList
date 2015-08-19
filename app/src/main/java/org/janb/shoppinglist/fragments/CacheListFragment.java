@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,7 +40,7 @@ public class CacheListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         if (((AppCompatActivity)getActivity()).getSupportActionBar() != null) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Cached Version");
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_cached));
         }
         context = getActivity().getApplicationContext();
     }
@@ -50,7 +48,7 @@ public class CacheListFragment extends ListFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_sholiitem_list_cached, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_cache, container, false);
         mListView = (ListView) rootView.findViewById(android.R.id.list);
         mListView.setEmptyView(rootView.findViewById(android.R.id.empty));
         return rootView;
@@ -70,7 +68,7 @@ public class CacheListFragment extends ListFragment {
             ShoppingListAdapter shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
             setListAdapter(shopListAdapter);
         } else {
-            setEmptyText("The last time the list was loaded successfully, it was empty.");
+            setEmptyText(getResources().getString(R.string.empty_view_cache));
         }
     }
 

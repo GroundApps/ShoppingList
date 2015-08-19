@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name="org.janb.shoppinglist.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:label="@string/title_settings"
             android:parentActivityName="org.janb.shoppinglist.activity.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

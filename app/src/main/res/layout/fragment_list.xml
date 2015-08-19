@@ -1,0 +1,63 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</android.support.v4.widget.SwipeRefreshLayout>
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/main_multiple_actions"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        fab:fab_addButtonColorNormal="@color/actionBar"
+        fab:fab_addButtonColorPressed="@color/white_pressed"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_gravity="end|bottom">
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_action_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/white"
+        fab:fab_title="@string/new_entry"
+        fab:fab_icon="@drawable/ic_create_black_48dp"
+        fab:fab_colorPressed="@color/white_pressed"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_action_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/white"
+        fab:fab_title="@string/new_entry_from_favorite"
+        fab:fab_icon="@drawable/ic_list_black_48dp"
+        fab:fab_colorPressed="@color/white_pressed"/>
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    <TextView
+        android:id="@android:id/empty"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

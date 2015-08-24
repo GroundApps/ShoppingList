@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dialog_add_custom_what"
-        android:hint="Artikel"
+        android:hint="Item"
         android:singleLine="true"
         android:layout_alignTop="@+id/dialog_add_custom_how_much"
         android:layout_alignParentStart="true"

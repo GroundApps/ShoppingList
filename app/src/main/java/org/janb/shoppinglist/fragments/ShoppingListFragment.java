@@ -1,14 +1,14 @@
 package org.janb.shoppinglist.fragments;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +19,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,27 +29,26 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
-import com.wdullaer.swipeactionadapter.SwipeDirections;
+import com.google.gson.Gson;
 
+import org.janb.shoppinglist.CONSTS;
 import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.api.ListAPI;
+import org.janb.shoppinglist.api.ResponseHelper;
 import org.janb.shoppinglist.api.ResultsListener;
 import org.janb.shoppinglist.model.ShoppingListAdapter;
 import org.janb.shoppinglist.model.ShoppingListItem;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
-public class ShoppingListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener, ResultsListener, View.OnClickListener{
+public class ShoppingListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener, ResultsListener, View.OnClickListener {
 
-    SwipeActionAdapter mAdapter;
+    ShoppingListAdapter mAdapter;
     private ListView mListView;
     private List<ShoppingListItem> ShoppingListItemList;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -54,7 +56,11 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     private Context context;
     private FloatingActionsMenu action_main;
     private MaterialDialog dialog;
+    private Boolean isImportant = false;
     private Boolean isFavorite = false;
+    private ShoppingListFragment ref;
+    private ShoppingListItem openedItem;
+    private EditText dialogCount;
 
     public ShoppingListFragment() {
     }
@@ -62,16 +68,59 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_main));
         context = getActivity().getApplicationContext();
         setHasOptionsMenu(true);
+        ref = this;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_main));
         View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         mListView = (ListView) rootView.findViewById(android.R.id.list);
+        mListView.setLongClickable(true);
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                final ShoppingListItem item = ShoppingListItemList.get(position);
+                openedItem = item;
+                dialog = new MaterialDialog.Builder(getActivity())
+                        .customView(R.layout.dialog_update_item, true)
+                        .positiveText(getResources().getString(R.string.ok))
+                        .negativeText(getResources().getString(R.string.cancel))
+                        .callback(new MaterialDialog.ButtonCallback() {
+                            @Override
+                            public void onPositive(MaterialDialog dialog) {
+                                EditText dialogCount = (EditText) dialog.findViewById(R.id.dialog_update_count);
+                                if (!dialogCount.getText().toString().isEmpty()) {
+                                    saveItem(item.getItemTitle(), dialogCount.getText().toString());
+                                }
+                            }
+                        })
+                        .show();
+                dialogCount = (EditText) dialog.findViewById(R.id.dialog_update_count);
+                Button minusCount = (Button) dialog.findViewById(R.id.dialog_update_minus);
+                minusCount.setOnClickListener(ref);
+                Button plusCount = (Button) dialog.findViewById(R.id.dialog_update_plus);
+                plusCount.setOnClickListener(ref);
+                dialogCount.setText(String.valueOf(item.getItemCount()));
+                TextView dialogTitle = (TextView)dialog.findViewById(R.id.dialog_update_title);
+                dialogTitle.setText(item.getItemTitle());
+                //dialog.findViewById(R.id.dialog_update_important).setOnClickListener(ref);
+                TextView fav = (TextView)dialog.findViewById(R.id.dialog_update_favorite);
+                fav.setOnClickListener(ref);
+                if(getFavorites().contains(item.getItemTitle())){
+                    isFavorite = true;
+                    fav.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
+                }
+                /*if(item.isImportant){
+                    dialog.findViewById(R.id.dialog_update_important).setBackgroundResource(R.drawable.ic_action_important);
+                }
+                */
+                return true;
+            }
+        });
         mListView.setEmptyView(rootView.findViewById(android.R.id.empty));
         swipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swipe_container);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -94,6 +143,10 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         FloatingActionButton action_b = (FloatingActionButton) rootView.findViewById(R.id.main_action_b);
         action_b.setOnClickListener(this);
         action_main = (FloatingActionsMenu) rootView.findViewById(R.id.main_multiple_actions);
+        action_main.setAlpha(0.7f);
+        action_a.setAlpha(0.7f);
+        action_b.setAlpha(0.7f);
+        getList();
         return rootView;
     }
 
@@ -104,6 +157,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     }
 
     private void deleteItem(String itemTitle) {
+        ShoppingListItemList.remove(itemTitle);
+        mAdapter.notifyDataSetChanged();
         api = new ListAPI(context);
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_DELETEITEM);
@@ -111,24 +166,26 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     }
 
     private void saveItem(String itemTitle, String itemCount) {
+        setRefreshing();
         api = new ListAPI(context);
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_SAVEITEM);
         api.execute(itemTitle, String.valueOf(itemCount));
     }
-
-    private void updateItem(String itemTitle, String itemCount) {
+    private void saveMultiple(String jsonData) {
+        setRefreshing();
         api = new ListAPI(context);
         api.setOnResultsListener(this);
-        ListAPI.setFunction(ListAPI.FUNCTION_UPDATECOUNT);
-        api.execute(itemTitle, String.valueOf(itemCount));
+        ListAPI.setFunction(ListAPI.FUNCTION_SAVE_MULTIPLE);
+        api.execute(jsonData);
     }
 
-    private void clearList() {
+    private void deleteMultiple(String jsonData) {
+        setRefreshing();
         api = new ListAPI(context);
         api.setOnResultsListener(this);
-        ListAPI.setFunction(ListAPI.FUNCTION_CLEARLIST);
-        api.execute();
+        ListAPI.setFunction(ListAPI.FUNCTION_DELETE_MULTIPLE);
+        api.execute(jsonData);
     }
 
     private void getList() {
@@ -145,38 +202,16 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, final int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        String item_count = String.valueOf(ShoppingListItemList.get(position).getItemCount());
-        dialog = new MaterialDialog.Builder(getActivity())
-                .title(ShoppingListItemList.get(position).getItemTitle())
-                .customView(R.layout.dialog_update_item,true)
-                .positiveText(getResources().getString(R.string.ok))
-                .negativeText(getResources().getString(R.string.cancel))
-                .callback(new MaterialDialog.ButtonCallback() {
-                    @Override
-                    public void onPositive(MaterialDialog dialog) {
-                        TextView dialog_update_count = (TextView) dialog.findViewById(R.id.dialog_update_count);
-                        if (!dialog_update_count.getText().toString().isEmpty()) {
-                            updateItem(ShoppingListItemList.get(position).getItemTitle(), dialog_update_count.getText().toString());
-                            if (isFavorite) {
-                                addToFavorites(ShoppingListItemList.get(position).getItemTitle());
-                                isFavorite = false;
-                            }
-                        }
-                    }
-                })
-                .show();
-        TextView dialog_update_count = (TextView) dialog.findViewById(R.id.dialog_update_count);
-        dialog_update_count.setText(item_count);
-        dialog_update_count.requestFocus();
-        List<String> favorites = getFavorites();
-        if (favorites.contains(ShoppingListItemList.get(position).getItemTitle())) {
-            dialog.findViewById(R.id.dialog_update_favorite).setBackgroundResource(R.drawable.ic_action_important);
-        } else {
-            dialog.findViewById(R.id.dialog_update_favorite).setBackgroundResource(R.drawable.ic_action_not_important);
-        }
-        dialog.findViewById(R.id.dialog_update_favorite).setOnClickListener(this);
+    public void onListItemClick(ListView l, View view, final int position, long id) {
+        super.onListItemClick(l, view, position, id);
+        ShoppingListItem clickedItem = ShoppingListItemList.get(position);
+        clickedItem.toggleChecked();
+        int index = mListView.getFirstVisiblePosition();
+        View v = mListView.getChildAt(0);
+        int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
+        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        setListAdapter(mAdapter);
+        mListView.setSelectionFromTop(index, top);
     }
 
     public void setEmptyText(CharSequence emptyText) {
@@ -192,134 +227,115 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         getList();
     }
 
-    public void parseJSON(String jsondata) {
-        String item_title, item_count;
-        JSONArray array = null;
-        ShoppingListItem itemData = null;
-        try {
-            array = new JSONArray(jsondata);
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public void onResponse(final ResponseHelper response) {
+        resetRefreshing();
+        Log.d("API CODE", String.valueOf(response.getType()));
+        if (response.getType() >= 5000 && response.getType() < 6000){
+            onError(response);
+            return;
         }
-        if (array != null){
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject row = null;
-                try {
-                    row = array.getJSONObject(i);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    assert row != null;
-                    item_title = row.getString("item");
-                    item_count = row.getString("count");
-                    itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                ShoppingListItemList.add(itemData);
-            }
-        } else {
-            onQueryError(ListAPI.ERROR_SERVER);
-            Log.i("SHOPPING LIST", "No data received from server");
+
+        if (response.getType() >= 6000){
+            showAPIError(response.getContent());
+            return;
         }
+
+        switch(response.getType()){
+            case CONSTS.API_SUCCESS_LIST:
+                ShoppingListItemList = response.getItems();
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        buildList();
+                    }
+                });
+                break;
+            case CONSTS.API_SUCCESS_LIST_EMPTY:
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        setEmptyText(getResources().getString(R.string.empty_view_list));
+                    }
+                });
+                break;
+
+            case CONSTS.API_SUCCESS_SAVE:
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
+                        getList();
+                    }
+                });
+                break;
+
+            case CONSTS.API_SUCCESS_DELETE:
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
+                        getList();
+                    }
+                });
+                break;
+            case CONSTS.API_SUCCESS_UPDATE:
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
+                        getList();
+                    }
+                });
+                break;
+            case CONSTS.API_SUCCESS_IMPORTANT:
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
+                        getList();
+                    }
+                });
+                break;
+        }
+
 
     }
 
-    @Override
-    public void onListReceived(String list) {
-        resetRefreshing();
-        ShoppingListItemList = new ArrayList<>();
-        Log.d("JSON", list);
-        SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
-        prefs.edit().putString("cached_list", list).apply();
-        parseJSON(list);
-        ShoppingListAdapter shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
-        mAdapter = new SwipeActionAdapter(shopListAdapter);
-        mAdapter.setListView(getListView());
-        setListAdapter(mAdapter);
-        mAdapter.addBackground(SwipeDirections.DIRECTION_NORMAL_LEFT, R.layout.row_bg_left)
-                .addBackground(SwipeDirections.DIRECTION_FAR_LEFT, R.layout.row_bg_left);
-        mAdapter.setSwipeActionListener(new SwipeActionAdapter.SwipeActionListener() {
+    private void showAPIError(final String content) {
+        getActivity().runOnUiThread(new Runnable() {
             @Override
-            public boolean hasActions(int position) {
-                return true;
-            }
-
-            @Override
-            public boolean shouldDismiss(int position, int direction) {
-                return direction == SwipeDirections.DIRECTION_NORMAL_LEFT;
-            }
-
-            @Override
-            public void onSwipe(int[] positionList, int[] directionList) {
-                for (int i = 0; i < positionList.length; i++) {
-                    int direction = directionList[i];
-                    int position = positionList[i];
-
-                    switch (direction) {
-                        case SwipeDirections.DIRECTION_NORMAL_LEFT:
-                            deleteItem(ShoppingListItemList.get(position).getItemTitle());
-                            break;
-                        case SwipeDirections.DIRECTION_FAR_LEFT:
-                            deleteItem(ShoppingListItemList.get(position).getItemTitle());
-                            break;
-                    }
-                }
+            public void run() {
+                Toast.makeText(context, content, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void buildList(){
+        SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = gson.toJson(ShoppingListItemList);
+        prefs.edit().putString("cached_list", json).apply();
+
+        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        setListAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         if(mAdapter.isEmpty()){
             setEmptyText(getResources().getString(R.string.empty_view_list));
         }
     }
 
+    //Errors thrown by app and api
     @Override
-    public void onQuerySuccess(String response) {
-        resetRefreshing();
-        action_main.animate().translationYBy(-80);
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                action_main.animate().translationYBy(80);
-            }
-        }, 1800);
-        Snackbar.make(action_main, getResources().getString(R.string.success), Snackbar.LENGTH_SHORT).show();
-        getList();
-    }
+    public void onError(ResponseHelper error) {
+        if(error.getType() == CONSTS.APP_ERROR_IO) {
+            getList();
+            return;
+        }
 
-    @Override
-    public void onQueryError(int errorDescription) {
         resetRefreshing();
         ErrorFragment errFR;
         Bundle args = new Bundle();
-        switch (errorDescription){
-            case ListAPI.ERROR_AUTH:
-                args.putString("error_code", getResources().getString(R.string.error_auth));
-                break;
-            case ListAPI.ERROR_404:
-                args.putString("error_code", getResources().getString(R.string.error_not_found));
-                break;
-            case ListAPI.ERROR_CONNECT:
-                args.putString("error_code", getResources().getString(R.string.error_connect) + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("host", "none configured!"));
-                break;
-            case ListAPI.ERROR_SERVER:
-                args.putString("error_code", getResources().getString(R.string.error_server_error));
-                break;
-            case ListAPI.ERROR_RESPONSE:
-                args.putString("error_code", getResources().getString(R.string.error_response));
-                break;
-            case ListAPI.ERROR_URL:
-                args.putString("error_code", getResources().getString(R.string.error_url));
-                break;
-            case ListAPI.ERROR_NO_HOST:
-                args.putString("error_code", getResources().getString(R.string.error_no_host));
-                break;
-            case ListAPI.ERROR:
-                args.putString("error_code", getResources().getString(R.string.error_general));
-                break;
-        }
+        args.putString("error_code", error.getContent());
         errFR = new ErrorFragment();
         errFR.setArguments(args);
         FragmentManager fragmentManager = getFragmentManager();
@@ -327,7 +343,6 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         transaction.replace(R.id.fragment_container, errFR);
         transaction.addToBackStack(null);
         transaction.commitAllowingStateLoss();
-
     }
 
     private void resetRefreshing() {
@@ -335,6 +350,15 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+    }
+
+    private void setRefreshing() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
             }
         });
     }
@@ -365,6 +389,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                                 .show();
                 dialog.findViewById(R.id.dialog_add_custom_what).requestFocus();
                 dialog.findViewById(R.id.dialog_add_custom_favorite).setOnClickListener(this);
+                dialog.findViewById(R.id.dialog_add_custom_important).setOnClickListener(this);
                 break;
             case R.id.main_action_b:
                 final List<String> favorites = getFavorites();
@@ -373,15 +398,22 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     return;
                 }
                 final String[] simpleArray = new String[ favorites.size() ];
-                favorites.toArray(simpleArray );
+                favorites.toArray(simpleArray);
                 action_main.collapse();
                 dialog = new MaterialDialog.Builder(getActivity())
                         .items(simpleArray)
-                        .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                        .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
+
                             @Override
-                            public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                if (which != -1) {
-                                    saveItem(simpleArray[which], "1");
+                            public boolean onSelection(MaterialDialog materialDialog, Integer[] selectedItems, CharSequence[] charSequences) {
+                                if(selectedItems.length > 0) {
+                                    List<ShoppingListItem> itemList = new ArrayList<>();
+                                    int i = 0;
+                                    for (int selectedItem : selectedItems) {
+                                        itemList.add(i++, new ShoppingListItem(favorites.get(selectedItem), 1));
+                                    }
+                                    Gson gson = new Gson();
+                                    saveMultiple(gson.toJson(itemList));
                                 }
                                 return true;
                             }
@@ -389,23 +421,57 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .positiveText(getResources().getString(R.string.ok))
                         .show();
                 break;
-            case R.id.dialog_add_custom_favorite:
-                if (isFavorite){
-                    isFavorite = false;
-                    dialog.findViewById(R.id.dialog_add_custom_favorite).setBackgroundResource(R.drawable.ic_action_not_important);
+            case R.id.dialog_add_custom_important:
+                if (isImportant){
+                    isImportant = false;
+                    dialog.findViewById(R.id.dialog_add_custom_important).setBackgroundResource(R.drawable.ic_action_not_important);
                 } else {
-                    isFavorite = true;
-                    dialog.findViewById(R.id.dialog_add_custom_favorite).setBackgroundResource(R.drawable.ic_action_important);
+                    isImportant = true;
+                    dialog.findViewById(R.id.dialog_add_custom_important).setBackgroundResource(R.drawable.ic_action_important);
                 }
                 break;
-            case R.id.dialog_update_favorite:
+            case R.id.dialog_add_custom_favorite:
+                TextView favoriteAdd = (TextView)dialog.findViewById(R.id.dialog_add_custom_favorite);
                 if (isFavorite){
-                  isFavorite = false;
-                    dialog.findViewById(R.id.dialog_update_favorite).setBackgroundResource(R.drawable.ic_action_not_important);
+                    isFavorite = false;
+                    favoriteAdd.setShadowLayer(0, 0, 0, 0);
                 } else {
                     isFavorite = true;
-                    dialog.findViewById(R.id.dialog_update_favorite).setBackgroundResource(R.drawable.ic_action_important);
+                    favoriteAdd.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
                 }
+                break;
+            case R.id.dialog_update_important:
+                openedItem.toggleImportant();
+                if (isImportant){
+                    isImportant = false;
+                    dialog.findViewById(R.id.dialog_update_important).setBackgroundResource(R.drawable.ic_action_not_important);
+                } else {
+                    isImportant = true;
+                    dialog.findViewById(R.id.dialog_update_important).setBackgroundResource(R.drawable.ic_action_important);
+                }
+
+                break;
+            case R.id.dialog_update_favorite:
+                TextView favoriteUpdate = (TextView)dialog.findViewById(R.id.dialog_update_favorite);
+                if (isFavorite){
+                    isFavorite = false;
+                    favoriteUpdate.setShadowLayer(0, 0, 0, 0);
+                    removeFromFavorites(openedItem.getItemTitle());
+                } else {
+                    isFavorite = true;
+                    favoriteUpdate.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
+                    addToFavorites(openedItem.getItemTitle());
+                }
+                break;
+            case R.id.dialog_update_minus:
+                if(!dialogCount.getText().toString().equals("1")) {
+                    dialogCount = (EditText) dialog.findViewById(R.id.dialog_update_count);
+                    dialogCount.setText(String.valueOf(Integer.valueOf(dialogCount.getText().toString()) - 1));
+                }
+                break;
+            case R.id.dialog_update_plus:
+                dialogCount = (EditText) dialog.findViewById(R.id.dialog_update_count);
+                dialogCount.setText(String.valueOf(Integer.valueOf(dialogCount.getText().toString())+1));
                 break;
         }
     }
@@ -414,6 +480,14 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
         List<String> favorites = getFavorites();
         favorites.add(itemTitle);
+        JSONArray jsArray = new JSONArray(favorites);
+        prefs.edit().putString("favorites", jsArray.toString()).apply();
+    }
+
+    private void removeFromFavorites(String itemTitle) {
+        SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        List<String> favorites = getFavorites();
+        favorites.remove(itemTitle);
         JSONArray jsArray = new JSONArray(favorites);
         prefs.edit().putString("favorites", jsArray.toString()).apply();
     }
@@ -451,22 +525,45 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     }
 
     @Override
-    public void onStart(){
-        super.onStart();
-        getList();
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        List<ShoppingListItem> delItems = new ArrayList();
         switch (item.getItemId()) {
             case R.id.action_clearlist:
-                clearList();
-                return false;
+                int i = 0;
+                for(ShoppingListItem SLitem:ShoppingListItemList){
+                    if(SLitem.isChecked()){
+                        delItems.add(i++ , new ShoppingListItem(SLitem.getItemTitle(), 1));
+                    }
+                }
+
+                Gson gson = new Gson();
+                deleteMultiple(gson.toJson(delItems));
+                return true;
+            case R.id.action_share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                StringBuilder sb = new StringBuilder();
+                for(ShoppingListItem listItem:ShoppingListItemList){
+                    if(listItem.isChecked()){
+                        sb.append("[ X ]\t");
+                    } else {
+                        sb.append("[   ]\t");
+                    }
+                    sb.append(listItem.getItemTitle());
+                    sb.append("\t\t");
+                    sb.append(listItem.getItemCount());
+                    sb.append("\n");
+                }
+                sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+                break;
             default:
                 break;
         }
 
-        return false;
+        return true;
     }
+
 
 }

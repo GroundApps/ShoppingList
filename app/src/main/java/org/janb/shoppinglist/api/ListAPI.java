@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
@@ -18,6 +20,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.janb.shoppinglist.CONSTS;
+import org.janb.shoppinglist.R;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -45,21 +49,15 @@ import java.util.concurrent.TimeoutException;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class ListAPI extends AsyncTask<String, Integer, String> {
+public class ListAPI extends AsyncTask<String, Integer, Boolean> {
     public static final  int FUNCTION_GETLIST = 1;
     public static final  int FUNCTION_SAVEITEM = 2;
     public static final  int FUNCTION_DELETEITEM = 3;
     public static final  int FUNCTION_CLEARLIST = 4;
     public static final  int FUNCTION_UPDATECOUNT = 5;
+    public static final  int FUNCTION_DELETE_MULTIPLE = 6;
+    public static final  int FUNCTION_SAVE_MULTIPLE = 7;
 
-    public static final  int ERROR_SERVER = 900;
-    public static final  int ERROR_CONNECT = 901;
-    public static final  int ERROR_RESPONSE = 902;
-    public static final  int ERROR_AUTH = 903;
-    public static final  int ERROR_404 = 904;
-    public static final  int ERROR_URL = 905;
-    public static final  int ERROR_NO_HOST = 906;
-    public static final  int ERROR = 999;
 
     ResultsListener listener;
     SharedPreferences prefs;
@@ -78,15 +76,20 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
         this.listener = listener;
     }
 
-    protected String doInBackground(String... params) {
-        String result = null;
+     public Boolean doInBackground(String... params) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String AUTHKEY = prefs.getString("authkey", "");
         String URL = prefs.getString("host", "");
+         URL = URL.replace("https://", "");
+         URL = URL.replace("http://", "");
+         if(prefs.getBoolean("useSSL", false)) {
+             URL = "https://" + URL;
+         } else {
+             URL = "http://" + URL;
+         }
         if(URL.isEmpty()){
-            listener.onQueryError(ERROR_NO_HOST);
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONFIG_NO_HOST, context.getResources().getString(R.string.error_no_host_configured)));
             this.cancel(true);
-            return null;
         }
         HashMap<String,String> parameters = new HashMap<>();
 
@@ -94,44 +97,57 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
             case FUNCTION_GETLIST:
                 parameters.put("function", "listall");
                 parameters.put("auth", AUTHKEY);
-               result = performPostCall(URL, parameters);
+                performPostCall(URL, parameters);
                 break;
             case FUNCTION_SAVEITEM:
                 parameters.put("function", "save");
                 parameters.put("auth", AUTHKEY);
                 parameters.put("item",params[0]);
                 parameters.put("count",params[1]);
-                result = performPostCall(URL, parameters);
+                performPostCall(URL, parameters);
                 break;
             case FUNCTION_DELETEITEM:
                 parameters.put("function", "delete");
                 parameters.put("auth", AUTHKEY);
                 parameters.put("item",params[0]);
-                result = performPostCall(URL, parameters);
+                performPostCall(URL, parameters);
                 break;
             case FUNCTION_CLEARLIST:
                 parameters.put("function", "clear");
                 parameters.put("auth", AUTHKEY);
-                result = performPostCall(URL, parameters);
+
+                performPostCall(URL, parameters);
                 break;
             case FUNCTION_UPDATECOUNT:
                 parameters.put("function", "update");
                 parameters.put("auth", AUTHKEY);
                 parameters.put("item",params[0]);
                 parameters.put("count",params[1]);
-                result = performPostCall(URL, parameters);
+                performPostCall(URL, parameters);
+                break;
+            case FUNCTION_DELETE_MULTIPLE:
+                parameters.put("function", "deleteMultiple");
+                parameters.put("auth", AUTHKEY);
+                parameters.put("jsonArray",params[0]);
+                performPostCall(URL, parameters);
+                break;
+            case FUNCTION_SAVE_MULTIPLE:
+                parameters.put("function", "saveMultiple");
+                parameters.put("auth", AUTHKEY);
+                parameters.put("jsonArray",params[0]);
+                Log.d("PARAMS", parameters.toString());
+                performPostCall(URL, parameters);
                 break;
         }
 
-
-
-        return result;
+        return true;
     }
 
-    public String  performPostCall(String requestURL, HashMap<String, String> postDataParams) {
-
+    public void  performPostCall(String requestURL, HashMap<String, String> postDataParams) {
         URL url;
         String response = "";
+        ResponseHelper responseHelper;
+
         try {
             url = new URL(requestURL);
 
@@ -151,6 +167,8 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
             writer.close();
             os.close();
             int responseCode = conn.getResponseCode();
+            Log.d("URL", requestURL);
+            Log.d("RESPONSE CODE", String.valueOf(responseCode));
             switch (responseCode) {
                 case HttpsURLConnection.HTTP_OK:
                     String line;
@@ -158,35 +176,51 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
                     while ((line = br.readLine()) != null) {
                         response += line;
                     }
-                    break;
-                case HttpsURLConnection.HTTP_FORBIDDEN:
-                    listener.onQueryError(ERROR_AUTH);
-                    this.cancel(true);
-                    break;
-                case HttpsURLConnection.HTTP_NOT_FOUND:
-                    listener.onQueryError(ERROR_404);
+                    Log.d("RESPONSE RAW", response);
+                    Gson gson = new Gson();
+                    try {
+                        responseHelper = gson.fromJson(response, ResponseHelper.class);
+                    } catch (Exception e){
+                        listener.onError(new ResponseHelper(CONSTS.APP_ERROR_RESPONSE, "The response did not make sense:" + response));
+                        this.cancel(true);
+                        return;
+                    }
+                    listener.onResponse(responseHelper);
                     this.cancel(true);
                     break;
                 case HttpsURLConnection.HTTP_INTERNAL_ERROR:
-                    listener.onQueryError(ERROR_SERVER);
+                    listener.onError(new ResponseHelper(CONSTS.API_ERROR_SERVER, context.getResources().getString(R.string.error_server_error)));
                     this.cancel(true);
                     break;
-
+                case HttpsURLConnection.HTTP_FORBIDDEN:
+                    listener.onError(new ResponseHelper(CONSTS.API_ERROR_403, context.getResources().getString(R.string.error_auth)));
+                    this.cancel(true);
+                    break;
+                case HttpsURLConnection.HTTP_NOT_FOUND:
+                    listener.onError(new ResponseHelper(CONSTS.API_ERROR_404, context.getResources().getString(R.string.error_not_found)));
+                    this.cancel(true);
+                    break;
             }
-        } catch (UnknownHostException | ConnectException e) {
-            listener.onQueryError(ERROR_CONNECT);
+        } catch (UnknownHostException e ){
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_HOST_NOT_FOUND, context.getResources().getString(R.string.error_host_not_found)));
+            this.cancel(true);
+            e.printStackTrace();
+        } catch(ConnectException e) {
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONNECT, context.getResources().getString(R.string.error_connect)));
             this.cancel(true);
             e.printStackTrace();
         } catch (MalformedURLException e) {
-            listener.onQueryError(ERROR_URL);
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_URL_EXCEPTION, context.getResources().getString(R.string.error_url)));
             this.cancel(true);
             e.printStackTrace();
         } catch (IOException e) {
-            listener.onQueryError(ERROR);
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_IO, "IO Exception"));
             this.cancel(true);
             e.printStackTrace();
+        } catch (Exception e) {
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_UNKNOWN, "Unknown error! Please check logcat."));
+            e.printStackTrace();
         }
-        return response;
     }
 
     private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException{
@@ -206,23 +240,4 @@ public class ListAPI extends AsyncTask<String, Integer, String> {
         return result.toString();
     }
 
-    protected void onProgressUpdate(Integer... progress) {
-
-    }
-
-    protected void onPostExecute(String result) {
-        if (result != null && listener != null) {
-            switch (chosenfunction){
-                case FUNCTION_GETLIST:
-                    listener.onListReceived(result);
-                    break;
-                default:
-                    listener.onQuerySuccess(result);
-                    break;
-            }
-
-        } else {
-            Log.e("SHOPPING LIST", "Result was NULL");
-        }
-    }
 }

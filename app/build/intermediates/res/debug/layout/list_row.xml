@@ -7,7 +7,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
+            android:text="Dummy Item"
             android:id="@+id/row_item_title"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -19,10 +19,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="100"
             android:id="@+id/row_item_count"
-            android:layout_gravity="right"
-            android:layout_marginRight="50dp"
-            android:layout_marginEnd="52dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="35dp"
+            android:layout_marginEnd="35dp"
             android:layout_alignTop="@+id/row_item_title"
+            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
 

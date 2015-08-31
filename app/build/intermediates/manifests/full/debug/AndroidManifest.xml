@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.janb.shoppinglist"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="15"
         android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="org.janb.shoppinglist.activity.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +28,8 @@
         <activity
             android:name="org.janb.shoppinglist.activity.SettingsActivity"
             android:label="@string/title_settings"
-            android:parentActivityName="org.janb.shoppinglist.activity.MainActivity" >
+            android:parentActivityName="org.janb.shoppinglist.activity.MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.janb.shoppinglist.activity.MainActivity" />

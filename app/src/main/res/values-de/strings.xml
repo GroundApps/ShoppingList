@@ -14,9 +14,9 @@
     <string name="title_main">ShoppingList</string>
     <string name="title_settings">Einstellungen</string>
     <string name="toast_no_favorites">Du hast noch keine Favoriten. Füge welche hinzu!</string>
-    <string name="empty_view_list">Nicht nichts auf der Liste... bis jetzt :)</string>
+    <string name="empty_view_list">Noch nichts auf der Liste... bis jetzt :)</string>
     <string name="empty_view_favorites">Du hast noch keine Favoriten. Füge welche hinzu!</string>
-    <string name="error_auth">Der Authkey wurde vom Server zurückgewiesen.</string>
+    <string name="error_auth">Der Server hat die Verbindung zurückgewiesen. Bitte Server Einstellungen überprüfen.</string>
     <string name="error_connect">Konnte keine Verbindung herstellen mit Server: </string>
     <string name="error_not_found">API konnte nicht gefunden werden.</string>
     <string name="error_response">Die Antwort des Servers war unerwartet und unverständlich.</string>
@@ -24,11 +24,16 @@
     <string name="error_url">Das Format der eingegebenen URL ist nicht gültig.</string>
     <string name="empty_view_cache">Bei der letzten Synchronizierung war die Liste leer.</string>
     <string name="action_clearlist">Liste leeren</string>
-    <string name="error_no_host">Bitte Host und Authkey in den Einstellungen festlegen.</string>
     <string name="error_general">Ein unerwarteter Fehler ist aufgetreten. Bitte auf GitHub melden!</string>
     <string name="cache">Gespeicherte Version</string>
     <string name="retry">Erneut versuchen</string>
     <string name="settings">Einstellungen öffnen</string>
     <string name="new_entry">Neuer Eintrag</string>
     <string name="new_entry_from_favorite">Vorlagen</string>
+    <string name="add_custom_item"></string>
+    <string name="action_share">Teilen</string>
+    <string name="markFavorite">Favorit</string>
+    <string name="error_no_host_configured">Bitte Host und Authkey in den Einstellungen festlegen.</string>
+    <string name="error_host_not_found">Server nicht gefunden. Internetverbindung besteht?</string>
+    <string name="error_no_host"></string>
 </resources>

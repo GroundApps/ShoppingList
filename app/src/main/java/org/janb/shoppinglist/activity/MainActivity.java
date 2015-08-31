@@ -33,20 +33,24 @@ public class MainActivity extends AppCompatActivity {
 
     private Drawer result = null;
     private Toolbar toolbar;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        buildDrawer();
-        displayList();
-
+        prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        if (prefs.getBoolean("first_start", true)){
+            openSettings();
+            prefs.edit().putBoolean("first_start", false).apply();
+        } else {
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            buildDrawer();
+            displayList();
+        }
 
     }
-
-
 
     private void buildDrawer() {
         result = new DrawerBuilder()

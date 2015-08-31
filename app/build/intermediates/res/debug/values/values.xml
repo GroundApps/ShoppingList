@@ -142,7 +142,7 @@
     <eat-comment/>
     <color name="divider">#1F000000</color>
     <color name="drawer_background">#F9F9F9</color>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <color name="error_color">#FFDD2C00</color>
     <color name="fab_stroke_end_inner_color">#0A000000</color>
@@ -514,7 +514,7 @@
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <color name="shadow_end_color">@android:color/transparent</color>
     <color name="shadow_mid_color">#14000000</color>
@@ -663,7 +663,7 @@
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="appbar_elevation">4dp</dimen>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
@@ -688,7 +688,7 @@
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.10.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="fab_actions_spacing">16dp</dimen>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="fab_border_width">0.5dp</dimen>
     <dimen name="fab_content_size">24dp</dimen>
@@ -704,7 +704,7 @@
     <dimen name="fab_size_mini">40dp</dimen>
     <dimen name="fab_size_normal">56dp</dimen>
     <dimen name="fab_stroke_width">1dp</dimen>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="fab_translation_z_pressed">6dp</dimen>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.1/res/values/values.xml -->
@@ -781,7 +781,7 @@
     <dimen name="md_simplelistitem_padding_top">8dp</dimen>
     <dimen name="md_title_frame_margin_bottom">12dp</dimen>
     <dimen name="md_title_textsize">20sp</dimen>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="navigation_elevation">12dp</dimen>
     <dimen name="navigation_icon_padding">32dp</dimen>
@@ -795,7 +795,7 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="snackbar_action_inline_max_width">128dp</dimen>
     <dimen name="snackbar_background_corner_radius">0dp</dimen>
@@ -856,7 +856,7 @@
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <item name="up" type="id"/>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <item name="view_offset_helper" type="id"/>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
@@ -865,7 +865,7 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="snackbar_text_max_lines">2</integer>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
@@ -903,17 +903,27 @@
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
-        <i>Version 1.0.0</i><br />
-        - Initial version]]>
+        <i>Version 1.1</i><br />
+        <br>
+        WORKS ONLY WITH NEW BACKEND!
+        <br>
+        - Multiple bugfixes<br />
+        - improved error handling<br />
+        - add favorites from current list<br />
+        - add multiple items from favorites<br />
+        - select and then remove multiple items<br />
+        - new icon (Thanks beli3ver!)<br />]]>
     </string>
     <string name="aboutLibraries_description_text" translatable="false">
-        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!]]>
+        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!<br><br> Special thanks to <i>beli3ver</i> and <i>jklmnn</i>  for their continued support!]]>
     </string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_clearlist">Clear list</string>
+    <string name="action_share">Share</string>
+    <string name="add_custom_item">Item</string>
     <string name="app_name">ShoppingList</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
@@ -1058,16 +1068,17 @@
     <eat-comment/>
     <string name="empty_view_cache">The last time the list was loaded, it was empty.</string>
     <string name="empty_view_favorites">No favorites yet… Add some!</string>
-    <string name="empty_view_list">Nothing on you list… for now :)</string>
-    <string name="error_auth">The server rejected the supplied auth key!</string>
+    <string name="empty_view_list">Nothing on your list… for now :)</string>
+    <string name="error_auth">The server refused the connection. Please check your server configuration.</string>
     <string name="error_connect">Could not connect to the server at: </string>
     <string name="error_general">An unexpected error occurred. Please post an issue on GitHub!</string>
-    <string name="error_no_host">Please configure host and authkey in Settings.</string>
+    <string name="error_host_not_found">Host not found. Are you connected to the internet?</string>
+    <string name="error_no_host_configured">Please configure host and authkey in Settings.</string>
     <string name="error_not_found">API could not be access on the supplied host.</string>
     <string name="error_response">The server sent a response that did not make sense!</string>
     <string name="error_server_error">The server did not send any content back. Likely due to an internal server error.</string>
     <string name="error_url">The supplied URL for the api is not a valid URL.</string>
-    <string name="github_url" translatable="false">https://github.com/J-8/ShoppingList</string>
+    <string name="github_url" translatable="false">https://github.com/GroundApps/ShoppingList</string>
     <string name="header_detail" translatable="false">For all your hungry needs</string>
     <string name="header_title" translatable="false">ShoppingList</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
@@ -2976,6 +2987,7 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE B
     <string name="license_mit_licenseWebsite">http://opensource.org/licenses/MIT</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="markFavorite">Favorite</string>
     <string name="nav_item_about">About</string>
     <string name="nav_item_favorites">Favorites</string>
     <string name="nav_item_home">List</string>
@@ -3992,7 +4004,7 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE B
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabMaxWidth">@dimen/tab_max_width</item>
@@ -4384,8 +4396,11 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE B
     </style>
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
+    <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
     <style name="TextAppearance.Design.Error" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/error_color</item>
     </style>
@@ -4534,16 +4549,15 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE B
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="RtlOverlay.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.Design.AppBarLayout" parent="android:Widget">
         <item name="elevation">@dimen/appbar_elevation</item>
         <item name="android:background">?attr/colorPrimary</item>
     </style>
     <style name="Widget.Design.CollapsingToolbar" parent="android:Widget">
-        <item name="expandedTitleMargin">16dp</item>
-        <item name="expandedTitleMarginBottom">20dp</item>
-        <item name="expandedTitleTextAppearance">@style/TextAppearance.AppCompat.Headline</item>
+        <item name="expandedTitleMargin">32dp</item>
+        <item name="expandedTitleTextAppearance">@style/TextAppearance.Design.CollapsingToolbar.Expanded</item>
         <item name="collapsedTitleTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Title</item>
         <item name="statusBarScrim">?attr/colorPrimaryDark</item>
     </style>

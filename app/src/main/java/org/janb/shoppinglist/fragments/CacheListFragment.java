@@ -31,6 +31,7 @@ public class CacheListFragment extends ListFragment {
     private ListView mListView;
     private List<ShoppingListItem> ShoppingListItemList;
     private Context context;
+    private ShoppingListAdapter shopListAdapter;
 
     public CacheListFragment() {
     }
@@ -60,12 +61,21 @@ public class CacheListFragment extends ListFragment {
         menu.clear();
     }
 
+    @Override
+    public void onListItemClick(ListView l, View v, final int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        ShoppingListItem clickedItem = ShoppingListItemList.get(position);
+        clickedItem.toggleChecked();
+        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        setListAdapter(shopListAdapter);
+    }
+
     private void getListFromCache() {
         ShoppingListItemList = new ArrayList<>();
         SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
         parseJSON(prefs.getString("cached_list", ""));
         if (ShoppingListItemList.size() > 0) {
-            ShoppingListAdapter shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+            shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
             setListAdapter(shopListAdapter);
         } else {
             setEmptyText(getResources().getString(R.string.empty_view_cache));
@@ -81,6 +91,7 @@ public class CacheListFragment extends ListFragment {
     }
 
     public void parseJSON(String jsondata) {
+        Log.d("JSON DATA", jsondata);
         String item_title;
         String item_count;
         JSONArray array = null;
@@ -100,8 +111,8 @@ public class CacheListFragment extends ListFragment {
                 }
                 try {
                     assert row != null;
-                    item_title = row.getString("item");
-                    item_count = row.getString("count");
+                    item_title = row.getString("itemTitle");
+                    item_count = row.getString("itemCount");
                     itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count));
                 } catch (JSONException e) {
                     e.printStackTrace();

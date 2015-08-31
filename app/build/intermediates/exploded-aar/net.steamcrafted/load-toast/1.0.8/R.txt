@@ -1,0 +1,6 @@
+int color color_accent 0x7f030000
+int color color_error 0x7f030001
+int color color_success 0x7f030002
+int drawable ic_error 0x7f020000
+int drawable ic_navigation_check 0x7f020001
+int string app_name 0x7f040000

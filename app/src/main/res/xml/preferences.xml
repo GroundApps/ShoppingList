@@ -4,11 +4,14 @@
         android:key="host"
         android:summary="Host + location of api.php"
         android:inputType="textUri|textNoSuggestions"
-        android:hint="https://janb.org/sholi/"/>
+        android:hint="https://example.org/sholi/api.php"/>
+    <CheckBoxPreference android:title="Use SSL"
+        android:key="useSSL"
+        android:summary="Check if you want to use SSL \n (strongly recommended!)" />
 
-    <EditTextPreference android:title="AuthKey"
+    <EditTextPreference android:title="Authentication"
         android:key="authkey"
-        android:summary="Please provide your authentication token (defined in api.php)"
+        android:summary="Please provide your authentication token. \n (defined during backend installation)"
         android:inputType="textPassword|textNoSuggestions"/>
 
 </PreferenceScreen>

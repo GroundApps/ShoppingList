@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Wannes2/AndroidStudioProjects/gestureTrackerLib/loadtoast/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="color_accent">#7c4dff</color>
+    <color name="color_error">#f44336</color>
+    <color name="color_success">#3CCD88</color>
+    <!-- From: file:/C:/Users/Wannes2/AndroidStudioProjects/gestureTrackerLib/loadtoast/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">LoadToast</string>
+</resources>

@@ -11,10 +11,10 @@ android {
 
     defaultConfig {
         applicationId "org.janb.shoppinglist"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -33,11 +33,12 @@ dependencies {
     compile 'com.android.support:support-v4:22.2.1'
     compile 'com.afollestad:material-dialogs:0.7.6.0'
     compile 'com.getbase:floatingactionbutton:1.10.0'
-    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:design:22.2.1'
     compile 'com.wdullaer:swipeactionadapter:1.4.4'
     compile('com.mikepenz:aboutlibraries:5.1.1@aar') {
         transitive = true
     }
+    compile 'com.google.code.gson:gson:2.3.1'
 
 }
 

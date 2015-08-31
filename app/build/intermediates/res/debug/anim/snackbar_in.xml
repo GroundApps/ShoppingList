@@ -18,4 +18,4 @@
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
            android:fromYDelta="100%"
            android:toYDelta="0"/>
-<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-supportlib-release/frameworks/support/design/res/anim/snackbar_in.xml --><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/anim/snackbar_in.xml -->
+<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-supportlib-release/frameworks/support/design/res/anim/snackbar_in.xml --><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/anim/snackbar_in.xml -->

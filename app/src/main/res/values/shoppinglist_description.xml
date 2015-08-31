@@ -4,14 +4,22 @@
     <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
     <string name="aboutLibraries_description_showVersion" translatable="false">false</string>
     <string name="aboutLibraries_description_text" translatable="false">
-        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!]]>
+        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!<br><br> Special thanks to <i>beli3ver</i> and <i>jklmnn</i>  for their continued support!]]>
     </string>
     <string name="aboutLibraries_description_special1_name" translatable="false">GitHub</string>
     <string name="aboutLibraries_description_special1_text" translatable="false">Check this project out on GitHub!</string>
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
-        <i>Version 1.0.0</i><br />
-        - Initial version]]>
+        <i>Version 1.1</i><br />
+        <br>
+        WORKS ONLY WITH NEW BACKEND!
+        <br>
+        - Multiple bugfixes<br />
+        - improved error handling<br />
+        - add favorites from current list<br />
+        - add multiple items from favorites<br />
+        - select and then remove multiple items<br />
+        - new icon (Thanks beli3ver!)<br />]]>
     </string>
 </resources>

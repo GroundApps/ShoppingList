@@ -43,6 +43,7 @@ import org.json.JSONException;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -50,7 +51,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
 
     ShoppingListAdapter mAdapter;
     private ListView mListView;
-    private List<ShoppingListItem> ShoppingListItemList;
+    private List<ShoppingListItem> ShoppingListItemList = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListAPI api;
     private Context context;
@@ -92,9 +93,9 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .callback(new MaterialDialog.ButtonCallback() {
                             @Override
                             public void onPositive(MaterialDialog dialog) {
-                                EditText dialogCount = (EditText) dialog.findViewById(R.id.dialog_update_count);
-                                if (!dialogCount.getText().toString().isEmpty()) {
-                                    saveItem(item.getItemTitle(), dialogCount.getText().toString());
+                                String dialogCountText = ((EditText) dialog.findViewById(R.id.dialog_update_count)).getText().toString();
+                                if (!dialogCountText.isEmpty() && !dialogCountText.equals(openedItem.getItemCountString())) {
+                                    saveItem(item.getItemTitle(), dialogCountText);
                                 }
                             }
                         })
@@ -254,6 +255,10 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        if ( ShoppingListItemList != null && mAdapter != null) {
+                            ShoppingListItemList.clear();
+                            mAdapter.notifyDataSetChanged();
+                        }
                         setEmptyText(getResources().getString(R.string.empty_view_list));
                     }
                 });

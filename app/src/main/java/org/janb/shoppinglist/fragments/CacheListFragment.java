@@ -62,12 +62,17 @@ public class CacheListFragment extends ListFragment {
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, final int position, long id) {
-        super.onListItemClick(l, v, position, id);
+    public void onListItemClick(ListView l, View view, final int position, long id) {
+        super.onListItemClick(l, view, position, id);
         ShoppingListItem clickedItem = ShoppingListItemList.get(position);
         clickedItem.toggleChecked();
         shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        int index = mListView.getFirstVisiblePosition();
+        View v = mListView.getChildAt(0);
+        int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
+        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
         setListAdapter(shopListAdapter);
+        mListView.setSelectionFromTop(index, top);
     }
 
     private void getListFromCache() {

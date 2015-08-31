@@ -3,6 +3,9 @@ package org.janb.shoppinglist.model;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.style.StrikethroughSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,7 @@ import java.util.List;
 
 public class ShoppingListAdapter extends ArrayAdapter {
     private Context context;
+    private static final StrikethroughSpan STRIKE_THROUGH_SPAN = new StrikethroughSpan();
 
     public ShoppingListAdapter(Context context, List<ShoppingListItem> items) {
         super(context, android.R.layout.simple_list_item_1, items);
@@ -27,6 +31,7 @@ public class ShoppingListAdapter extends ArrayAdapter {
     private class ViewHolder{
         TextView titleText;
         TextView countText;
+        View checkLine;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -43,6 +48,7 @@ public class ShoppingListAdapter extends ArrayAdapter {
             holder = new ViewHolder();
             holder.titleText = (TextView)viewToUse.findViewById(R.id.row_item_title);
             holder.countText = (TextView)viewToUse.findViewById(R.id.row_item_count);
+            holder.checkLine = viewToUse.findViewById(R.id.row_item_check);
             viewToUse.setTag(holder);
         } else {
             viewToUse = convertView;
@@ -55,7 +61,9 @@ public class ShoppingListAdapter extends ArrayAdapter {
         }
         holder.titleText.setText(item.getItemTitle());
         if(item.isChecked()) {
-            holder.titleText.setPaintFlags(holder.titleText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            //holder.titleText.setPaintFlags(holder.titleText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.titleText.setText(item.getItemTitle());
+            holder.checkLine.setVisibility(View.VISIBLE);
         }
         return viewToUse;
     }

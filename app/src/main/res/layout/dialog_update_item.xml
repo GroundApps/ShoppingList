@@ -4,15 +4,19 @@
     android:layout_height="match_parent" >
 
     <EditText
-        android:layout_width="60dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:textAlignment="center"
         android:id="@+id/dialog_update_count"
-        android:layout_alignBottom="@+id/dialog_update_minus"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:selectAllOnFocus="true"/>
+        android:text="100"
+        android:layout_marginRight="20dp"
+        android:textSize="40sp"
+        android:selectAllOnFocus="true"
+        android:layout_below="@+id/dialog_update_title"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/dialog_update_minus" />
 
     <ImageButton
         android:background="@drawable/ic_action_not_important"
@@ -51,10 +55,10 @@
         android:layout_height="40dp"
         android:text="-"
         android:id="@+id/dialog_update_minus"
-        android:layout_below="@+id/dialog_update_title"
-        android:layout_toLeftOf="@+id/dialog_update_count"
-        android:layout_toStartOf="@+id/dialog_update_count"
-        android:background="@drawable/custom_button"/>
+        android:background="@drawable/custom_button"
+        android:layout_below="@+id/dialog_update_important"
+        android:layout_alignLeft="@+id/dialog_update_plus"
+        android:layout_alignStart="@+id/dialog_update_plus" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -65,6 +69,7 @@
         android:layout_below="@+id/dialog_update_title"
         android:layout_toRightOf="@+id/dialog_update_count"
         android:layout_toEndOf="@+id/dialog_update_count"
-        android:background="@drawable/custom_button"/>
+        android:background="@drawable/custom_button"
+        android:layout_above="@+id/dialog_update_minus" />
 
 </RelativeLayout>

@@ -29,6 +29,10 @@ public class ShoppingListItem {
         return itemCount;
     }
 
+    public String getItemCountString() {
+        return String.valueOf(itemCount);
+    }
+
     public void setItemTitle(String itemTitle) {
         this.itemTitle = itemTitle;
     }

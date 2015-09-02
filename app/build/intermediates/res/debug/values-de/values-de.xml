@@ -46,6 +46,9 @@
     <string name="ok">OK</string>
     <string name="retry">Erneut versuchen</string>
     <string name="settings">Einstellungen öffnen</string>
+    <string name="settingsAuthSummary">Bitte Auth Token angeben. \n Bei Server Konfiguration gesetzt.</string>
+    <string name="settingsHostSummary">Host + Pfad von api.php</string>
+    <string name="settingsSslSummary">Aktivieren falls SSL genutzt werden soll. \ (Empfohlen!)</string>
     <string name="success">Aktion erfolgreich</string>
     <string name="title_about">Über ShoppingList</string>
     <string name="title_cached">Gespeicherte Version</string>

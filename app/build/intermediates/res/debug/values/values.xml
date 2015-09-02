@@ -2997,6 +2997,9 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE B
     <string name="ok">OK</string>
     <string name="retry">Retry</string>
     <string name="settings">Go to settings</string>
+    <string name="settingsAuthSummary">Please provide your authentication token. \n (defined during backend installation)</string>
+    <string name="settingsHostSummary">Host + location of api.php</string>
+    <string name="settingsSslSummary">Check if you want to use SSL \n (strongly recommended!)</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>

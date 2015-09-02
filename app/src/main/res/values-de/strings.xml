@@ -36,4 +36,7 @@
     <string name="error_no_host_configured">Bitte Host und Authkey in den Einstellungen festlegen.</string>
     <string name="error_host_not_found">Server nicht gefunden. Internetverbindung besteht?</string>
     <string name="error_no_host"></string>
+    <string name="settingsAuthSummary">Bitte Auth Token angeben. \n Bei Server Konfiguration gesetzt.</string>
+    <string name="settingsHostSummary">Host + Pfad von api.php</string>
+    <string name="settingsSslSummary">Aktivieren falls SSL genutzt werden soll. \ (Empfohlen!)</string>
 </resources>

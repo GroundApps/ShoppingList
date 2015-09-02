@@ -2,16 +2,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference android:title="Host"
         android:key="host"
-        android:summary="Host + location of api.php"
+        android:summary="@string/settingsHostSummary"
         android:inputType="textUri|textNoSuggestions"
         android:hint="https://example.org/sholi/api.php"/>
-    <CheckBoxPreference android:title="Use SSL"
+    <CheckBoxPreference android:title="SSL"
         android:key="useSSL"
-        android:summary="Check if you want to use SSL \n (strongly recommended!)" />
+        android:summary="@string/settingsSslSummary" />
 
     <EditTextPreference android:title="Authentication"
         android:key="authkey"
-        android:summary="Please provide your authentication token. \n (defined during backend installation)"
+        android:summary="@string/settingsAuthSummary"
         android:inputType="textPassword|textNoSuggestions"/>
 
 </PreferenceScreen><!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/xml/preferences.xml -->

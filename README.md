@@ -2,6 +2,7 @@
 <p align="center">
 Keep your shoppinglist synchronized with others in your household.<br><br>
 
+
 <img src=screenshots/1.png width=250 />
 <img src=screenshots/2.png width=250 /><br><br>
 Add favorites and add quick add them to your list.<br><br>

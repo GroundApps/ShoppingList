@@ -157,15 +157,6 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
     }
 
-    private void deleteItem(String itemTitle) {
-        ShoppingListItemList.remove(itemTitle);
-        mAdapter.notifyDataSetChanged();
-        api = new ListAPI(context);
-        api.setOnResultsListener(this);
-        ListAPI.setFunction(ListAPI.FUNCTION_DELETEITEM);
-        api.execute(itemTitle);
-    }
-
     private void saveItem(String itemTitle, String itemCount) {
         setRefreshing();
         api = new ListAPI(context);

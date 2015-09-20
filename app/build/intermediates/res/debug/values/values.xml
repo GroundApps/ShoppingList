@@ -874,6 +874,9 @@
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/refs.xml -->
     <eat-comment/>
     <item name="fragment_sholiitem" type="layout">@layout/fragment_list</item>
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="HttpUserAgent" translatable="false">ShoLiApp</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -1070,6 +1073,8 @@
     <string name="empty_view_favorites">No favorites yet… Add some!</string>
     <string name="empty_view_list">Nothing on your list… for now :)</string>
     <string name="error_auth">The server refused the connection. Please check your server configuration.</string>
+    <string name="error_backend_version">Required: </string>
+    <string name="error_backend_version_update_notice">Please update the backend on the server!</string>
     <string name="error_connect">Could not connect to the server at: </string>
     <string name="error_general">An unexpected error occurred. Please post an issue on GitHub!</string>
     <string name="error_host_not_found">Host not found. Are you connected to the internet?</string>
@@ -1078,6 +1083,7 @@
     <string name="error_response">The server sent a response that did not make sense!</string>
     <string name="error_server_error">The server did not send any content back. Likely due to an internal server error.</string>
     <string name="error_url">The supplied URL for the api is not a valid URL.</string>
+    <string name="favorite_delete_notice">Long tap to delete</string>
     <string name="github_url" translatable="false">https://github.com/GroundApps/ShoppingList</string>
     <string name="header_detail" translatable="false">For all your hungry needs</string>
     <string name="header_title" translatable="false">ShoppingList</string>

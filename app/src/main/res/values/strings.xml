@@ -50,5 +50,10 @@
     <string name="settingsSslSummary">Check if you want to use SSL \n (strongly recommended!)</string>
     <string name="settingsHostSummary">Host + location of api.php</string>
     <string name="settingsAuthSummary">Please provide your authentication token. \n (defined during backend installation)</string>
+    <string name="error_backend_version">Required: </string>
+    <string name="error_backend_version_update_notice">Please update the backend on the server!</string>
+
+    <string name="HttpUserAgent" translatable="false">ShoLiApp</string>
+    <string name="favorite_delete_notice">Long tap to delete</string>
 
 </resources>

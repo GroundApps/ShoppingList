@@ -39,4 +39,7 @@
     <string name="settingsAuthSummary">Bitte Auth Token angeben. \n Bei Server Konfiguration gesetzt.</string>
     <string name="settingsHostSummary">Host + Pfad von api.php</string>
     <string name="settingsSslSummary">Aktivieren falls SSL genutzt werden soll. \ (Empfohlen!)</string>
+    <string name="error_backend_version">Benötigt:</string>
+    <string name="error_backend_version_update_notice">Bitte das Backend auf dem Server aktualisieren!</string>
+    <string name="favorite_delete_notice">Lange tappen zum löschen</string>
 </resources>

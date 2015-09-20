@@ -22,9 +22,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38237df-a4b1-4493-aaec-294a8214ad4d" name="Default" comment="Initial commit">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/CONSTS.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/CONSTS.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/CacheListFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/CacheListFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ErrorFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ErrorFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/FavoriteListFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/FavoriteListFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/api/ListAPI.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/api/ListAPI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/activity/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/activity/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/activity/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/activity/MainActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$string.class" />
@@ -38,6 +40,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$xml.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
@@ -48,6 +63,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/FavoriteListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/FavoriteListFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/afollestad/materialdialogs/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/afollestad/materialdialogs/R.java" />
@@ -56,10 +74,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/org/janb/shoppinglist/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/org/janb/shoppinglist/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/fragment_error.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/fragment_error.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/xml/preferences.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/xml/preferences.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/preferences.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-de/values-de.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-de/values-de.xml" />
@@ -94,21 +113,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ShoppingListFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShoppingListFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.037257824">
-              <caret line="97" column="76" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="44" />
               <folding>
-                <element signature="e#3040#5598#0" expanded="true" />
                 <element signature="e#3659#4248#0" expanded="true" />
                 <element signature="e#4247#4248#0" expanded="true" />
-                <element signature="e#5597#5598#0" expanded="true" />
                 <element signature="class#5867:6478" expanded="false" />
-                <element signature="e#15045#16139#0" expanded="true" />
-                <element signature="e#16138#16139#0" expanded="true" />
-                <element signature="e#17124#18047#0" expanded="true" />
-                <element signature="e#18046#18047#0" expanded="true" />
+                <element signature="e#14735#15829#0" expanded="true" />
+                <element signature="e#15828#15829#0" expanded="true" />
+                <element signature="e#16814#17737#0" expanded="true" />
+                <element signature="e#17736#17737#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,39 +135,16 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/FavoriteListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2022#2072#0" expanded="true" />
-                <element signature="e#3633#3634#0" expanded="true" />
-                <element signature="e#3676#3677#0" expanded="true" />
-                <element signature="e#5219#5274#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog_update_item.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_update_item.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShoppingListItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-              <folding>
-                <element signature="e#247#248#0" expanded="true" />
-                <element signature="e#277#278#0" expanded="true" />
+                <element signature="e#1126#1176#0" expanded="true" />
+                <element signature="e#2181#2189#0" expanded="true" />
+                <element signature="e#2568#2633#0" expanded="true" />
+                <element signature="method#removeFromFavorites#0;class#FavoriteListFragment#0" expanded="false" />
+                <element signature="method#onStart#0;class#FavoriteListFragment#0" expanded="false" />
+                <element signature="e#3405#3460#0" expanded="true" />
+                <element signature="method#getFavorites#0;class#FavoriteListFragment#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -160,16 +154,18 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2209#2210#0" expanded="false" />
-                <element signature="e#2247#2248#0" expanded="false" />
-                <element signature="e#2298#2299#0" expanded="false" />
-                <element signature="e#2339#2340#0" expanded="false" />
-                <element signature="e#2405#2406#0" expanded="false" />
-                <element signature="e#2445#2446#0" expanded="false" />
-              </folding>
+              <caret line="187" column="44" selection-start-line="187" selection-start-column="44" selection-end-line="187" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShoppingListAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5903614">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1624,31 +1620,31 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ErrorFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ResultsListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ResponseHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/SettingsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/checkHost.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_add_custom.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/CacheListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/custom_button.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_update_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/preferences.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/FavoriteListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" />
       </list>
     </option>
   </component>
@@ -1694,8 +1690,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1703,9 +1697,19 @@
               <option name="myItemId" value="ShoppingList" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="ShoppingList" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1722,62 +1726,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="strings.xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1843,11 +1793,35 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppinglist" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShoppingList" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2109,8 +2083,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18111111" sideWeight="0.49573562" order="13" side_tool="false" content_ui="tabs" />
@@ -2124,7 +2098,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22333333" sideWeight="0.6321962" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23111111" sideWeight="0.6321962" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28777778" sideWeight="0.36780384" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1673774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2169,15 +2143,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="368" column="36" selection-start-line="368" selection-start-column="36" selection-end-line="368" selection-end-column="36" />
           <folding>
-            <element signature="e#3040#5598#0" expanded="true" />
             <element signature="e#3659#4248#0" expanded="true" />
             <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#5597#5598#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
-            <element signature="e#15045#16139#0" expanded="true" />
-            <element signature="e#16138#16139#0" expanded="true" />
-            <element signature="e#17124#18047#0" expanded="true" />
-            <element signature="e#18046#18047#0" expanded="true" />
+            <element signature="e#14735#15829#0" expanded="true" />
+            <element signature="e#15828#15829#0" expanded="true" />
+            <element signature="e#16814#17737#0" expanded="true" />
+            <element signature="e#17736#17737#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2187,13 +2159,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="178" column="32" selection-start-line="178" selection-start-column="32" selection-end-line="178" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2209#2210#0" expanded="false" />
-            <element signature="e#2247#2248#0" expanded="false" />
-            <element signature="e#2298#2299#0" expanded="false" />
-            <element signature="e#2339#2340#0" expanded="false" />
             <element signature="e#2405#2406#0" expanded="false" />
             <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2405#2406#0" expanded="false" />
+            <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2792#2859#0" expanded="false" />
+            <element signature="e#5612#5653#0" expanded="false" />
+            <element signature="e#6886#6950#0" expanded="false" />
+            <element signature="e#7018#7096#0" expanded="false" />
+            <element signature="e#8274#8335#0" expanded="false" />
+            <element signature="e#8539#8592#0" expanded="false" />
+            <element signature="e#8796#8854#0" expanded="false" />
+            <element signature="e#9062#9125#0" expanded="false" />
+            <element signature="e#9305#9361#0" expanded="false" />
+            <element signature="e#9553#9605#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2211,15 +2190,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="368" column="36" selection-start-line="368" selection-start-column="36" selection-end-line="368" selection-end-column="36" />
           <folding>
-            <element signature="e#3040#5598#0" expanded="true" />
             <element signature="e#3659#4248#0" expanded="true" />
             <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#5597#5598#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
-            <element signature="e#15045#16139#0" expanded="true" />
-            <element signature="e#16138#16139#0" expanded="true" />
-            <element signature="e#17124#18047#0" expanded="true" />
-            <element signature="e#18046#18047#0" expanded="true" />
+            <element signature="e#14735#15829#0" expanded="true" />
+            <element signature="e#15828#15829#0" expanded="true" />
+            <element signature="e#16814#17737#0" expanded="true" />
+            <element signature="e#17736#17737#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2229,13 +2206,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2209#2210#0" expanded="false" />
-            <element signature="e#2247#2248#0" expanded="false" />
-            <element signature="e#2298#2299#0" expanded="false" />
-            <element signature="e#2339#2340#0" expanded="false" />
             <element signature="e#2405#2406#0" expanded="false" />
             <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2405#2406#0" expanded="false" />
+            <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2792#2859#0" expanded="false" />
+            <element signature="e#5612#5653#0" expanded="false" />
+            <element signature="e#6886#6950#0" expanded="false" />
+            <element signature="e#7018#7096#0" expanded="false" />
+            <element signature="e#8274#8335#0" expanded="false" />
+            <element signature="e#8539#8592#0" expanded="false" />
+            <element signature="e#8796#8854#0" expanded="false" />
+            <element signature="e#9062#9125#0" expanded="false" />
+            <element signature="e#9305#9361#0" expanded="false" />
+            <element signature="e#9553#9605#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2253,15 +2237,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="340" column="0" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
           <folding>
-            <element signature="e#3040#5598#0" expanded="true" />
             <element signature="e#3659#4248#0" expanded="true" />
             <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#5597#5598#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
-            <element signature="e#15045#16139#0" expanded="true" />
-            <element signature="e#16138#16139#0" expanded="true" />
-            <element signature="e#17124#18047#0" expanded="true" />
-            <element signature="e#18046#18047#0" expanded="true" />
+            <element signature="e#14735#15829#0" expanded="true" />
+            <element signature="e#15828#15829#0" expanded="true" />
+            <element signature="e#16814#17737#0" expanded="true" />
+            <element signature="e#17736#17737#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2293,15 +2275,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="312" column="182" selection-start-line="312" selection-start-column="182" selection-end-line="312" selection-end-column="182" />
           <folding>
-            <element signature="e#3040#5598#0" expanded="true" />
             <element signature="e#3659#4248#0" expanded="true" />
             <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#5597#5598#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
-            <element signature="e#15045#16139#0" expanded="true" />
-            <element signature="e#16138#16139#0" expanded="true" />
-            <element signature="e#17124#18047#0" expanded="true" />
-            <element signature="e#18046#18047#0" expanded="true" />
+            <element signature="e#14735#15829#0" expanded="true" />
+            <element signature="e#15828#15829#0" expanded="true" />
+            <element signature="e#16814#17737#0" expanded="true" />
+            <element signature="e#17736#17737#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2311,25 +2291,32 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2209#2210#0" expanded="false" />
-            <element signature="e#2247#2248#0" expanded="false" />
-            <element signature="e#2298#2299#0" expanded="false" />
-            <element signature="e#2339#2340#0" expanded="false" />
             <element signature="e#2405#2406#0" expanded="false" />
             <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2405#2406#0" expanded="false" />
+            <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2792#2859#0" expanded="false" />
+            <element signature="e#5612#5653#0" expanded="false" />
+            <element signature="e#6886#6950#0" expanded="false" />
+            <element signature="e#7018#7096#0" expanded="false" />
+            <element signature="e#8274#8335#0" expanded="false" />
+            <element signature="e#8539#8592#0" expanded="false" />
+            <element signature="e#8796#8854#0" expanded="false" />
+            <element signature="e#9062#9125#0" expanded="false" />
+            <element signature="e#9305#9361#0" expanded="false" />
+            <element signature="e#9553#9605#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_bg_left.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml">
@@ -2340,23 +2327,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.024390243">
           <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="34" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4436536">
           <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-large/refs.xml">
@@ -2370,16 +2357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75783473">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -2424,25 +2401,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5964912">
           <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1323764">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ResponseHelper.java">
@@ -2515,14 +2492,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_add_custom.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5359589">
           <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml">
@@ -2533,45 +2510,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27732465">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/activity/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0815661">
           <caret line="124" column="108" selection-start-line="124" selection-start-column="96" selection-end-line="124" selection-end-column="108" />
           <folding>
-            <element signature="e#2982#3352#0" expanded="true" />
-            <element signature="e#3351#3352#0" expanded="true" />
+            <element signature="e#2982#3352#0" expanded="false" />
+            <element signature="e#3351#3352#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2209#2210#0" expanded="false" />
-            <element signature="e#2247#2248#0" expanded="false" />
-            <element signature="e#2298#2299#0" expanded="false" />
-            <element signature="e#2339#2340#0" expanded="false" />
-            <element signature="e#2405#2406#0" expanded="false" />
-            <element signature="e#2445#2446#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/CacheListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -2582,44 +2528,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-          <folding>
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.60661155">
           <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.670347">
-          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-          <folding />
-        </state>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/preferences.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2533532">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44262296">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
           <folding>
-            <element signature="e#213#242#0" expanded="true" />
-            <element signature="e#453#481#0" expanded="true" />
-            <element signature="e#595#624#0" expanded="true" />
+            <element signature="e#1229#1247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4891486">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="e#620#621#0" expanded="false" />
+            <element signature="e#668#669#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_update_item.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/CacheListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9364407">
+          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="44" />
+          <folding>
+            <element signature="e#3659#4248#0" expanded="true" />
+            <element signature="e#4247#4248#0" expanded="true" />
+            <element signature="class#5867:6478" expanded="false" />
+            <element signature="e#14735#15829#0" expanded="true" />
+            <element signature="e#15828#15829#0" expanded="true" />
+            <element signature="e#16814#17737#0" expanded="true" />
+            <element signature="e#17736#17737#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2629,54 +2618,44 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81497794">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/FavoriteListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2022#2072#0" expanded="true" />
-            <element signature="e#3633#3634#0" expanded="true" />
-            <element signature="e#3676#3677#0" expanded="true" />
-            <element signature="e#5219#5274#0" expanded="true" />
+            <element signature="e#1126#1176#0" expanded="true" />
+            <element signature="e#2181#2189#0" expanded="true" />
+            <element signature="e#2568#2633#0" expanded="true" />
+            <element signature="method#removeFromFavorites#0;class#FavoriteListFragment#0" expanded="false" />
+            <element signature="method#onStart#0;class#FavoriteListFragment#0" expanded="false" />
+            <element signature="e#3405#3460#0" expanded="true" />
+            <element signature="method#getFavorites#0;class#FavoriteListFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_update_item.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <caret line="187" column="44" selection-start-line="187" selection-start-column="44" selection-end-line="187" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/model/ShoppingListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6490683">
-          <caret line="44" column="59" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.5903614">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037257824">
-          <caret line="97" column="76" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
-          <folding>
-            <element signature="e#3040#5598#0" expanded="true" />
-            <element signature="e#3659#4248#0" expanded="true" />
-            <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#5597#5598#0" expanded="true" />
-            <element signature="class#5867:6478" expanded="false" />
-            <element signature="e#15045#16139#0" expanded="true" />
-            <element signature="e#16138#16139#0" expanded="true" />
-            <element signature="e#17124#18047#0" expanded="true" />
-            <element signature="e#18046#18047#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

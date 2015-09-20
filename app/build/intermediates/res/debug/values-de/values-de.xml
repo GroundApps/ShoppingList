@@ -27,6 +27,8 @@
     <string name="empty_view_favorites">Du hast noch keine Favoriten. Füge welche hinzu!</string>
     <string name="empty_view_list">Noch nichts auf der Liste... bis jetzt :)</string>
     <string name="error_auth">Der Server hat die Verbindung zurückgewiesen. Bitte Server Einstellungen überprüfen.</string>
+    <string name="error_backend_version">Benötigt:</string>
+    <string name="error_backend_version_update_notice">Bitte das Backend auf dem Server aktualisieren!</string>
     <string name="error_connect">Konnte keine Verbindung herstellen mit Server: </string>
     <string name="error_general">Ein unerwarteter Fehler ist aufgetreten. Bitte auf GitHub melden!</string>
     <string name="error_host_not_found">Server nicht gefunden. Internetverbindung besteht?</string>
@@ -36,6 +38,7 @@
     <string name="error_response">Die Antwort des Servers war unerwartet und unverständlich.</string>
     <string name="error_server_error">Keine Daten empfangen.</string>
     <string name="error_url">Das Format der eingegebenen URL ist nicht gültig.</string>
+    <string name="favorite_delete_notice">Lange tappen zum löschen</string>
     <string name="markFavorite">Favorit</string>
     <string name="nav_item_about">Über</string>
     <string name="nav_item_favorites">Favoriten</string>

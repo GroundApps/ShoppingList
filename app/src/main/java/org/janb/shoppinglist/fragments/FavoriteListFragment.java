@@ -1,57 +1,34 @@
 package org.janb.shoppinglist.fragments;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
-import com.wdullaer.swipeactionadapter.SwipeDirections;
-
 import org.janb.shoppinglist.R;
-import org.janb.shoppinglist.api.ListAPI;
-import org.janb.shoppinglist.api.ResultsListener;
-import org.janb.shoppinglist.model.ShoppingListAdapter;
-import org.janb.shoppinglist.model.ShoppingListItem;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
-public class FavoriteListFragment extends ListFragment {
+public class FavoriteListFragment extends ListFragment implements AdapterView.OnItemLongClickListener {
 
     private ListView mListView;
     private List<String> favorites;
     private Context context;
-    SwipeActionAdapter mAdapter;
 
     public FavoriteListFragment() {
     }
@@ -69,6 +46,8 @@ public class FavoriteListFragment extends ListFragment {
         View rootView = inflater.inflate(R.layout.fragment_favorites, container, false);
         mListView = (ListView) rootView.findViewById(android.R.id.list);
         mListView.setEmptyView(rootView.findViewById(android.R.id.empty));
+        mListView.setLongClickable(true);
+        mListView.setOnItemLongClickListener(this);
         return rootView;
     }
 
@@ -82,47 +61,25 @@ public class FavoriteListFragment extends ListFragment {
 
     public void generateList() {
         final String[] content = new String[ favorites.size() ];
-        favorites.toArray(content );
+        favorites.toArray(content);
         ArrayAdapter<String> stringAdapter = new ArrayAdapter<String>(
                 context,
                 R.layout.row_favorites,
                 R.id.text,
                 new ArrayList<>(Arrays.asList(content))
         );
-        mAdapter = new SwipeActionAdapter(stringAdapter);
-        mAdapter.setListView(getListView());
-        setListAdapter(mAdapter);
-        mAdapter.addBackground(SwipeDirections.DIRECTION_NORMAL_LEFT, R.layout.row_bg_left)
-                .addBackground(SwipeDirections.DIRECTION_FAR_LEFT, R.layout.row_bg_left);
-        mAdapter.setSwipeActionListener(new SwipeActionAdapter.SwipeActionListener() {
-            @Override
-            public boolean hasActions(int position) {
-                return true;
-            }
+        setListAdapter(stringAdapter);
+    }
 
-            @Override
-            public boolean shouldDismiss(int position, int direction) {
-                return direction == SwipeDirections.DIRECTION_NORMAL_LEFT + SwipeDirections.DIRECTION_FAR_LEFT;
-            }
+    public void onListItemClick(ListView l, View view, final int position, long id) {
+        super.onListItemClick(l, view, position, id);
+        Toast.makeText(context, context.getResources().getString(R.string.favorite_delete_notice), Toast.LENGTH_SHORT).show();
+}
 
-            @Override
-            public void onSwipe(int[] positionList, int[] directionList) {
-                for (int i = 0; i < positionList.length; i++) {
-                    int direction = directionList[i];
-                    int position = positionList[i];
-
-                    switch (direction) {
-                        case SwipeDirections.DIRECTION_NORMAL_LEFT:
-                            removeFromFavorites(favorites.get(position));
-                            break;
-                        case SwipeDirections.DIRECTION_FAR_LEFT:
-                            removeFromFavorites(favorites.get(position));
-                            break;
-                    }
-                }
-            }
-        });
-        mAdapter.notifyDataSetChanged();
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+        removeFromFavorites(favorites.get(position));
+        return true;
     }
 
     private void removeFromFavorites(String itemName) {
@@ -161,5 +118,4 @@ public class FavoriteListFragment extends ListFragment {
         }
         return favorites;
     }
-
 }

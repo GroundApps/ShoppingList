@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:layout_width="271dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/error_tv_description"

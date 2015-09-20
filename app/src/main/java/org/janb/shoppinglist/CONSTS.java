@@ -2,6 +2,8 @@ package org.janb.shoppinglist;
 
 public class CONSTS {
 
+    public static final int MINIMUM_REQUIRED_BACKEND_VERSION = 1;
+
     public static final int TAG_LIST = 1;
     public static final int TAG_FAVORITES = 2;
     public static final int TAG_SETTINGS = 3;
@@ -22,6 +24,7 @@ public class CONSTS {
     public static final int APP_ERROR_CONFIG_NO_HOST = 2004;
     public static final int APP_ERROR_UNKNOWN = 2005;
     public static final int APP_ERROR_RESPONSE = 2006;
+    public static final int APP_BACKEND_VERSION = 2007;
 
 
     public static final int API_ERROR_SERVER = 5000;
@@ -36,9 +39,4 @@ public class CONSTS {
     public static final int API_ERROR_FAVORITE = 5008;
     public static final int API_ERROR_DELETE = 5009;
     public static final int API_ERROR_SAVE = 5010;
-
-
-
-
-
 }

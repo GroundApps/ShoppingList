@@ -80,6 +80,10 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String AUTHKEY = prefs.getString("authkey", "");
         String URL = prefs.getString("host", "");
+         if(URL.isEmpty()){
+             listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONFIG_NO_HOST, context.getResources().getString(R.string.error_no_host_configured)));
+             this.cancel(true);
+         }
          URL = URL.replace("https://", "");
          URL = URL.replace("http://", "");
          if(prefs.getBoolean("useSSL", false)) {
@@ -87,10 +91,6 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
          } else {
              URL = "http://" + URL;
          }
-        if(URL.isEmpty()){
-            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONFIG_NO_HOST, context.getResources().getString(R.string.error_no_host_configured)));
-            this.cancel(true);
-        }
         HashMap<String,String> parameters = new HashMap<>();
 
         switch (chosenfunction){
@@ -146,12 +146,14 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
     public void  performPostCall(String requestURL, HashMap<String, String> postDataParams) {
         URL url;
         String response = "";
+        Double backend_version = 0.0;
         ResponseHelper responseHelper;
 
         try {
             url = new URL(requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("User-Agent", context.getString(R.string.HttpUserAgent));
             conn.setReadTimeout(5000);
             conn.setConnectTimeout(5000);
             conn.setRequestMethod("POST");
@@ -167,8 +169,18 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             writer.close();
             os.close();
             int responseCode = conn.getResponseCode();
+            if (conn.getHeaderField("ShoLiBackendVersion") != null) {
+                backend_version = Double.parseDouble(conn.getHeaderField("ShoLiBackendVersion"));
+            }
             Log.d("URL", requestURL);
             Log.d("RESPONSE CODE", String.valueOf(responseCode));
+            Log.d("BACKEND VERSION", String.valueOf(backend_version));
+            //Check if backend version has the minimum required version to work with the app
+            if (backend_version < CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION){
+                listener.onError(new ResponseHelper(CONSTS.APP_BACKEND_VERSION, "Backend version: " + String.valueOf(backend_version) + "\n" + context.getResources().getString(R.string.error_backend_version) + String.valueOf(CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION) + "\n" + context.getResources().getString(R.string.error_backend_version_update_notice)));
+                this.cancel(true);
+                return;
+            }
             switch (responseCode) {
                 case HttpsURLConnection.HTTP_OK:
                     String line;

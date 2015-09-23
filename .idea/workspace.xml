@@ -22,44 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38237df-a4b1-4493-aaec-294a8214ad4d" name="Default" comment="Initial commit">
-      <change type="DELETED" beforePath="C:\Users\Office\AndroidstudioProjects\ShoppingList\.idea\libraries\swipeactionadapter_1_4_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Office\AndroidstudioProjects\ShoppingList\app\build\intermediates\pre-dexed\debug\classes-1372c534cf4fabb88efe882adc1ddd3806cb7aa9.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/CONSTS.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/CONSTS.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/CacheListFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/CacheListFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ErrorFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ErrorFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/FavoriteListFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/FavoriteListFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/api/ListAPI.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/api/ListAPI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/activity/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/activity/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/afollestad/materialdialogs/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/afollestad/materialdialogs/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mikepenz/aboutlibraries/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mikepenz/aboutlibraries/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mikepenz/iconics/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mikepenz/iconics/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mikepenz/materialdrawer/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mikepenz/materialdrawer/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/janb/shoppinglist/fragments/ShoppingListFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
@@ -68,32 +31,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/org/janb/shoppinglist/test/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/org/janb/shoppinglist/test/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/org/janb/shoppinglist/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/org/janb/shoppinglist/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/afollestad/materialdialogs/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/afollestad/materialdialogs/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/aboutlibraries/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/aboutlibraries/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/org/janb/shoppinglist/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/org/janb/shoppinglist/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/info_strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/info_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/list_row.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/list_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_row.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_row.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/xml/preferences.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/xml/preferences.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/preferences.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/row_favorites.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/row_favorites.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_favorites.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_favorites.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-de/values-de.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-de/values-de.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -136,8 +84,6 @@
                 <element signature="e#2748#2793#0" expanded="true" />
                 <element signature="e#3505#3542#0" expanded="true" />
                 <element signature="e#3582#3623#0" expanded="true" />
-                <element signature="e#3659#4248#0" expanded="true" />
-                <element signature="e#4247#4248#0" expanded="true" />
                 <element signature="class#5867:6478" expanded="false" />
                 <element signature="e#9538#9539#0" expanded="true" />
                 <element signature="e#9563#9564#0" expanded="true" />
@@ -147,17 +93,13 @@
                 <element signature="e#13578#13628#0" expanded="true" />
                 <element signature="e#15170#15207#0" expanded="true" />
                 <element signature="e#15247#15288#0" expanded="true" />
-                <element signature="e#15332#16426#0" expanded="true" />
-                <element signature="e#16425#16426#0" expanded="true" />
                 <element signature="e#16950#17003#0" expanded="true" />
-                <element signature="e#17411#18334#0" expanded="true" />
-                <element signature="e#18333#18334#0" expanded="true" />
                 <element signature="e#18374#18411#0" expanded="true" />
                 <element signature="e#23460#23489#0" expanded="true" />
                 <element signature="e#23533#23570#0" expanded="true" />
                 <element signature="e#23614#23655#0" expanded="true" />
-                <element signature="e#23695#23967#0" expanded="true" />
-                <element signature="e#23966#23967#0" expanded="true" />
+                <element signature="e#23853#23854#0" expanded="true" />
+                <element signature="e#23936#23937#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1287,7 +1229,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4320134138942" />
-        <entry key="C:\Users\Office\AndroidstudioProjects\ShoppingList" value="4322862800711" />
+        <entry key="C:\Users\Office\AndroidstudioProjects\ShoppingList" value="4322865626039" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1618,16 +1560,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_update_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_error.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/FavoriteListFragment.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/api/ListAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/preferences.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/info_strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_favorites.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml" />
       </list>
     </option>
   </component>
@@ -1701,10 +1643,6 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1744,114 +1682,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="strings.xml" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shoppinglist" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shoppinglist" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShoppingList" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shoppinglist" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2137,7 +1967,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2233,8 +2063,6 @@
             <element signature="e#2748#2793#0" expanded="true" />
             <element signature="e#3505#3542#0" expanded="true" />
             <element signature="e#3582#3623#0" expanded="true" />
-            <element signature="e#3659#4248#0" expanded="true" />
-            <element signature="e#4247#4248#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
             <element signature="e#9538#9539#0" expanded="true" />
             <element signature="e#9563#9564#0" expanded="true" />
@@ -2244,17 +2072,13 @@
             <element signature="e#13578#13628#0" expanded="true" />
             <element signature="e#15170#15207#0" expanded="true" />
             <element signature="e#15247#15288#0" expanded="true" />
-            <element signature="e#15332#16426#0" expanded="true" />
-            <element signature="e#16425#16426#0" expanded="true" />
             <element signature="e#16950#17003#0" expanded="true" />
-            <element signature="e#17411#18334#0" expanded="true" />
-            <element signature="e#18333#18334#0" expanded="true" />
             <element signature="e#18374#18411#0" expanded="true" />
             <element signature="e#23460#23489#0" expanded="true" />
             <element signature="e#23533#23570#0" expanded="true" />
             <element signature="e#23614#23655#0" expanded="true" />
-            <element signature="e#23695#23967#0" expanded="true" />
-            <element signature="e#23966#23967#0" expanded="true" />
+            <element signature="e#23853#23854#0" expanded="true" />
+            <element signature="e#23936#23937#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2290,8 +2114,6 @@
             <element signature="e#2748#2793#0" expanded="true" />
             <element signature="e#3505#3542#0" expanded="true" />
             <element signature="e#3582#3623#0" expanded="true" />
-            <element signature="e#3659#4248#0" expanded="true" />
-            <element signature="e#4247#4248#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
             <element signature="e#9538#9539#0" expanded="true" />
             <element signature="e#9563#9564#0" expanded="true" />
@@ -2301,17 +2123,13 @@
             <element signature="e#13578#13628#0" expanded="true" />
             <element signature="e#15170#15207#0" expanded="true" />
             <element signature="e#15247#15288#0" expanded="true" />
-            <element signature="e#15332#16426#0" expanded="true" />
-            <element signature="e#16425#16426#0" expanded="true" />
             <element signature="e#16950#17003#0" expanded="true" />
-            <element signature="e#17411#18334#0" expanded="true" />
-            <element signature="e#18333#18334#0" expanded="true" />
             <element signature="e#18374#18411#0" expanded="true" />
             <element signature="e#23460#23489#0" expanded="true" />
             <element signature="e#23533#23570#0" expanded="true" />
             <element signature="e#23614#23655#0" expanded="true" />
-            <element signature="e#23695#23967#0" expanded="true" />
-            <element signature="e#23966#23967#0" expanded="true" />
+            <element signature="e#23853#23854#0" expanded="true" />
+            <element signature="e#23936#23937#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2602,14 +2420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30713245">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/CONSTS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22613803">
@@ -2627,14 +2437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8975535">
           <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37444934">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -2669,6 +2471,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/shoppinglist_description.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72393537">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05873715">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/janb/shoppinglist/fragments/ShoppingListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5756241">
@@ -2678,8 +2496,6 @@
             <element signature="e#2748#2793#0" expanded="true" />
             <element signature="e#3505#3542#0" expanded="true" />
             <element signature="e#3582#3623#0" expanded="true" />
-            <element signature="e#3659#4248#0" expanded="true" />
-            <element signature="e#4247#4248#0" expanded="true" />
             <element signature="class#5867:6478" expanded="false" />
             <element signature="e#9538#9539#0" expanded="true" />
             <element signature="e#9563#9564#0" expanded="true" />
@@ -2689,17 +2505,13 @@
             <element signature="e#13578#13628#0" expanded="true" />
             <element signature="e#15170#15207#0" expanded="true" />
             <element signature="e#15247#15288#0" expanded="true" />
-            <element signature="e#15332#16426#0" expanded="true" />
-            <element signature="e#16425#16426#0" expanded="true" />
             <element signature="e#16950#17003#0" expanded="true" />
-            <element signature="e#17411#18334#0" expanded="true" />
-            <element signature="e#18333#18334#0" expanded="true" />
             <element signature="e#18374#18411#0" expanded="true" />
             <element signature="e#23460#23489#0" expanded="true" />
             <element signature="e#23533#23570#0" expanded="true" />
             <element signature="e#23614#23655#0" expanded="true" />
-            <element signature="e#23695#23967#0" expanded="true" />
-            <element signature="e#23966#23967#0" expanded="true" />
+            <element signature="e#23853#23854#0" expanded="true" />
+            <element signature="e#23936#23937#0" expanded="true" />
           </folding>
         </state>
       </provider>

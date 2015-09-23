@@ -11,7 +11,7 @@
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
-        <i>Version 1.2</i><br />
+        <i>Version 1.3</i><br />
         <br>
         - Removed unused library<br />
         - Backend compatibility check<br />

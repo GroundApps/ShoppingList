@@ -15,6 +15,7 @@ public class CONSTS {
     public static final int API_SUCCESS_IMPORTANT = 1003;
     public static final int API_SUCCESS_DELETE = 1004;
     public static final int API_SUCCESS_SAVE = 1005;
+    public static final int API_SUCCESS_CLEAR = 1006;
 
     //Errors
     public static final int APP_ERROR_CONNECT = 2000;

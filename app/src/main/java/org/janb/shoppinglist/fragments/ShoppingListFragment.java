@@ -180,6 +180,14 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         api.execute(jsonData);
     }
 
+    private void clearList() {
+        setRefreshing();
+        api = new ListAPI(context);
+        api.setOnResultsListener(this);
+        ListAPI.setFunction(ListAPI.FUNCTION_CLEARLIST);
+        api.execute();
+    }
+
     private void getList() {
         swipeRefreshLayout.post(new Runnable() {
             @Override
@@ -266,6 +274,15 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 break;
 
             case CONSTS.API_SUCCESS_DELETE:
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
+                        getList();
+                    }
+                });
+                break;
+            case CONSTS.API_SUCCESS_CLEAR:
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -531,9 +548,22 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         delItems.add(i++ , new ShoppingListItem(SLitem.getItemTitle(), 1));
                     }
                 }
-
-                Gson gson = new Gson();
-                deleteMultiple(gson.toJson(delItems));
+                if(delItems.isEmpty()){
+                    dialog = new MaterialDialog.Builder(getActivity())
+                            .content(R.string.dialog_clear_confirm)
+                            .positiveText(getResources().getString(R.string.ok))
+                            .negativeText(getResources().getString(R.string.cancel))
+                            .callback(new MaterialDialog.ButtonCallback() {
+                                @Override
+                                public void onPositive(MaterialDialog dialog) {
+                                    clearList();
+                                }
+                            })
+                            .show();
+                } else {
+                    Gson gson = new Gson();
+                    deleteMultiple(gson.toJson(delItems));
+                }
                 return true;
             case R.id.action_share:
                 Intent sendIntent = new Intent();

@@ -962,14 +962,14 @@ public final class R {
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f070000;
-		public static final int abc_action_bar_home_description_format = 0x7f070038;
-		public static final int abc_action_bar_home_subtitle_description_format = 0x7f070039;
+		public static final int abc_action_bar_home_description_format = 0x7f070039;
+		public static final int abc_action_bar_home_subtitle_description_format = 0x7f07003a;
 		public static final int abc_action_bar_up_description = 0x7f070001;
 		public static final int abc_action_menu_overflow_description = 0x7f070002;
 		public static final int abc_action_mode_done = 0x7f070003;
 		public static final int abc_activity_chooser_view_see_all = 0x7f070004;
 		public static final int abc_activitychooserview_choose_application = 0x7f070005;
-		public static final int abc_search_hint = 0x7f07003a;
+		public static final int abc_search_hint = 0x7f07003b;
 		public static final int abc_searchview_description_clear = 0x7f070006;
 		public static final int abc_searchview_description_query = 0x7f070007;
 		public static final int abc_searchview_description_search = 0x7f070008;
@@ -977,9 +977,9 @@ public final class R {
 		public static final int abc_searchview_description_voice = 0x7f07000a;
 		public static final int abc_shareactionprovider_share_with = 0x7f07000b;
 		public static final int abc_shareactionprovider_share_with_application = 0x7f07000c;
-		public static final int abc_toolbar_collapse_description = 0x7f07003b;
+		public static final int abc_toolbar_collapse_description = 0x7f07003c;
 		public static final int app_name = 0x7f070010;
-		public static final int define_AndroidIconics = 0x7f070046;
+		public static final int define_AndroidIconics = 0x7f070047;
 		public static final int define_materialdrawer = 0x7f0700be;
 		public static final int drawer_close = 0x7f0700bf;
 		public static final int drawer_open = 0x7f0700c0;
@@ -994,18 +994,18 @@ public final class R {
 		public static final int library_AndroidIconics_owner = 0x7f070105;
 		public static final int library_AndroidIconics_repositoryLink = 0x7f070106;
 		public static final int library_AndroidIconics_year = 0x7f070107;
-		public static final int library_materialdrawer_author = 0x7f07046a;
-		public static final int library_materialdrawer_authorWebsite = 0x7f07046b;
-		public static final int library_materialdrawer_isOpenSource = 0x7f07046c;
-		public static final int library_materialdrawer_libraryDescription = 0x7f07046d;
-		public static final int library_materialdrawer_libraryName = 0x7f07046e;
-		public static final int library_materialdrawer_libraryVersion = 0x7f07046f;
-		public static final int library_materialdrawer_libraryWebsite = 0x7f070470;
-		public static final int library_materialdrawer_licenseId = 0x7f070471;
-		public static final int library_materialdrawer_owner = 0x7f070472;
-		public static final int library_materialdrawer_repositoryLink = 0x7f070473;
-		public static final int library_materialdrawer_year = 0x7f070474;
-		public static final int status_bar_notification_info_overflow = 0x7f070591;
+		public static final int library_materialdrawer_author = 0x7f070462;
+		public static final int library_materialdrawer_authorWebsite = 0x7f070463;
+		public static final int library_materialdrawer_isOpenSource = 0x7f070464;
+		public static final int library_materialdrawer_libraryDescription = 0x7f070465;
+		public static final int library_materialdrawer_libraryName = 0x7f070466;
+		public static final int library_materialdrawer_libraryVersion = 0x7f070467;
+		public static final int library_materialdrawer_libraryWebsite = 0x7f070468;
+		public static final int library_materialdrawer_licenseId = 0x7f070469;
+		public static final int library_materialdrawer_owner = 0x7f07046a;
+		public static final int library_materialdrawer_repositoryLink = 0x7f07046b;
+		public static final int library_materialdrawer_year = 0x7f07046c;
+		public static final int status_bar_notification_info_overflow = 0x7f070589;
 	}
 	public static final class style {
 		public static final int AlertDialog_AppCompat = 0x7f09008c;

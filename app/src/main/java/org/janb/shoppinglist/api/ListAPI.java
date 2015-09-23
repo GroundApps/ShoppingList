@@ -86,6 +86,10 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
          }
          URL = URL.replace("https://", "");
          URL = URL.replace("http://", "");
+         String lastChar = URL.substring(URL.length() - 1);
+         if(!lastChar.equals("/") || !lastChar.equals("p")){
+             URL = URL+"/";
+         }
          if(prefs.getBoolean("useSSL", false)) {
              URL = "https://" + URL;
          } else {

@@ -55,5 +55,6 @@
 
     <string name="HttpUserAgent" translatable="false">ShoLiApp</string>
     <string name="favorite_delete_notice">Long tap to delete</string>
+    <string name="dialog_clear_confirm">Do you want to clear the complete list?</string>
 
 </resources>

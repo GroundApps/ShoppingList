@@ -906,6 +906,13 @@
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
+        <i>Version 1.2</i><br />
+        <br>
+        - Removed unused library<br />
+        - Backend compatibility check<br />
+        - Host url does not have to end with / or api.php anymore<br />
+        - When no item is selected, question if list should be cleared<br />
+        <br />
         <i>Version 1.1</i><br />
         <br>
         WORKS ONLY WITH NEW BACKEND!
@@ -918,7 +925,7 @@
         - new icon (Thanks beli3ver!)<br />]]>
     </string>
     <string name="aboutLibraries_description_text" translatable="false">
-        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!<br><br> Special thanks to <i>beli3ver</i> and <i>jklmnn</i>  for their continued support!]]>
+        <![CDATA[I love OpenSource!<br>Thank you for your great libraries.<br><br> Special thanks to <i>beli3ver</i> and <i>jklmnn</i>  for their continued support!]]>
     </string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
@@ -942,7 +949,6 @@
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
     <eat-comment/>
     <string name="define_FruitsAndVegetables" translatable="false"/>
-    <string name="define_SwipeActionAdapter" translatable="false"/>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="define_int_ActionBarPullToRefresh">year;owner</string>
@@ -1065,6 +1071,11 @@
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.2/res/values/values.xml -->
     <eat-comment/>
     <string name="define_materialdrawer">year;owner</string>
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="dialog_clear_confirm">Do you want to clear the complete list?</string>
+    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.2/res/values/values.xml -->
+    <eat-comment/>
     <string name="drawer_close">Close</string>
     <string name="drawer_open">Open</string>
     <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/strings.xml -->
@@ -1212,11 +1223,6 @@
     <string name="library_AndroidViewPagerIndicator_repositoryLink">https://github.com/JakeWharton/Android-ViewPagerIndicator</string>
     <string name="library_AndroidViewPagerIndicator_year">2014</string>
     <string name="library_AndroidViewPager_licenseId">apache_2_0</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
-    <eat-comment/>
-    <string name="library_AnimatedGridView_libraryWebsite" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
-    <eat-comment/>
     <string name="library_AppCompat_author">AOSP</string>
     <string name="library_AppCompat_authorWebsite">https://source.android.com/</string>
     <string name="library_AppCompat_isOpenSource">false</string>
@@ -1631,17 +1637,6 @@
     <string name="library_SupportLibrary_owner">AOSP</string>
     <string name="library_SupportLibrary_repositoryLink"/>
     <string name="library_SupportLibrary_year">2015</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
-    <eat-comment/>
-    <string name="library_SwipeActionAdapter_author" translatable="false">Wouter Dullaert</string>
-    <string name="library_SwipeActionAdapter_isOpenSource" translatable="false">true</string>
-    <string name="library_SwipeActionAdapter_libraryDescription" translatable="false">SwipeActionAdapter is a library that provides a simple API to create Mailbox-like action when swiping in a ListView.</string>
-    <string name="library_SwipeActionAdapter_libraryName" translatable="false">SwipeActionAdapter</string>
-    <string name="library_SwipeActionAdapter_libraryVersion" translatable="false">1.4.4</string>
-    <string name="library_SwipeActionAdapter_licenseId" translatable="false">apache_2_0</string>
-    <string name="library_SwipeActionAdapter_repositoryLink" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
-    <eat-comment/>
     <string name="library_Timber_author">Jake Wharton</string>
     <string name="library_Timber_classPath">timber.log.Timber</string>
     <string name="library_Timber_isOpenSource">true</string>
@@ -2108,12 +2103,8 @@
     <string name="library_libphonenumber_licenseId">apache_2_0</string>
     <string name="library_libphonenumber_repositoryLink">https://github.com/googlei18n/libphonenumber</string>
     <string name="library_materialdialogs_author">Aidan Follestad</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/src/main/res/values/info_strings.xml -->
-    <eat-comment/>
-    <string name="library_materialdialogs_authorWebsite" translatable="false">https://github.com/wdullaer/SwipeActionAdapter</string>
-    <string name="library_materialdialogs_classPath" translatable="false">com.wdullaer.swipeactionadapter</string>
-    <!-- From: file:/C:/Users/Office/AndroidstudioProjects/ShoppingList/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.1.1/res/values/values.xml -->
-    <eat-comment/>
+    <string name="library_materialdialogs_authorWebsite">http://aidanfollestad.com/</string>
+    <string name="library_materialdialogs_classPath">com.afollestad.materialdialogs.MaterialDialog</string>
     <string name="library_materialdialogs_isOpenSource">true</string>
     <string name="library_materialdialogs_libraryDescription">A beautiful, easy-to-use, and customizable dialogs API, enabling you to use Material designed
         dialogs down to API 8

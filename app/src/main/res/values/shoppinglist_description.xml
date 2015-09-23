@@ -4,13 +4,20 @@
     <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
     <string name="aboutLibraries_description_showVersion" translatable="false">false</string>
     <string name="aboutLibraries_description_text" translatable="false">
-        <![CDATA[I love OpenSource!<br>Thank you for your great libraries!<br><br> Special thanks to <i>beli3ver</i> and <i>jklmnn</i>  for their continued support!]]>
+        <![CDATA[I love OpenSource!<br>Thank you for your great libraries.<br><br> Special thanks to <i>beli3ver</i> and <i>jklmnn</i>  for their continued support!]]>
     </string>
     <string name="aboutLibraries_description_special1_name" translatable="false">GitHub</string>
     <string name="aboutLibraries_description_special1_text" translatable="false">Check this project out on GitHub!</string>
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
+        <i>Version 1.2</i><br />
+        <br>
+        - Removed unused library<br />
+        - Backend compatibility check<br />
+        - Host url does not have to end with / or api.php anymore<br />
+        - When no item is selected, question if list should be cleared<br />
+        <br />
         <i>Version 1.1</i><br />
         <br>
         WORKS ONLY WITH NEW BACKEND!

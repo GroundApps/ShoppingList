@@ -23,6 +23,7 @@
     <string name="app_name">ShoppingList</string>
     <string name="cache">Gespeicherte Version</string>
     <string name="cancel">Abbrechen</string>
+    <string name="dialog_clear_confirm">Soll die komplette Liste geleert werden?</string>
     <string name="empty_view_cache">Bei der letzten Synchronizierung war die Liste leer.</string>
     <string name="empty_view_favorites">Du hast noch keine Favoriten. Füge welche hinzu!</string>
     <string name="empty_view_list">Noch nichts auf der Liste... bis jetzt :)</string>

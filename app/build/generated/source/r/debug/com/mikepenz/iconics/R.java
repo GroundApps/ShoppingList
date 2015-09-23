@@ -15,7 +15,7 @@ public final class R {
 	}
 	public static final class string {
 		public static final int app_name = 0x7f070010;
-		public static final int define_AndroidIconics = 0x7f070046;
+		public static final int define_AndroidIconics = 0x7f070047;
 		public static final int library_AndroidIconics_author = 0x7f0700fd;
 		public static final int library_AndroidIconics_authorWebsite = 0x7f0700fe;
 		public static final int library_AndroidIconics_isOpenSource = 0x7f0700ff;

@@ -4,7 +4,7 @@
         android:key="host"
         android:summary="@string/settingsHostSummary"
         android:inputType="textUri|textNoSuggestions"
-        android:hint="https://example.org/sholi/api.php"/>
+        android:hint="example.org/sholi/"/>
     <CheckBoxPreference android:title="SSL"
         android:key="useSSL"
         android:summary="@string/settingsSslSummary" />

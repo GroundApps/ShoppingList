@@ -9,8 +9,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Dummy Item"
             android:id="@+id/row_item_title"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"/>
 
         <TextView

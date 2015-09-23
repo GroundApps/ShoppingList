@@ -34,7 +34,6 @@ MERGED from com.android.support:design:22.2.1:22:5
 MERGED from com.android.support:appcompat-v7:22.2.1:22:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
-MERGED from com.wdullaer:swipeactionadapter:1.4.4:11:5
 MERGED from com.mikepenz:aboutlibraries:5.1.1:11:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
 MERGED from com.android.support:appcompat-v7:22.2.1:22:5
@@ -103,7 +102,6 @@ MERGED from com.android.support:design:22.2.1:20:5
 MERGED from com.android.support:appcompat-v7:22.2.1:20:5
 MERGED from com.android.support:support-v4:22.2.1:20:5
 MERGED from com.android.support:support-v4:22.2.1:20:5
-MERGED from com.wdullaer:swipeactionadapter:1.4.4:7:5
 MERGED from com.mikepenz:aboutlibraries:5.1.1:7:5
 MERGED from com.android.support:support-v4:22.2.1:20:5
 MERGED from com.android.support:appcompat-v7:22.2.1:20:5

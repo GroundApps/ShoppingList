@@ -1,11 +1,11 @@
 package org.janb.shoppinglist.api;
 
 public class BackendSettings {
-    private String host, apikey;
+    private String url, apikey;
     private Boolean ssl;
 
     public String getHost() {
-        return host;
+        return url;
     }
 
     public String getAuth() {

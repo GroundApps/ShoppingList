@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="?android:colorAccent"/><!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/AboutLibraries/library/src/main/res/drawable-v21/button_rect_normal.xml -->

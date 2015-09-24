@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    buildToolsVersion '22.0.1'
 
     lintOptions {
         abortOnError false
@@ -24,20 +24,24 @@ android {
     }
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile('com.mikepenz:materialdrawer:3.1.2@aar') {
         transitive = true
     }
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:support-v4:22.2.1'
-    compile 'com.afollestad:material-dialogs:0.7.6.0'
+    compile 'com.github.afollestad:material-dialogs:v0.7.7.0'
+    //compile 'com.afollestad:material-dialogs:0.7.6.0'
     compile 'com.getbase:floatingactionbutton:1.10.0'
     compile 'com.android.support:design:22.2.1'
     compile('com.mikepenz:aboutlibraries:5.1.1@aar') {
         transitive = true
     }
     compile 'com.google.code.gson:gson:2.3.1'
-
 }
 

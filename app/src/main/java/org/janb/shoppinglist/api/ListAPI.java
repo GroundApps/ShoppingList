@@ -180,6 +180,11 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             Log.d("RESPONSE CODE", String.valueOf(responseCode));
             Log.d("BACKEND VERSION", String.valueOf(backend_version));
             //Check if backend version has the minimum required version to work with the app
+            if(backend_version < 1 ){
+                listener.onError(new ResponseHelper(CONSTS.API_ERROR_404, context.getResources().getString(R.string.error_not_found)));
+                this.cancel(true);
+                return;
+            }
             if (backend_version < CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION){
                 listener.onError(new ResponseHelper(CONSTS.APP_BACKEND_VERSION, "Backend version: " + String.valueOf(backend_version) + "\n" + context.getResources().getString(R.string.error_backend_version) + String.valueOf(CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION) + "\n" + context.getResources().getString(R.string.error_backend_version_update_notice)));
                 this.cancel(true);

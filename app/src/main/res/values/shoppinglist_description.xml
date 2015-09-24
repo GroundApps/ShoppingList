@@ -11,22 +11,28 @@
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
-        <i>Version 1.3</i><br />
-        <br>
+        <i><b>Version 1.4</b></i><br />
+        - Added predictions<br />
+        - Option for backend update notifications<br />
+        <br />
+        <i><b>Version 1.3</b></i><br />
         - Removed unused library<br />
         - Backend compatibility check<br />
         - Host url does not have to end with / or api.php anymore<br />
         - When no item is selected, question if list should be cleared<br />
         <br />
-        <i>Version 1.1</i><br />
+        <i><b>Version 1.2</b></i><br />
+        <i>Skipped due to my incompetence :)</i><br>
+        <br>
+        <i><b>Version 1.1</b></i><br />
         <br>
         WORKS ONLY WITH NEW BACKEND!
         <br>
         - Multiple bugfixes<br />
-        - improved error handling<br />
-        - add favorites from current list<br />
-        - add multiple items from favorites<br />
-        - select and then remove multiple items<br />
-        - new icon (Thanks beli3ver!)<br />]]>
+        - Improved error handling<br />
+        - Add favorites from current list<br />
+        - Add multiple items from favorites<br />
+        - Select and then remove multiple items<br />
+        - New icon (Thanks beli3ver!)<br />]]>
     </string>
 </resources>

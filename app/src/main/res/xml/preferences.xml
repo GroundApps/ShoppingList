@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Quick Setup" />
-    <Preference android:title="Scan QR"
+    <Preference android:title="Scan QR Code"
         android:key="scanQR"/>
     <PreferenceCategory android:title="Backend" />
     <EditTextPreference android:title="Host"

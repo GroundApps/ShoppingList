@@ -173,25 +173,26 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             writer.close();
             os.close();
             int responseCode = conn.getResponseCode();
-            if (conn.getHeaderField("ShoLiBackendVersion") != null) {
-                backend_version = Double.parseDouble(conn.getHeaderField("ShoLiBackendVersion"));
-            }
-            Log.d("URL", requestURL);
             Log.d("RESPONSE CODE", String.valueOf(responseCode));
-            Log.d("BACKEND VERSION", String.valueOf(backend_version));
-            //Check if backend version has the minimum required version to work with the app
-            if(backend_version < 1 ){
-                listener.onError(new ResponseHelper(CONSTS.API_ERROR_404, context.getResources().getString(R.string.error_not_found)));
-                this.cancel(true);
-                return;
-            }
-            if (backend_version < CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION){
-                listener.onError(new ResponseHelper(CONSTS.APP_BACKEND_VERSION, "Backend version: " + String.valueOf(backend_version) + "\n" + context.getResources().getString(R.string.error_backend_version) + String.valueOf(CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION) + "\n" + context.getResources().getString(R.string.error_backend_version_update_notice)));
-                this.cancel(true);
-                return;
-            }
+            Log.d("URL", requestURL);
             switch (responseCode) {
                 case HttpsURLConnection.HTTP_OK:
+                    if (conn.getHeaderField("ShoLiBackendVersion") != null) {
+                        backend_version = Double.parseDouble(conn.getHeaderField("ShoLiBackendVersion"));
+                    }
+                    //Check if backend version has the minimum required version to work with the app
+                    Log.d("BACKEND VERSION", String.valueOf(backend_version));
+                    if(backend_version < 1 ){
+                        listener.onError(new ResponseHelper(CONSTS.API_ERROR_NO_VERSION, context.getResources().getString(R.string.error_no_header)));
+                        this.cancel(true);
+                        return;
+                    }
+                    if (backend_version < CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION){
+                        listener.onError(new ResponseHelper(CONSTS.APP_BACKEND_VERSION, "Backend version: " + String.valueOf(backend_version) + "\n" + context.getResources().getString(R.string.error_backend_version) + String.valueOf(CONSTS.MINIMUM_REQUIRED_BACKEND_VERSION) + "\n" + context.getResources().getString(R.string.error_backend_version_update_notice)));
+                        this.cancel(true);
+                        return;
+                    }
+
                     String line;
                     BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     while ((line = br.readLine()) != null) {

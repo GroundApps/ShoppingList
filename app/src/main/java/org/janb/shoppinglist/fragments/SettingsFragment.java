@@ -34,8 +34,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         addPreferencesFromResource(R.xml.preferences);
         clearPredictions = findPreference("clearPredictions");
         clearPredictions.setOnPreferenceClickListener(this);
-        scanQR = findPreference("scanQR");
-        scanQR.setOnPreferenceClickListener(this);
+        //scanQR = findPreference("scanQR");
+        //scanQR.setOnPreferenceClickListener(this);
     }
 
     @Override

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Quick Setup" />
+    <!--<PreferenceCategory android:title="Quick Setup" />
     <Preference android:title="Scan QR Code"
         android:key="scanQR"/>
+    -->
     <PreferenceCategory android:title="Backend" />
     <EditTextPreference android:title="Host"
         android:key="host"
@@ -18,9 +19,10 @@
     <PreferenceCategory android:title="Predictions" />
     <Preference android:title="Clear Predictions"
         android:key="clearPredictions"/>
-    <PreferenceCategory android:title="Backend Update Notification"/>
+    <!--<PreferenceCategory android:title="Backend Update Notification"/>
     <SwitchPreference android:title="Check for Updates"
         android:key="updateCheck"
         android:summary="Periodically check your host if a backend update is available."/>
+    -->
 
 </PreferenceScreen>

@@ -34,7 +34,7 @@ public class CONSTS {
     public static final int API_ERROR_MISSING_FUNCTION = 5003;
     public static final int API_ERROR_NO_DATABASE = 5004;
     public static final int API_ERROR_CONFIG = 5005;
-    public static final int API_ERROR_UNKNOWN = 5006;
+    public static final int API_ERROR_NO_VERSION = 5006;
 
     public static final int API_ERROR_UPDATE_ = 5007;
     public static final int API_ERROR_FAVORITE = 5008;

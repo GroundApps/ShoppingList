@@ -18,6 +18,7 @@
 
     <string name="error_connect">Could not connect to the server at: </string>
     <string name="error_not_found">API could not be access on the supplied host.</string>
+    <string name="error_no_header">API did not send back a header with the version information.</string>
     <string name="error_server_error">The server did not send any content back. Likely due to an internal server error.</string>
     <string name="error_auth">The server refused the connection. Please check your server configuration.</string>
     <string name="error_response">The server sent a response that did not make sense!</string>
@@ -47,7 +48,7 @@
     <string name="new_entry">New Entry</string>
     <string name="new_entry_from_favorite">Favorites</string>
     <string name="markFavorite">Favorite</string>
-    <string name="settingsSslSummary">Check if you want to use SSL \n (strongly recommended!)</string>
+    <string name="settingsSslSummary">Enable if you want to use SSL \n (strongly recommended!)</string>
     <string name="settingsHostSummary">Host + location of api.php</string>
     <string name="settingsAuthSummary">Please provide your authentication token. \n (defined during backend installation)</string>
     <string name="error_backend_version">Required: </string>

@@ -93,66 +93,68 @@ public class MainActivity extends AppCompatActivity {
             case CONSTS.TAG_ABOUT:
                 new LibsBuilder()
                     .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
-                    .withListener(new LibsConfiguration.LibsListener() {
-                        @Override
-                        public void onIconClicked(View view) {
-                        }
-
-                        @Override
-                        public boolean onLibraryAuthorClicked(View view, Library library) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
-                            startActivity(browserIntent);
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onLibraryContentClicked(View view, Library library) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
-                            startActivity(browserIntent);
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onLibraryBottomClicked(View view, Library library) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
-                            startActivity(browserIntent);
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onExtraClicked(View view, Libs.SpecialButton specialButton) {
-                            if(specialButton == Libs.SpecialButton.SPECIAL1){
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.github_url)));
-                                startActivity(browserIntent);
+                    .withAboutVersionShown(true)
+                        .withFields(R.string.class.getFields())
+                        .withListener(new LibsConfiguration.LibsListener() {
+                            @Override
+                            public void onIconClicked(View view) {
                             }
-                            return false;
-                        }
 
-                        @Override
-                        public boolean onIconLongClicked(View view) {
-                            return false;
-                        }
+                            @Override
+                            public boolean onLibraryAuthorClicked(View view, Library library) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
+                                startActivity(browserIntent);
+                                return false;
+                            }
 
-                        @Override
-                        public boolean onLibraryAuthorLongClicked(View view, Library library) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
-                            startActivity(browserIntent);
-                            return false;
-                        }
+                            @Override
+                            public boolean onLibraryContentClicked(View view, Library library) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
+                                startActivity(browserIntent);
+                                return false;
+                            }
 
-                        @Override
-                        public boolean onLibraryContentLongClicked(View view, Library library) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
-                            startActivity(browserIntent);
-                            return false;
-                        }
+                            @Override
+                            public boolean onLibraryBottomClicked(View view, Library library) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
+                                startActivity(browserIntent);
+                                return false;
+                            }
 
-                        @Override
-                        public boolean onLibraryBottomLongClicked(View view, Library library) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
-                            startActivity(browserIntent);
-                            return false;
-                        }
+                            @Override
+                            public boolean onExtraClicked(View view, Libs.SpecialButton specialButton) {
+                                if (specialButton == Libs.SpecialButton.SPECIAL1) {
+                                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.github_url)));
+                                    startActivity(browserIntent);
+                                }
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onIconLongClicked(View view) {
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onLibraryAuthorLongClicked(View view, Library library) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
+                                startActivity(browserIntent);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onLibraryContentLongClicked(View view, Library library) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
+                                startActivity(browserIntent);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onLibraryBottomLongClicked(View view, Library library) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(library.getRepositoryLink()));
+                                startActivity(browserIntent);
+                                return false;
+                            }
                     })
                     .withActivityTitle(getResources().getString(R.string.title_about))
                     .start(this);

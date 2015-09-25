@@ -32,7 +32,9 @@ public class ErrorFragment extends Fragment implements View.OnClickListener {
         setHasOptionsMenu(true);
         Bundle b = getArguments();
         this.errorDescription = b.getString("error_code");
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_main));
+        if(((AppCompatActivity)getActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.title_main));
+        }
     }
 
     @Override

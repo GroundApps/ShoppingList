@@ -87,7 +87,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
          URL = URL.replace("https://", "");
          URL = URL.replace("http://", "");
          String lastChar = URL.substring(URL.length() - 1);
-         if(!lastChar.equals("/") || !lastChar.equals("p")){
+         if(!lastChar.equals("/") && !lastChar.equals("p")){
              URL = URL+"/";
          }
          if(prefs.getBoolean("useSSL", false)) {
@@ -179,6 +179,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                 case HttpsURLConnection.HTTP_OK:
                     if (conn.getHeaderField("ShoLiBackendVersion") != null) {
                         backend_version = Double.parseDouble(conn.getHeaderField("ShoLiBackendVersion"));
+                        prefs.edit().putString("CURRENT_BACKEND_VERSION",conn.getHeaderField("ShoLiBackendVersion")).apply();
                     }
                     //Check if backend version has the minimum required version to work with the app
                     Log.d("BACKEND VERSION", String.valueOf(backend_version));

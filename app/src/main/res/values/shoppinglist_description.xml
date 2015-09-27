@@ -9,8 +9,16 @@
     <string name="aboutLibraries_description_special1_name" translatable="false">GitHub</string>
     <string name="aboutLibraries_description_special1_text" translatable="false">Check this project out on GitHub!</string>
     <string name="aboutLibraries_description_special3_name" translatable="false">Changelog</string>
+    <!--TODO Version Description-->
     <string name="aboutLibraries_description_special3_text" translatable="false">
         <![CDATA[
+        <i><b>Version 1.4</b></i><br />
+        - Quick setup with QR Code<br />
+          (App "Barcode Scanner" required, also available in FDroid)<br />
+        - Added categories for items<br />
+        - Added possibility to check for backend updates<br />
+        - Added translation for predictions<br />
+        <br />
         <i><b>Version 1.3</b></i><br />
         - Added predictions<br />
         - Removed unused library<br />

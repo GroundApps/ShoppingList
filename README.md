@@ -10,6 +10,11 @@ Add favorites and add quick add them to your list.<br><br>
 <img src=screenshots/4.png width=250 /><br><br>
 </p>
 
+###Installation
+Go to Settings  
+Host: `example.org/sholi/api.php`  
+Authentication : Enter the API key defined during the backend installation.
+
 ###Feedback
 Please do never hesitate to open an issue!<br>
 

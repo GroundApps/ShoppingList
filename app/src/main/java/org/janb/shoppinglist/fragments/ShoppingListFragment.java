@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -25,6 +26,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,11 +37,12 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.gson.Gson;
 
 import org.janb.shoppinglist.CONSTS;
+import org.janb.shoppinglist.LOGGER;
 import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.api.ListAPI;
 import org.janb.shoppinglist.api.ResponseHelper;
 import org.janb.shoppinglist.api.ResultsListener;
-import org.janb.shoppinglist.model.PredictionDbAdapter;
+import org.janb.shoppinglist.model.PredictionDbAdapterItem;
 import org.janb.shoppinglist.model.ShoppingListAdapter;
 import org.janb.shoppinglist.model.ShoppingListItem;
 import org.json.JSONArray;
@@ -64,8 +67,9 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     private ShoppingListFragment ref;
     private ShoppingListItem openedItem;
     private EditText dialogCount;
-    private PredictionDbAdapter dbHelper;
+    private PredictionDbAdapterItem dbHelperItem;
     private AutoCompleteTextView dialog_add_custom_what;
+    private AutoCompleteTextView dialog_add_custom_category;
 
     public ShoppingListFragment() {
     }
@@ -112,17 +116,12 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 dialogCount.setText(String.valueOf(item.getItemCount()));
                 TextView dialogTitle = (TextView)dialog.findViewById(R.id.dialog_update_title);
                 dialogTitle.setText(item.getItemTitle());
-                //dialog.findViewById(R.id.dialog_update_important).setOnClickListener(ref);
                 TextView fav = (TextView)dialog.findViewById(R.id.dialog_update_favorite);
                 fav.setOnClickListener(ref);
                 if(getFavorites().contains(item.getItemTitle())){
                     isFavorite = true;
                     fav.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
                 }
-                /*if(item.isImportant){
-                    dialog.findViewById(R.id.dialog_update_important).setBackgroundResource(R.drawable.ic_action_important);
-                }
-                */
                 return true;
             }
         });
@@ -386,8 +385,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
             case R.id.main_action_a:
                 final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                 action_main.collapse();
-                dbHelper = new PredictionDbAdapter(context);
-                dbHelper.open();
+                dbHelperItem = new PredictionDbAdapterItem(context);
+                dbHelperItem.open();
 
                 dialog = new MaterialDialog.Builder(getActivity())
                         .customView(R.layout.dialog_add_custom, true)
@@ -396,35 +395,34 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                                 .callback(new MaterialDialog.ButtonCallback() {
                                     @Override
                                     public void onPositive(MaterialDialog dialog) {
-                                        TextView dialog_add_custom_how_much = (TextView) dialog.findViewById(R.id.dialog_add_custom_how_much);
+                                        TextView dialog_add_custom_how_much = (TextView) dialog.findViewById(R.id.dialog_add_count);
                                         imm.hideSoftInputFromWindow(dialog_add_custom_what.getWindowToken(), 0);
                                         if (!dialog_add_custom_what.getText().toString().isEmpty()) {
                                             saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString());
-                                            dbHelper.addPrediction(dialog_add_custom_what.getText().toString());
+                                            dbHelperItem.addPrediction(dialog_add_custom_what.getText().toString());
                                             if (isFavorite) {
                                                 addToFavorites(dialog_add_custom_what.getText().toString());
                                                 isFavorite = false;
                                             }
                                         }
-                                        dbHelper.close();
+                                        dbHelperItem.close();
                                     }
                                     @Override
                                     public void onNegative(MaterialDialog dialog) {
                                         imm.hideSoftInputFromWindow(dialog_add_custom_what.getWindowToken(), 0);
-                                        dbHelper.close();
+                                        dbHelperItem.close();
                                     }
                                 })
                                 .show();
 
-                PredictionAdapter adapter = new PredictionAdapter(dbHelper);
-                dialog_add_custom_what = (AutoCompleteTextView) dialog.findViewById(R.id.dialog_add_custom_what);
+                PredictionAdapter adapter = new PredictionAdapter(dbHelperItem);
+                dialog_add_custom_what = (AutoCompleteTextView) dialog.findViewById(R.id.dialog_add_what);
                 dialog_add_custom_what.setAdapter(adapter);
                 dialog_add_custom_what.setOnItemClickListener(adapter);
                 dialog_add_custom_what.setFocusable(true);
                 dialog_add_custom_what.requestFocus();
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-                dialog.findViewById(R.id.dialog_add_custom_favorite).setOnClickListener(this);
-                dialog.findViewById(R.id.dialog_add_custom_important).setOnClickListener(this);
+                dialog.findViewById(R.id.dialog_add_favorite).setOnClickListener(this);
                 break;
             case R.id.main_action_b:
                 final List<String> favorites = getFavorites();
@@ -456,17 +454,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .positiveText(getResources().getString(R.string.ok))
                         .show();
                 break;
-            case R.id.dialog_add_custom_important:
-                if (isImportant){
-                    isImportant = false;
-                    dialog.findViewById(R.id.dialog_add_custom_important).setBackgroundResource(R.drawable.ic_action_not_important);
-                } else {
-                    isImportant = true;
-                    dialog.findViewById(R.id.dialog_add_custom_important).setBackgroundResource(R.drawable.ic_action_important);
-                }
-                break;
-            case R.id.dialog_add_custom_favorite:
-                TextView favoriteAdd = (TextView)dialog.findViewById(R.id.dialog_add_custom_favorite);
+            case R.id.dialog_add_favorite:
+                TextView favoriteAdd = (TextView)dialog.findViewById(R.id.dialog_add_favorite);
                 if (isFavorite){
                     isFavorite = false;
                     favoriteAdd.setShadowLayer(0, 0, 0, 0);
@@ -474,17 +463,6 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     isFavorite = true;
                     favoriteAdd.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
                 }
-                break;
-            case R.id.dialog_update_important:
-                openedItem.toggleImportant();
-                if (isImportant){
-                    isImportant = false;
-                    dialog.findViewById(R.id.dialog_update_important).setBackgroundResource(R.drawable.ic_action_not_important);
-                } else {
-                    isImportant = true;
-                    dialog.findViewById(R.id.dialog_update_important).setBackgroundResource(R.drawable.ic_action_important);
-                }
-
                 break;
             case R.id.dialog_update_favorite:
                 TextView favoriteUpdate = (TextView)dialog.findViewById(R.id.dialog_update_favorite);
@@ -616,9 +594,9 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     class PredictionAdapter extends CursorAdapter
             implements AdapterView.OnItemClickListener {
 
-        private PredictionDbAdapter mDbHelper;
+        private PredictionDbAdapterItem mDbHelper;
 
-        public PredictionAdapter(PredictionDbAdapter dbHelper) {
+        public PredictionAdapter(PredictionDbAdapterItem dbHelper) {
             super(context, null, true);
             mDbHelper = dbHelper;
         }
@@ -636,13 +614,13 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         public void bindView(View view, Context context, Cursor cursor) {
             final int itemColumnIndex = cursor.getColumnIndexOrThrow("itemTitle");
             TextView predictionText = (TextView) view.findViewById(R.id.text);
-            predictionText.setText(cursor.getString(itemColumnIndex));
+            String prediction = cursor.getString(itemColumnIndex);
+            predictionText.setText(prediction);
         }
 
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
             final LayoutInflater inflater = LayoutInflater.from(context);
-            final View view = inflater.inflate(R.layout.row_favorites,parent, false);
-            return view;
+            return inflater.inflate(R.layout.row_predictions, parent, false);
         }
 
         @Override
@@ -652,6 +630,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
             dialog_add_custom_what.setText(itemTitle);
             dialog_add_custom_what.setSelection(itemTitle.length());
         }
+
     }
 
 }

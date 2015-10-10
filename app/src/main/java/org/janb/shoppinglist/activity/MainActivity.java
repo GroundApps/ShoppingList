@@ -28,6 +28,11 @@ import org.janb.shoppinglist.fragments.CacheListFragment;
 import org.janb.shoppinglist.fragments.FavoriteListFragment;
 import org.janb.shoppinglist.fragments.ShoppingListFragment;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.X509TrustManager;
+
+import de.duenndns.ssl.MemorizingTrustManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             buildDrawer();
             displayList();
         }
-
     }
 
     private void buildDrawer() {

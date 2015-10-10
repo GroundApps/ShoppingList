@@ -18,7 +18,7 @@
 
     <string name="error_connect">Could not connect to the server at: </string>
     <string name="error_not_found">API could not be access on the supplied host.</string>
-    <string name="error_no_header">API did not send back a header with the version information.</string>
+    <string name="error_no_header">API did not send back a header with the version information. (Location/Host of api correct?)</string>
     <string name="error_server_error">The server did not send any content back. Likely due to an internal server error.</string>
     <string name="error_auth">The server refused the connection. Please check your server configuration.</string>
     <string name="error_response">The server sent a response that did not make sense!</string>
@@ -48,14 +48,31 @@
     <string name="new_entry">New Entry</string>
     <string name="new_entry_from_favorite">Favorites</string>
     <string name="markFavorite">Favorite</string>
-    <string name="settingsSslSummary">Enable if you want to use SSL \n (strongly recommended!)</string>
-    <string name="settingsHostSummary">Host + location of api.php</string>
-    <string name="settingsAuthSummary">Please provide your authentication token. \n (defined during backend installation)</string>
     <string name="error_backend_version">Required: </string>
     <string name="error_backend_version_update_notice">Please update the backend on the server!</string>
 
     <string name="HttpUserAgent" translatable="false">ShoLiApp</string>
     <string name="favorite_delete_notice">Long tap to delete</string>
     <string name="dialog_clear_confirm">Do you want to clear the complete list?</string>
-
+    <string name="preferences_category_predictions">Predictions</string>
+    <string name="preferences_action_clear_predictions">Clear Predictions</string>
+    <string name="preferences_action_ssl">SSL</string>
+    <string name="preferences_category_auth">Authentication</string>
+    <string name="preferences_category_backend">Backend</string>
+    <string name="preferences_action_host">Host</string>
+    <string name="preferences_hint_host" translatable="false">example.org/sholi/</string>
+    <string name="preferences_summary_ssl">Enable if you want to use SSL \n (strongly recommended!)</string>
+    <string name="preferences_summary_auth">Please provide your authentication token. \n (defined during backend installation)</string>
+    <string name="preferences_category_qr">Quick Setup</string>
+    <string name="preferences_action_scan_qr">Scan QR Code</string>
+    <string name="preferences_category_backend_update">Backend Update Notifications</string>
+    <string name="preferences_action_check_for_updates">Check for Updates</string>
+    <string name="preferences_summary_check_for_updates">Every week, check if an update is available on GitHub.</string>
+    <string name="toast_predictions_cleared">Predictions cleared</string>
+    <string name="preferences_action_generate_qr">Show QR Code</string>
+    <string name="preferences_summary_generate_qr">Show a QR Code for others to scan</string>
+    <string name="toast_qr_missing_values">Cannot show QR Code. Missing host or authkey.</string>
+    <string name="GITHUB_RELEASE_URL" translatable="false">https://api.github.com/repos/GroundApps/ShoppingList_Backend/releases/latest</string>
+    <string name="error_response_format">The response did not make sense:</string>
+    <string name="add_custom_category">Category</string>
 </resources>

@@ -5,41 +5,30 @@
     android:layout_height="match_parent">
 
     <AutoCompleteTextView
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dialog_add_custom_what"
+        android:id="@+id/dialog_add_what"
         android:hint="@string/add_custom_item"
         android:singleLine="true"
-        android:layout_below="@+id/dialog_add_custom_important"
+        android:layout_below="@+id/dialog_add_favorite"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/dialog_add_custom_how_much"
-        android:layout_toStartOf="@+id/dialog_add_custom_how_much" />
+        android:layout_toLeftOf="@+id/dialog_add_count"
+        android:layout_toStartOf="@+id/dialog_add_count" />
 
     <EditText
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:textAlignment="center"
-        android:id="@+id/dialog_add_custom_how_much"
+        android:id="@+id/dialog_add_count"
         android:hint="@string/add_custom_item"
         android:text="1"
         android:gravity="center"
-        android:layout_alignTop="@+id/dialog_add_custom_what"
+        android:layout_alignTop="@+id/dialog_add_what"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:selectAllOnFocus="true"/>
-
-    <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/dialog_add_custom_important"
-        android:background="@drawable/ic_action_not_important"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="invisible"/>
 
     <TextView
         android:layout_marginTop="10dp"
@@ -47,10 +36,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/markFavorite"
-        android:id="@+id/dialog_add_custom_favorite"
+        android:id="@+id/dialog_add_favorite"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialog_add_category"
+        android:hint="@string/add_custom_category"
+        android:singleLine="true"
+        android:layout_below="@+id/dialog_add_what"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

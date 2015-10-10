@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--<PreferenceCategory android:title="Quick Setup" />
-    <Preference android:title="Scan QR Code"
+
+<PreferenceCategory android:title="@string/preferences_category_qr" />
+    <Preference android:title="@string/preferences_action_scan_qr"
         android:key="scanQR"/>
-    -->
-    <PreferenceCategory android:title="Backend" />
-    <EditTextPreference android:title="Host"
+    <Preference android:title="@string/preferences_action_generate_qr"
+        android:key="generateQR"
+        android:summary="@string/preferences_summary_generate_qr"/>
+    <PreferenceCategory android:title="@string/preferences_category_backend" />
+    <EditTextPreference android:title="@string/preferences_action_host"
         android:key="host"
         android:inputType="textUri|textNoSuggestions"
-        android:hint="example.org/sholi/"/>
-    <EditTextPreference android:title="Authentication"
+        android:hint="@string/preferences_hint_host"/>
+    <EditTextPreference android:title="@string/preferences_category_auth"
         android:key="authkey"
-        android:summary="@string/settingsAuthSummary"
+        android:summary="@string/preferences_summary_auth"
         android:inputType="textPassword|textNoSuggestions"/>
-    <SwitchPreference android:title="SSL"
+    <SwitchPreference android:title="@string/preferences_action_ssl"
         android:key="useSSL"
-        android:summary="@string/settingsSslSummary" />
-    <PreferenceCategory android:title="Predictions" />
-    <Preference android:title="Clear Predictions"
+        android:summary="@string/preferences_summary_ssl" />
+    <Preference android:title="Manage Self-Signed Certificates"
+        android:key="manageSelfSignedCertificates"/>
+    <PreferenceCategory android:title="@string/preferences_category_predictions" />
+    <Preference android:title="@string/preferences_action_clear_predictions"
         android:key="clearPredictions"/>
-    <!--<PreferenceCategory android:title="Backend Update Notification"/>
-    <SwitchPreference android:title="Check for Updates"
+    <PreferenceCategory android:title="@string/preferences_category_backend_update"/>
+    <SwitchPreference android:title="@string/preferences_action_check_for_updates"
         android:key="updateCheck"
-        android:summary="Periodically check your host if a backend update is available."/>
-    -->
-
+        android:summary="@string/preferences_summary_check_for_updates"/>
 </PreferenceScreen>

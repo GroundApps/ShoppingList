@@ -40,4 +40,6 @@ public class CONSTS {
     public static final int API_ERROR_FAVORITE = 5008;
     public static final int API_ERROR_DELETE = 5009;
     public static final int API_ERROR_SAVE = 5010;
+    public static final int GIT_RESPONSE_VERSION_TEXT = 0;
+    public static final int GIT_RESPONSE_BODY_TEXT = 1;
 }

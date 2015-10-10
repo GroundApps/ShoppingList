@@ -41,5 +41,6 @@ dependencies {
         transitive = true
     }
     compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.github.ge0rg:MemorizingTrustManager:9e30ffdf7d'
 }
 

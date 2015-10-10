@@ -46,4 +46,6 @@ public class ShoppingListItem {
         this.itemCount = count;
         this.checked = false;
     }
+
+
 }

@@ -19,6 +19,8 @@
     <SwitchPreference android:title="@string/preferences_action_ssl"
         android:key="useSSL"
         android:summary="@string/preferences_summary_ssl" />
+    <Preference android:title="Manage Self-Signed Certificates"
+        android:key="manageSelfSignedCertificates"/>
     <PreferenceCategory android:title="@string/preferences_category_predictions" />
     <Preference android:title="@string/preferences_action_clear_predictions"
         android:key="clearPredictions"/>
@@ -26,7 +28,4 @@
     <SwitchPreference android:title="@string/preferences_action_check_for_updates"
         android:key="updateCheck"
         android:summary="@string/preferences_summary_check_for_updates"/>
-    <Preference android:title="TEST"
-        android:key="updateCheckTEST"/>
-
 </PreferenceScreen>

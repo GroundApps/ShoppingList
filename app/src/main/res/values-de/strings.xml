@@ -14,7 +14,7 @@
     <string name="title_main">ShoppingList</string>
     <string name="title_settings">Einstellungen</string>
     <string name="toast_no_favorites">Du hast noch keine Favoriten. Füge welche hinzu!</string>
-    <string name="empty_view_list">Noch nichts auf der Liste... bis jetzt :)</string>
+    <string name="empty_view_list">Noch nichts auf der Liste… bis jetzt :)</string>
     <string name="empty_view_favorites">Du hast noch keine Favoriten. Füge welche hinzu!</string>
     <string name="error_auth">Der Server hat die Verbindung zurückgewiesen. Bitte Server Einstellungen überprüfen.</string>
     <string name="error_connect">Konnte keine Verbindung herstellen mit Server: </string>
@@ -39,7 +39,7 @@
     <string name="error_backend_version_update_notice">Bitte das Backend auf dem Server aktualisieren!</string>
     <string name="favorite_delete_notice">Lange tappen zum löschen</string>
     <string name="dialog_clear_confirm">Soll die komplette Liste geleert werden?</string>
-    <string name="error_no_header">Es wurde kein Header mit der Versionsinfo gefunden.</string>
+    <string name="error_no_header">Der Server hat keinen Header mit der Versionsinfo gefunden. (Host richtig angegeben?)</string>
     <string name="preferences_summary_auth">Bitte das bei der Serverkonfiguration gewälte Passwort eingeben.</string>
     <string name="preferences_summary_ssl">Aktivieren falls SSL genutzt werden soll. \n (Empfohlen!)</string>
     <string name="preferences_action_check_for_updates">Nach Updates suchen</string>
@@ -52,9 +52,10 @@
     <string name="preferences_category_backend_update">Backend Update Benachrichtigungen</string>
     <string name="preferences_category_predictions">Vorschläge</string>
     <string name="preferences_category_qr">Schnelleinrichtung</string>
-    <string name="preferences_summary_check_for_updates">Überprüfe periodisch ob ein Update für das Backend verfügbar ist.</string>
+    <string name="preferences_summary_check_for_updates">Überprüfe jede Woche ob ein Update auf GitHub verfügbar ist.</string>
     <string name="toast_predictions_cleared">Vorschläge gelöscht</string>
     <string name="preferences_summary_generate_qr">QR Code zeigen, den andere scannen können</string>
     <string name="preferences_action_generate_qr">QR Code anzeigen</string>
     <string name="toast_qr_missing_values">Kann QR Code nicht anzeigen. Host oder Auth nicht eingestellt.</string>
+    <string name="error_response_format">Die Antwort des Servers ist nicht verständlich:</string>
 </resources>

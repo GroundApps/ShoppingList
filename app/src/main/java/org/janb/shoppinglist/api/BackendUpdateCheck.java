@@ -27,6 +27,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +65,7 @@ public class BackendUpdateCheck extends AsyncTask<String, Integer, Boolean> {
             url = new URL(requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestProperty("User-Agent", context.getString(R.string.HttpUserAgentGit));
+            conn.setRequestProperty("User-Agent", context.getString(R.string.HttpUserAgent));
             conn.setRequestProperty("Accept", "application/json; charset=utf-8");
             conn.setReadTimeout(5000);
             conn.setConnectTimeout(5000);
@@ -85,25 +86,27 @@ public class BackendUpdateCheck extends AsyncTask<String, Integer, Boolean> {
                     JsonObject jo = new JsonParser().parse(response).getAsJsonObject();
                     String gitVersion = jo.get("name").toString();
                     gitVersion = "1";
-                    String gitBody = jo.get("body").toString();
-                    listener.onResponse(gitVersion);
+                    List responseList = new ArrayList<>();
+                    responseList.add(CONSTS.GIT_RESPONSE_VERSION_TEXT, gitVersion);
+                    responseList.add(CONSTS.GIT_RESPONSE_BODY_TEXT, jo.get("body").toString());
+                    listener.onResponse(responseList);
                     this.cancel(true);
                     break;
                 case HttpsURLConnection.HTTP_INTERNAL_ERROR:
-                    listener.onError("500");
+                    listener.onError("500 Server Error");
                     this.cancel(true);
                     break;
                 case HttpsURLConnection.HTTP_FORBIDDEN:
-                    listener.onError("403");
+                    listener.onError("403 Forbidden");
                     this.cancel(true);
                     break;
                 case HttpsURLConnection.HTTP_NOT_FOUND:
-                    listener.onError("404");
+                    listener.onError("404 Not Found");
                     this.cancel(true);
                     break;
             }
         } catch (UnknownHostException e ){
-            listener.onError("404");
+            listener.onError("UnknownHostException");
             this.cancel(true);
             e.printStackTrace();
         } catch(ConnectException e) {

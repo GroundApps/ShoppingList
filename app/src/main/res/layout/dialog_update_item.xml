@@ -14,19 +14,9 @@
         android:layout_marginRight="20dp"
         android:textSize="40sp"
         android:selectAllOnFocus="true"
-        android:layout_below="@+id/dialog_update_title"
         android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/dialog_update_minus" />
-
-    <ImageButton
-        android:background="@drawable/ic_action_not_important"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/dialog_update_important"
-        android:layout_below="@+id/dialog_update_title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="invisible" />
+        android:layout_alignBottom="@+id/dialog_update_minus"
+        android:layout_below="@+id/dialog_update_favorite" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,9 +46,10 @@
         android:text="-"
         android:id="@+id/dialog_update_minus"
         android:background="@drawable/custom_button"
-        android:layout_below="@+id/dialog_update_important"
-        android:layout_alignLeft="@+id/dialog_update_plus"
-        android:layout_alignStart="@+id/dialog_update_plus" />
+        android:layout_below="@+id/dialog_update_title"
+        android:layout_toRightOf="@+id/dialog_update_count"
+        android:layout_toEndOf="@+id/dialog_update_count"
+        android:layout_marginTop="11dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -66,10 +57,9 @@
         android:layout_height="40dp"
         android:text="+"
         android:id="@+id/dialog_update_plus"
-        android:layout_below="@+id/dialog_update_title"
-        android:layout_toRightOf="@+id/dialog_update_count"
-        android:layout_toEndOf="@+id/dialog_update_count"
         android:background="@drawable/custom_button"
-        android:layout_above="@+id/dialog_update_minus" />
+        android:layout_alignTop="@+id/dialog_update_count"
+        android:layout_alignLeft="@+id/dialog_update_minus"
+        android:layout_alignStart="@+id/dialog_update_minus" />
 
 </RelativeLayout>

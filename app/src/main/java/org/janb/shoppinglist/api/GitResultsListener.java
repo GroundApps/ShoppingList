@@ -1,7 +1,9 @@
 package org.janb.shoppinglist.api;
 
+import java.util.List;
+
 public interface GitResultsListener {
-    void onResponse(String response);
+    void onResponse(List<String> response);
     void onError(String error);
 }
 

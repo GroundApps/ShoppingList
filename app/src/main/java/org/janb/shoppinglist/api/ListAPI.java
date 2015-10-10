@@ -8,27 +8,15 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpException;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 import org.janb.shoppinglist.CONSTS;
+import org.janb.shoppinglist.LOGGER;
 import org.janb.shoppinglist.R;
+import org.janb.shoppinglist.model.ShoppingListItem;
+import org.janb.shoppinglist.model.ShoppingListItem_Multiple;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -36,18 +24,20 @@ import java.io.UnsupportedEncodingException;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeoutException;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.X509TrustManager;
+
+import de.duenndns.ssl.MemorizingTrustManager;
 
 public class ListAPI extends AsyncTask<String, Integer, Boolean> {
     public static final  int FUNCTION_GETLIST = 1;
@@ -63,6 +53,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
     SharedPreferences prefs;
     static int chosenfunction;
     Context context;
+    Boolean useSSL;
 
     public ListAPI(Context context) {
         this.context = context;
@@ -80,17 +71,20 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String AUTHKEY = prefs.getString("authkey", "");
         String URL = prefs.getString("host", "");
+         useSSL = prefs.getBoolean("useSSL", false);
          if(URL.isEmpty()){
              listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONFIG_NO_HOST, context.getResources().getString(R.string.error_no_host_configured)));
              this.cancel(true);
          }
+
          URL = URL.replace("https://", "");
          URL = URL.replace("http://", "");
          String lastChar = URL.substring(URL.length() - 1);
          if(!lastChar.equals("/") && !lastChar.equals("p")){
              URL = URL+"/";
          }
-         if(prefs.getBoolean("useSSL", false)) {
+
+         if(useSSL) {
              URL = "https://" + URL;
          } else {
              URL = "http://" + URL;
@@ -119,7 +113,6 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             case FUNCTION_CLEARLIST:
                 parameters.put("function", "clear");
                 parameters.put("auth", AUTHKEY);
-
                 performPostCall(URL, parameters);
                 break;
             case FUNCTION_UPDATECOUNT:
@@ -151,12 +144,21 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
         URL url;
         String response = "";
         Double backend_version = 0.0;
-        ResponseHelper responseHelper;
 
         try {
             url = new URL(requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            if (conn instanceof HttpsURLConnection) {
+                //TODO Find a way to make this less buggy
+                SSLContext sc = SSLContext.getInstance("TLS");
+                MemorizingTrustManager mtm = new MemorizingTrustManager(context.getApplicationContext());
+                sc.init(null, new X509TrustManager[]{mtm}, new java.security.SecureRandom());
+                HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+                HttpsURLConnection.setDefaultHostnameVerifier(
+                        mtm.wrapHostnameVerifier(HttpsURLConnection.getDefaultHostnameVerifier()));
+                HttpsURLConnection.setFollowRedirects(false);
+            }
             conn.setRequestProperty("User-Agent", context.getString(R.string.HttpUserAgent));
             conn.setReadTimeout(5000);
             conn.setConnectTimeout(5000);
@@ -200,16 +202,8 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                         response += line;
                     }
                     Log.d("RESPONSE RAW", response);
-                    Gson gson = new Gson();
-                    try {
-                        responseHelper = gson.fromJson(response, ResponseHelper.class);
-                    } catch (Exception e){
-                        listener.onError(new ResponseHelper(CONSTS.APP_ERROR_RESPONSE, "The response did not make sense:" + response));
-                        this.cancel(true);
-                        return;
-                    }
-                    listener.onResponse(responseHelper);
-                    this.cancel(true);
+                    LOGGER.log(response);
+                    parseResponse(response);
                     break;
                 case HttpsURLConnection.HTTP_INTERNAL_ERROR:
                     listener.onError(new ResponseHelper(CONSTS.API_ERROR_SERVER, context.getResources().getString(R.string.error_server_error)));
@@ -224,12 +218,12 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                     this.cancel(true);
                     break;
             }
-        } catch (UnknownHostException e ){
+        } catch (UnknownHostException e ) {
             listener.onError(new ResponseHelper(CONSTS.APP_ERROR_HOST_NOT_FOUND, context.getResources().getString(R.string.error_host_not_found)));
             this.cancel(true);
             e.printStackTrace();
         } catch(ConnectException e) {
-            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONNECT, context.getResources().getString(R.string.error_connect)));
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_CONNECT, context.getResources().getString(R.string.error_connect) + " " + requestURL));
             this.cancel(true);
             e.printStackTrace();
         } catch (MalformedURLException e) {
@@ -246,6 +240,32 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
         }
     }
 
+    private void parseResponse(String response) {
+        ResponseHelper responseHelper;
+        Gson gson = new Gson();
+        try {
+            switch(chosenfunction) {
+                default:
+                    responseHelper = gson.fromJson(response, ResponseHelper.class);
+                    listener.onResponse(responseHelper);
+                    break;
+                case FUNCTION_DELETE_MULTIPLE:
+                    ShoppingListItem_Multiple[] itemMultiple = gson.fromJson(response, ShoppingListItem_Multiple[].class);
+                    List<ShoppingListItem_Multiple> statusList = new ArrayList<>(Arrays.asList(itemMultiple));
+                    for (ShoppingListItem_Multiple item: statusList) {
+                        Log.d(item.getItemTitle(), item.getError().toString());
+                    }
+                    responseHelper = new ResponseHelper(CONSTS.API_SUCCESS_DELETE,"Deleted Multiple Items");
+                    listener.onResponse(responseHelper);
+                    break;
+            }
+        } catch (Exception e) {
+            listener.onError(new ResponseHelper(CONSTS.APP_ERROR_RESPONSE, context.getString(R.string.error_response_format) + response));
+            this.cancel(true);
+        }
+        this.cancel(true);
+    }
+
     private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException{
         StringBuilder result = new StringBuilder();
         boolean first = true;
@@ -259,7 +279,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             result.append("=");
             result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
         }
-
+        LOGGER.log(result.toString());
         return result.toString();
     }
 

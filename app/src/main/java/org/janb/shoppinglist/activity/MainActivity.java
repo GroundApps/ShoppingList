@@ -28,8 +28,11 @@ import org.janb.shoppinglist.fragments.CacheListFragment;
 import org.janb.shoppinglist.fragments.FavoriteListFragment;
 import org.janb.shoppinglist.fragments.ShoppingListFragment;
 
-import service.UpdateCheckService;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.X509TrustManager;
 
+import de.duenndns.ssl.MemorizingTrustManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,9 +45,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
-        if(prefs.getBoolean("updateCheck", false)){
-            startService(new Intent(this, UpdateCheckService.class));
-        }
         if (prefs.getBoolean("first_start", true)){
             openSettings();
             prefs.edit().putBoolean("first_start", false).apply();
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             buildDrawer();
             displayList();
         }
-
     }
 
     private void buildDrawer() {

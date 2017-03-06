@@ -13,9 +13,8 @@ import java.io.FileWriter;
 public class LOGGER {
 
     private static final String FILE = "ShoLiLog.txt";
-    public static Context context;
 
-    public static void log(String msg) {
+    public static void log(Context context, String msg) {
         // Only log to file if debug mode in preferences is turned on
     if(!PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false))
         return;

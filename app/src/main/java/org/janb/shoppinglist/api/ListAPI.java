@@ -202,7 +202,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                         response += line;
                     }
                     Log.d("RESPONSE RAW", response);
-                    LOGGER.log(response);
+                    LOGGER.log(context.getApplicationContext(), response);
                     parseResponse(response);
                     break;
                 case HttpsURLConnection.HTTP_INTERNAL_ERROR:
@@ -279,7 +279,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             result.append("=");
             result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
         }
-        LOGGER.log(result.toString());
+        LOGGER.log(context.getApplicationContext(), result.toString());
         return result.toString();
     }
 

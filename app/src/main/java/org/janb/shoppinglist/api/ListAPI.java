@@ -102,6 +102,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                 parameters.put("auth", AUTHKEY);
                 parameters.put("item",params[0]);
                 parameters.put("count",params[1]);
+                parameters.put("checked",params[2]);
                 performPostCall(URL, parameters);
                 break;
             case FUNCTION_DELETEITEM:

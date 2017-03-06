@@ -103,7 +103,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                             public void onPositive(MaterialDialog dialog) {
                                 String dialogCountText = ((EditText) dialog.findViewById(R.id.dialog_update_count)).getText().toString();
                                 if (!dialogCountText.isEmpty() && !dialogCountText.equals(openedItem.getItemCountString())) {
-                                    saveItem(item.getItemTitle(), dialogCountText);
+                                    saveItem(item.getItemTitle(), dialogCountText, "false");
                                 }
                             }
                         })
@@ -160,12 +160,12 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
     }
 
-    private void saveItem(String itemTitle, String itemCount) {
+    private void saveItem(String itemTitle, String itemCount, String itemChecked) {
         setRefreshing();
         api = new ListAPI(context);
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_SAVEITEM);
-        api.execute(itemTitle, String.valueOf(itemCount));
+        api.execute(itemTitle, String.valueOf(itemCount), itemChecked);
     }
     private void saveMultiple(String jsonData) {
         setRefreshing();
@@ -215,6 +215,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
         setListAdapter(mAdapter);
         mListView.setSelectionFromTop(index, top);
+        saveItem(clickedItem.getItemTitle(), Integer.toString(clickedItem.getItemCount()), clickedItem.isChecked() ? "true" : "false");
     }
 
     public void setEmptyText(CharSequence emptyText) {
@@ -398,7 +399,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                                         TextView dialog_add_custom_how_much = (TextView) dialog.findViewById(R.id.dialog_add_count);
                                         imm.hideSoftInputFromWindow(dialog_add_custom_what.getWindowToken(), 0);
                                         if (!dialog_add_custom_what.getText().toString().isEmpty()) {
-                                            saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString());
+                                            saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString(), "false");
                                             dbHelperItem.addPrediction(dialog_add_custom_what.getText().toString());
                                             if (isFavorite) {
                                                 addToFavorites(dialog_add_custom_what.getText().toString());

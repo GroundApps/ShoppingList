@@ -2,6 +2,7 @@ package org.janb.shoppinglist.model;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +33,11 @@ public class ShoppingListAdapter extends ArrayAdapter {
         ViewHolder holder;
         View viewToUse = null;
         ShoppingListItem item = (ShoppingListItem)getItem(position);
+        Log.d("GET VIEW", "position:" + position);
 
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null) {
+        if (true || convertView == null) {  // FIXME: what was the intended behaviour here?
             holder = new ViewHolder();
             int rowType = 0;
             switch (rowType) {
@@ -46,6 +48,7 @@ public class ShoppingListAdapter extends ArrayAdapter {
                     holder.titleText = (TextView) viewToUse.findViewById(R.id.row_item_title);
                     holder.countText = (TextView) viewToUse.findViewById(R.id.row_item_count);
                     holder.checkLine = viewToUse.findViewById(R.id.row_item_check);
+                    Log.d("GET VIEW ITEM", position + ": " + item.getItemTitle());
                     viewToUse.setTag(holder);
                     holder.countText.setText(String.valueOf(item.getItemCount()));
                     if (item.getItemCount() == 1) {

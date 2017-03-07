@@ -4,6 +4,8 @@
 <PreferenceCategory android:title="@string/preferences_category_qr" />
     <Preference android:title="@string/preferences_action_scan_qr"
         android:key="scanQR"/>
+    <Preference android:title="@string/preferences_action_scan_qr_front"
+        android:key="scanQRfront"/>
     <Preference android:title="@string/preferences_action_generate_qr"
         android:key="generateQR"
         android:summary="@string/preferences_summary_generate_qr"/>

@@ -65,6 +65,7 @@
     <string name="preferences_summary_auth">Please provide your authentication token. \n (defined during backend installation)</string>
     <string name="preferences_category_qr">Quick Setup</string>
     <string name="preferences_action_scan_qr">Scan QR Code</string>
+    <string name="preferences_action_scan_qr_front">Scan QR Code (Front Camera)</string>
     <string name="preferences_category_backend_update">Backend Update Notifications</string>
     <string name="preferences_action_check_for_updates">Check for Updates</string>
     <string name="preferences_summary_check_for_updates">Every week, check if an update is available on GitHub.</string>

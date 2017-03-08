@@ -51,5 +51,11 @@ public class ShoppingListItem {
         this.checked = false;
     }
 
+ public ShoppingListItem(String title, int count, Boolean checked){
+        this.itemTitle = title;
+        this.itemCount = count;
+        this.checked = checked;
+    }
+
 
 }

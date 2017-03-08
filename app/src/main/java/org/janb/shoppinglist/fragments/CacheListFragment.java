@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.model.ShoppingListAdapter;
 import org.janb.shoppinglist.model.ShoppingListItem;
@@ -73,6 +75,11 @@ public class CacheListFragment extends ListFragment {
         shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
         setListAdapter(shopListAdapter);
         mListView.setSelectionFromTop(index, top);
+
+        SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = gson.toJson(ShoppingListItemList);
+        prefs.edit().putString("cached_list", json).apply();
     }
 
     private void getListFromCache() {
@@ -99,6 +106,7 @@ public class CacheListFragment extends ListFragment {
         Log.d("JSON DATA", jsondata);
         String item_title;
         String item_count;
+        Boolean item_checked;
         JSONArray array = null;
         ShoppingListItem itemData = null;
         try {
@@ -118,7 +126,8 @@ public class CacheListFragment extends ListFragment {
                     assert row != null;
                     item_title = row.getString("itemTitle");
                     item_count = row.getString("itemCount");
-                    itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count));
+                    item_checked = row.getBoolean("checked");
+                    itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count),item_checked);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

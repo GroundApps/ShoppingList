@@ -5,6 +5,7 @@
     <string name="nav_item_about">Über</string>
     <string name="nav_item_favorites">Favoriten</string>
     <string name="nav_item_home">Liste</string>
+    <string name="nav_item_cached">Gespeicherte Liste (offline)</string>
     <string name="nav_item_settings">Einstellungen</string>
     <string name="ok">OK</string>
     <string name="success">Aktion erfolgreich</string>

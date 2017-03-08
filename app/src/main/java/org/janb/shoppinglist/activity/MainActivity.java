@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 .withActionBarDrawerToggleAnimated(false)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.nav_item_home).withTag(CONSTS.TAG_LIST).withIcon(R.drawable.ic_toc_black_),
+                        new PrimaryDrawerItem().withName(R.string.nav_item_cached).withTag(CONSTS.TAG_CACHED).withIcon(R.drawable.ic_toc_black_),
                         new PrimaryDrawerItem().withName(R.string.nav_item_favorites).withTag(CONSTS.TAG_FAVORITES).withIcon(R.drawable.ic_star_rate_black)
                 )
                 .addStickyDrawerItems(
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
         switch (tag){
             case CONSTS.TAG_LIST:
                 displayList();
+                break;
+            case CONSTS.TAG_CACHED:
+                displayCached();
                 break;
             case CONSTS.TAG_FAVORITES:
                 displayFavorites();
@@ -188,6 +192,15 @@ public class MainActivity extends AppCompatActivity {
         android.app.FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_container, listFR);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void displayCached() {
+        CacheListFragment cacheFR = new CacheListFragment();
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, cacheFR);
         transaction.addToBackStack(null);
         transaction.commit();
     }

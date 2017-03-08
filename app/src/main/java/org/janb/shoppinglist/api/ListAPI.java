@@ -250,6 +250,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                     responseHelper = gson.fromJson(response, ResponseHelper.class);
                     listener.onResponse(responseHelper);
                     break;
+/* the current backend does not return a deleted item list
                 case FUNCTION_DELETE_MULTIPLE:
                     ShoppingListItem_Multiple[] itemMultiple = gson.fromJson(response, ShoppingListItem_Multiple[].class);
                     List<ShoppingListItem_Multiple> statusList = new ArrayList<>(Arrays.asList(itemMultiple));
@@ -259,6 +260,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                     responseHelper = new ResponseHelper(CONSTS.API_SUCCESS_DELETE,"Deleted Multiple Items");
                     listener.onResponse(responseHelper);
                     break;
+*/
             }
         } catch (Exception e) {
             listener.onError(new ResponseHelper(CONSTS.APP_ERROR_RESPONSE, context.getString(R.string.error_response_format) + response));

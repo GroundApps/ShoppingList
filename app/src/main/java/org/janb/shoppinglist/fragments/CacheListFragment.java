@@ -34,6 +34,7 @@ public class CacheListFragment extends ListFragment {
     private List<ShoppingListItem> ShoppingListItemList;
     private Context context;
     private ShoppingListAdapter shopListAdapter;
+    private Boolean hideChecked = true;
 
     public CacheListFragment() {
     }
@@ -68,11 +69,11 @@ public class CacheListFragment extends ListFragment {
         super.onListItemClick(l, view, position, id);
         ShoppingListItem clickedItem = ShoppingListItemList.get(position);
         clickedItem.toggleChecked();
-        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
         int index = mListView.getFirstVisiblePosition();
         View v = mListView.getChildAt(0);
         int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
-        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
         setListAdapter(shopListAdapter);
         mListView.setSelectionFromTop(index, top);
 
@@ -87,7 +88,7 @@ public class CacheListFragment extends ListFragment {
         SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
         parseJSON(prefs.getString("cached_list", ""));
         if (ShoppingListItemList.size() > 0) {
-            shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+            shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
             setListAdapter(shopListAdapter);
         } else {
             setEmptyText(getResources().getString(R.string.empty_view_cache));

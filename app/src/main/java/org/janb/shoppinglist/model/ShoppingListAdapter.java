@@ -17,10 +17,12 @@ public class ShoppingListAdapter extends ArrayAdapter {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_SEPARATOR = 1;
     private Context context;
+    Boolean hideChecked;
 
-    public ShoppingListAdapter(Context context, List<ShoppingListItem> items) {
+    public ShoppingListAdapter(Context context, List<ShoppingListItem> items, Boolean hideChecked) {
         super(context, android.R.layout.simple_list_item_1, items);
         this.context = context;
+        this.hideChecked = hideChecked;
     }
 
     private class ViewHolder{
@@ -37,7 +39,9 @@ public class ShoppingListAdapter extends ArrayAdapter {
 
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        if (true || convertView == null) {  // FIXME: what was the intended behaviour here?
+        if (item.isChecked() && hideChecked) {
+            viewToUse = mInflater.inflate(R.layout.list_row_hidden, parent, false);
+        } else if (true || convertView == null) {  // FIXME: what was the intended behaviour here?
             holder = new ViewHolder();
             int rowType = 0;
             switch (rowType) {

@@ -25,6 +25,7 @@
     <string name="error_url">Das Format der eingegebenen URL ist nicht gültig.</string>
     <string name="empty_view_cache">Bei der letzten Synchronizierung war die Liste leer.</string>
     <string name="action_clearlist">Liste leeren</string>
+    <string name="action_hidechecked">Erledigte ausblenden</string>
     <string name="error_general">Ein unerwarteter Fehler ist aufgetreten. Bitte auf GitHub melden!</string>
     <string name="cache">Gespeicherte Version</string>
     <string name="retry">Erneut versuchen</string>

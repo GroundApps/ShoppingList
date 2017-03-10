@@ -64,6 +64,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     private MaterialDialog dialog;
     private Boolean isImportant = false;
     private Boolean isFavorite = false;
+    private Boolean hideChecked = false;
     private ShoppingListFragment ref;
     private ShoppingListItem openedItem;
     private EditText dialogCount;
@@ -212,7 +213,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         int index = mListView.getFirstVisiblePosition();
         View v = mListView.getChildAt(0);
         int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
-        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
         setListAdapter(mAdapter);
         mListView.setSelectionFromTop(index, top);
         saveItem(clickedItem.getItemTitle(), Integer.toString(clickedItem.getItemCount()), clickedItem.isChecked() ? "true" : "false");
@@ -333,7 +334,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         String json = gson.toJson(ShoppingListItemList);
         prefs.edit().putString("cached_list", json).apply();
 
-        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
         setListAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         if(mAdapter.isEmpty()){
@@ -542,6 +543,10 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     public boolean onOptionsItemSelected(MenuItem item) {
         List<ShoppingListItem> delItems = new ArrayList();
         switch (item.getItemId()) {
+            case R.id.action_hidechecked:
+                hideChecked = !hideChecked;
+                buildList();
+                return true;
             case R.id.action_clearlist:
                 int i = 0;
                 for(ShoppingListItem SLitem:ShoppingListItemList){

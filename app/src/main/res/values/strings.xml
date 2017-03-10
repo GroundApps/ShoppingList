@@ -2,6 +2,7 @@
     <string name="app_name">ShoppingList</string>
 
     <string name="action_clearlist">Clear list</string>
+    <string name="action_hidechecked">Hide checked</string>
     <string name="action_share">Share</string>
 
     <string name="nav_item_home">List</string>

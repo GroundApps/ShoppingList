@@ -478,6 +478,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .show();
                 break;
             case R.id.main_action_c:
+                action_main.collapse();
                 SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
                 int cameraId = prefs.getBoolean("scanQRfront", false) ? 1 : 0;
                 IntentIntegrator integrator = new IntentIntegrator(this);

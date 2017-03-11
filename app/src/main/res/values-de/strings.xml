@@ -48,7 +48,8 @@
     <string name="preferences_action_clear_predictions">Vorschläge löschen</string>
     <string name="preferences_action_host">Host</string>
     <string name="preferences_action_scan_qr">QR Code scannen</string>
-    <string name="preferences_action_scan_qr_front">QR Code scannen (Front Kamera)</string>
+    <string name="preferences_checkbox_scan_qr_front">Vordere Kamera verwenden</string>
+    <string name="preferences_summary_scan_qr_front">QR Code mit der vorderen Kamera scannen</string>
     <string name="preferences_action_ssl">SSL</string>
     <string name="preferences_category_auth">Authentifizierung</string>
     <string name="preferences_category_backend">Backend</string>

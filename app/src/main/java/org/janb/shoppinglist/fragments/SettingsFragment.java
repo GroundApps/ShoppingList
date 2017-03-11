@@ -49,7 +49,7 @@ import java.util.Collections;
 import de.duenndns.ssl.MemorizingTrustManager;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
-    private Preference clearPredictions, scanQR, scanQRfront, generateQR, updateCheck, manageSelfSignedCertificates;
+    private Preference clearPredictions, scanQR, generateQR, updateCheck, manageSelfSignedCertificates;
 
     public SettingsFragment() {
     }
@@ -62,8 +62,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         clearPredictions.setOnPreferenceClickListener(this);
         scanQR = findPreference("scanQR");
         scanQR.setOnPreferenceClickListener(this);
-        scanQRfront = findPreference("scanQRfront");
-        scanQRfront.setOnPreferenceClickListener(this);
         generateQR = findPreference("generateQR");
         generateQR.setOnPreferenceClickListener(this);
         updateCheck = findPreference("updateCheck");
@@ -90,12 +88,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         if (preference == scanQR){
             IntentIntegrator integrator = new IntentIntegrator(getActivity());
-            integrator.initiateScan();
-            return true;
-        }
-        if (preference == scanQRfront){
-            IntentIntegrator integrator = new IntentIntegrator(getActivity());
-            integrator.initiateScan(1);
+            integrator.initiateScan(prefs.getBoolean("scanQRfront", false) ? 1 : 0);
             return true;
         }
         if (preference == generateQR){

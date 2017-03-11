@@ -49,6 +49,7 @@
 
     <string name="new_entry">New Entry</string>
     <string name="new_entry_from_favorite">Favorites</string>
+    <string name="new_entry_from_qr_code">Scan QR</string>
     <string name="markFavorite">Favorite</string>
     <string name="error_backend_version">Required: </string>
     <string name="error_backend_version_update_notice">Please update the backend on the server!</string>

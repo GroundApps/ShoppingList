@@ -35,6 +35,8 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.gson.Gson;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import org.janb.shoppinglist.CONSTS;
 import org.janb.shoppinglist.LOGGER;
@@ -147,6 +149,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         action_a.setOnClickListener(this);
         FloatingActionButton action_b = (FloatingActionButton) rootView.findViewById(R.id.main_action_b);
         action_b.setOnClickListener(this);
+        FloatingActionButton action_c = (FloatingActionButton) rootView.findViewById(R.id.main_action_c);
+        action_c.setOnClickListener(this);
         action_main = (FloatingActionsMenu) rootView.findViewById(R.id.main_multiple_actions);
         action_main.setAlpha(0.7f);
         action_a.setAlpha(0.7f);
@@ -182,6 +186,14 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_DELETE_MULTIPLE);
         api.execute(jsonData);
+    }
+
+    private void addQRcodeItem(String QRcode) {
+        setRefreshing();
+        api = new ListAPI(context);
+        api.setOnResultsListener(this);
+        ListAPI.setFunction(ListAPI.FUNCTION_ADD_QRCODE_ITEM);
+        api.execute(QRcode);
     }
 
     private void clearList() {
@@ -456,6 +468,12 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .positiveText(getResources().getString(R.string.ok))
                         .show();
                 break;
+            case R.id.main_action_c:
+                SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+                int cameraId = prefs.getBoolean("scanQRfront", false) ? 1 : 0;
+                IntentIntegrator integrator = new IntentIntegrator(this);
+                integrator.initiateScan(cameraId);
+                break;
             case R.id.dialog_add_favorite:
                 TextView favoriteAdd = (TextView)dialog.findViewById(R.id.dialog_add_favorite);
                 if (isFavorite){
@@ -521,6 +539,20 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
             e.printStackTrace();
         }
         return favorites;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null) {
+            Gson gson = new Gson();
+            try {
+                String QRcode = scanResult.getContents().toString();
+                Toast.makeText(getActivity().getApplicationContext(), QRcode, Toast.LENGTH_SHORT).show();
+                addQRcodeItem(QRcode);
+            } catch (Exception e){
+                Toast.makeText(getActivity().getApplicationContext(),"QR Code: Wrong data!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override

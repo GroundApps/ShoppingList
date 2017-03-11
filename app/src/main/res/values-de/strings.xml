@@ -32,6 +32,7 @@
     <string name="settings">Einstellungen öffnen</string>
     <string name="new_entry">Neuer Eintrag</string>
     <string name="new_entry_from_favorite">Vorlagen</string>
+    <string name="new_entry_from_qr_code">Barcode</string>
     <string name="add_custom_item">Artikel</string>
     <string name="action_share">Teilen</string>
     <string name="markFavorite">Favorit</string>

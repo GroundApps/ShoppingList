@@ -47,6 +47,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
     public static final  int FUNCTION_UPDATECOUNT = 5;
     public static final  int FUNCTION_DELETE_MULTIPLE = 6;
     public static final  int FUNCTION_SAVE_MULTIPLE = 7;
+    public static final  int FUNCTION_ADD_QRCODE_ITEM = 8;
 
 
     ResultsListener listener;
@@ -133,6 +134,13 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                 parameters.put("function", "saveMultiple");
                 parameters.put("auth", AUTHKEY);
                 parameters.put("jsonArray",params[0]);
+                Log.d("PARAMS", parameters.toString());
+                performPostCall(URL, parameters);
+                break;
+            case FUNCTION_ADD_QRCODE_ITEM:
+                parameters.put("function", "addQRcodeItem");
+                parameters.put("auth", AUTHKEY);
+                parameters.put("item",params[0]);
                 Log.d("PARAMS", parameters.toString());
                 performPostCall(URL, parameters);
                 break;

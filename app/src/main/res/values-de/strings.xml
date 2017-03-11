@@ -36,6 +36,7 @@
     <string name="add_custom_item">Artikel</string>
     <string name="action_share">Teilen</string>
     <string name="markFavorite">Favorit</string>
+    <string name="deleteItem">Löschen</string>
     <string name="error_no_host_configured">Bitte Host und Authkey in den Einstellungen festlegen.</string>
     <string name="error_host_not_found">Server nicht gefunden. Internetverbindung besteht?</string>
     <string name="error_backend_version">Benötigt:</string>

@@ -105,8 +105,15 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                             @Override
                             public void onPositive(MaterialDialog dialog) {
                                 String dialogCountText = ((EditText) dialog.findViewById(R.id.dialog_update_count)).getText().toString();
-                                if (!dialogCountText.isEmpty() && !dialogCountText.equals(openedItem.getItemCountString())) {
-                                    saveItem(item.getItemTitle(), dialogCountText, "false");
+                                String dialogTitleText = ((EditText) dialog.findViewById(R.id.dialog_update_title)).getText().toString();
+                                if (!dialogCountText.isEmpty() && (!dialogCountText.equals(openedItem.getItemCountString()) || !dialogTitleText.equals(openedItem.getItemTitle()))) {
+                                    saveItem(dialogTitleText, dialogCountText, "false");
+                                }
+                                if (!dialogTitleText.equals(openedItem.getItemTitle())) {
+                                    List<ShoppingListItem> delItems = new ArrayList();
+                                    delItems.add(0 , new ShoppingListItem(item.getItemTitle(), 1));
+                                    Gson gson = new Gson();
+                                    deleteMultiple(gson.toJson(delItems));
                                 }
                             }
                         })
@@ -121,6 +128,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 dialogTitle.setText(item.getItemTitle());
                 TextView fav = (TextView)dialog.findViewById(R.id.dialog_update_favorite);
                 fav.setOnClickListener(ref);
+                TextView del = (TextView)dialog.findViewById(R.id.dialog_update_delete);
+                del.setOnClickListener(ref);
                 if(getFavorites().contains(item.getItemTitle())){
                     isFavorite = true;
                     fav.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
@@ -495,6 +504,13 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     favoriteUpdate.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
                     addToFavorites(openedItem.getItemTitle());
                 }
+                break;
+            case R.id.dialog_update_delete:
+                List<ShoppingListItem> delItems = new ArrayList();
+                delItems.add(0 , new ShoppingListItem(openedItem.getItemTitle(), 1));
+                Gson gson = new Gson();
+                deleteMultiple(gson.toJson(delItems));
+                dialog.dismiss();
                 break;
             case R.id.dialog_update_minus:
                 if(!dialogCount.getText().toString().equals("1")) {

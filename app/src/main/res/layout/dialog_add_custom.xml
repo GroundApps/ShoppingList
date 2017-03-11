@@ -42,6 +42,7 @@
         android:layout_alignParentEnd="true" />
 
     <AutoCompleteTextView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dialog_add_category"

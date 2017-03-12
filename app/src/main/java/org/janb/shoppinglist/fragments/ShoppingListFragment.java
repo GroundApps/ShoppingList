@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -479,7 +480,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 break;
             case R.id.main_action_c:
                 action_main.collapse();
-                SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                 int cameraId = prefs.getBoolean("scanQRfront", false) ? 1 : 0;
                 IntentIntegrator integrator = new IntentIntegrator(this);
                 integrator.initiateScan(cameraId);

@@ -165,6 +165,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         action_main.setAlpha(0.7f);
         action_a.setAlpha(0.7f);
         action_b.setAlpha(0.7f);
+        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
+        setListAdapter(mAdapter);
         getList();
         return rootView;
     }
@@ -231,13 +233,11 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     public void onListItemClick(ListView l, View view, final int position, long id) {
         super.onListItemClick(l, view, position, id);
         ShoppingListItem clickedItem = ShoppingListItemList.get(position);
+        if (clickedItem.getItemTitle().contains("***")) {
+            return;
+        }
         clickedItem.toggleChecked();
-        int index = mListView.getFirstVisiblePosition();
-        View v = mListView.getChildAt(0);
-        int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
-        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
-        setListAdapter(mAdapter);
-        mListView.setSelectionFromTop(index, top);
+        mAdapter.notifyDataSetChanged();
         saveItem(clickedItem.getItemTitle(), Integer.toString(clickedItem.getItemCount()), clickedItem.isChecked() ? "true" : "false");
     }
 
@@ -269,7 +269,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
 
         switch(response.getType()){
             case CONSTS.API_SUCCESS_LIST:
-                ShoppingListItemList = response.getItems();
+                ShoppingListItemList.clear();
+                ShoppingListItemList.addAll(response.getItems());
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -356,8 +357,6 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         String json = gson.toJson(ShoppingListItemList);
         prefs.edit().putString("cached_list", json).apply();
 
-        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
-        setListAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         if(mAdapter.isEmpty()){
             setEmptyText(getResources().getString(R.string.empty_view_list));
@@ -367,10 +366,10 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     //Errors thrown by app and api
     @Override
     public void onError(ResponseHelper error) {
-        if(error.getType() == CONSTS.APP_ERROR_IO) {
-            getList();
-            return;
-        }
+//        if(error.getType() == CONSTS.APP_ERROR_IO) {
+//            getList();
+//            return;
+//        }
 
         resetRefreshing();
         ErrorFragment errFR;
@@ -595,7 +594,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         switch (item.getItemId()) {
             case R.id.action_hidechecked:
                 hideChecked = !hideChecked;
-                buildList();
+                mAdapter.setHideChecked(hideChecked);
+                mAdapter.notifyDataSetChanged();
                 return true;
             case R.id.action_clearlist:
                 int i = 0;

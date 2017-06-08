@@ -2,6 +2,7 @@ package org.janb.shoppinglist.model;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,10 @@ public class ShoppingListAdapter extends ArrayAdapter {
         View checkLine;
     }
 
+    public void setHideChecked(Boolean hideChecked) {
+        this.hideChecked = hideChecked;
+    }
+
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         View viewToUse = null;
@@ -47,8 +52,6 @@ public class ShoppingListAdapter extends ArrayAdapter {
             switch (rowType) {
                 case TYPE_ITEM:
                     viewToUse = mInflater.inflate(R.layout.list_row, parent, false);
-
-
                     holder.titleText = (TextView) viewToUse.findViewById(R.id.row_item_title);
                     holder.countText = (TextView) viewToUse.findViewById(R.id.row_item_count);
                     holder.checkLine = viewToUse.findViewById(R.id.row_item_check);
@@ -58,10 +61,14 @@ public class ShoppingListAdapter extends ArrayAdapter {
                     if (item.getItemCount() == 1) {
                         holder.countText.setText("");
                     }
-                    holder.titleText.setText(item.getItemTitle());
+                    String title = item.getItemTitle();
+                    title = title.replaceAll("^\\d{1,3}\\. ", "");
+                    holder.titleText.setText(title);
                     if (item.isChecked()) {
-                        holder.titleText.setText(item.getItemTitle());
                         holder.checkLine.setVisibility(View.VISIBLE);
+                    }
+                    if (item.getItemTitle().contains("***")) {
+                        holder.titleText.setTypeface(null, Typeface.BOLD);
                     }
             break;
             case TYPE_SEPARATOR:

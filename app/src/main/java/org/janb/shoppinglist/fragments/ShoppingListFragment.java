@@ -68,6 +68,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     private Boolean isImportant = false;
     private Boolean isFavorite = false;
     private Boolean hideChecked = false;
+    private Boolean apiBusy = false;
     private ShoppingListFragment ref;
     private ShoppingListItem openedItem;
     private EditText dialogCount;
@@ -227,6 +228,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_GETLIST);
         api.execute();
+        apiBusy = true;
     }
 
     @Override
@@ -277,6 +279,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         buildList();
                     }
                 });
+                apiBusy = false;
                 break;
             case CONSTS.API_SUCCESS_LIST_EMPTY:
                 getActivity().runOnUiThread(new Runnable() {
@@ -296,7 +299,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -306,7 +310,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -315,7 +320,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -324,7 +330,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -333,7 +340,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;

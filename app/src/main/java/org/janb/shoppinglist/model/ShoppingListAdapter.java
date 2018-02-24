@@ -62,14 +62,15 @@ public class ShoppingListAdapter extends ArrayAdapter {
                         holder.countText.setText("");
                     }
                     String title = item.getItemTitle();
-                    title = title.replaceAll("^\\d{1,3}\\. ", "");
-                    holder.titleText.setText(title);
                     if (item.isChecked()) {
                         holder.checkLine.setVisibility(View.VISIBLE);
                     }
                     if (item.getItemTitle().contains("***")) {
                         holder.titleText.setTypeface(null, Typeface.BOLD);
+                    } else {
+                        title = title.replaceAll("^\\d{1,3}\\. ", "");
                     }
+                    holder.titleText.setText(title);
             break;
             case TYPE_SEPARATOR:
                 convertView = mInflater.inflate(R.layout.list_category, parent, false);

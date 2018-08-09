@@ -32,8 +32,6 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.X509TrustManager;
 
-import de.duenndns.ssl.MemorizingTrustManager;
-
 public class MainActivity extends AppCompatActivity {
 
     private Drawer result = null;
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         fragmentSelector(Integer.parseInt(drawerItem.getTag().toString()));
                         return false;
                     }

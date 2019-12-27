@@ -88,7 +88,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         if (preference == scanQR){
             IntentIntegrator integrator = new IntentIntegrator(getActivity());
-            integrator.initiateScan();
+            integrator.initiateScan(prefs.getBoolean("scanQRfront", false) ? 1 : 0);
             return true;
         }
         if (preference == generateQR){

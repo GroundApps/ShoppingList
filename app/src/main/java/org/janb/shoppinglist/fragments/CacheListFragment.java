@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.model.ShoppingListAdapter;
 import org.janb.shoppinglist.model.ShoppingListItem;
@@ -32,6 +34,7 @@ public class CacheListFragment extends ListFragment {
     private List<ShoppingListItem> ShoppingListItemList;
     private Context context;
     private ShoppingListAdapter shopListAdapter;
+    private Boolean hideChecked = true;
 
     public CacheListFragment() {
     }
@@ -66,13 +69,18 @@ public class CacheListFragment extends ListFragment {
         super.onListItemClick(l, view, position, id);
         ShoppingListItem clickedItem = ShoppingListItemList.get(position);
         clickedItem.toggleChecked();
-        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
         int index = mListView.getFirstVisiblePosition();
         View v = mListView.getChildAt(0);
         int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
-        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+        shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
         setListAdapter(shopListAdapter);
         mListView.setSelectionFromTop(index, top);
+
+        SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = gson.toJson(ShoppingListItemList);
+        prefs.edit().putString("cached_list", json).apply();
     }
 
     private void getListFromCache() {
@@ -80,7 +88,7 @@ public class CacheListFragment extends ListFragment {
         SharedPreferences prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
         parseJSON(prefs.getString("cached_list", ""));
         if (ShoppingListItemList.size() > 0) {
-            shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
+            shopListAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
             setListAdapter(shopListAdapter);
         } else {
             setEmptyText(getResources().getString(R.string.empty_view_cache));
@@ -99,6 +107,7 @@ public class CacheListFragment extends ListFragment {
         Log.d("JSON DATA", jsondata);
         String item_title;
         String item_count;
+        Boolean item_checked;
         JSONArray array = null;
         ShoppingListItem itemData = null;
         try {
@@ -118,7 +127,8 @@ public class CacheListFragment extends ListFragment {
                     assert row != null;
                     item_title = row.getString("itemTitle");
                     item_count = row.getString("itemCount");
-                    itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count));
+                    item_checked = row.getBoolean("checked");
+                    itemData = new ShoppingListItem(item_title,Integer.parseInt(item_count),item_checked);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -2,9 +2,11 @@
     <string name="app_name">ShoppingList</string>
 
     <string name="action_clearlist">Clear list</string>
+    <string name="action_hidechecked">Hide checked</string>
     <string name="action_share">Share</string>
 
     <string name="nav_item_home">List</string>
+    <string name="nav_item_cached">Cached List (offline)</string>
     <string name="nav_item_favorites">Favorites</string>
     <string name="nav_item_settings">Settings</string>
     <string name="nav_item_about">About</string>
@@ -47,6 +49,8 @@
 
     <string name="new_entry">New Entry</string>
     <string name="new_entry_from_favorite">Favorites</string>
+    <string name="new_entry_from_qr_code">Scan QR</string>
+    <string name="deleteItem">Delete</string>
     <string name="markFavorite">Favorite</string>
     <string name="error_backend_version">Required: </string>
     <string name="error_backend_version_update_notice">Please update the backend on the server!</string>
@@ -65,6 +69,8 @@
     <string name="preferences_summary_auth">Please provide your authentication token. \n (defined during backend installation)</string>
     <string name="preferences_category_qr">Quick Setup</string>
     <string name="preferences_action_scan_qr">Scan QR Code</string>
+    <string name="preferences_checkbox_scan_qr_front">Use Front Camera</string>
+    <string name="preferences_summary_scan_qr_front">Scan QR Code using the Front Camera</string>
     <string name="preferences_category_backend_update">Backend Update Notifications</string>
     <string name="preferences_action_check_for_updates">Check for Updates</string>
     <string name="preferences_summary_check_for_updates">Every week, check if an update is available on GitHub.</string>

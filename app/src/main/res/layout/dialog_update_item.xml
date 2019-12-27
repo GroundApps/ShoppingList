@@ -14,9 +14,8 @@
         android:layout_marginRight="20dp"
         android:textSize="40sp"
         android:selectAllOnFocus="true"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/dialog_update_minus"
-        android:layout_below="@+id/dialog_update_favorite" />
+        android:layout_marginLeft="60dp"
+        android:layout_below="@+id/dialog_update_title" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,11 +23,21 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/markFavorite"
         android:id="@+id/dialog_update_favorite"
-        android:layout_alignBottom="@+id/dialog_update_title"
+        android:layout_alignTop="@+id/dialog_update_plus"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/deleteItem"
+        android:id="@+id/dialog_update_delete"
+        android:layout_alignTop="@+id/dialog_update_minus"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
         android:layout_marginBottom="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,9 +55,8 @@
         android:text="-"
         android:id="@+id/dialog_update_minus"
         android:background="@drawable/custom_button"
-        android:layout_below="@+id/dialog_update_title"
-        android:layout_toRightOf="@+id/dialog_update_count"
-        android:layout_toEndOf="@+id/dialog_update_count"
+        android:layout_below="@+id/dialog_update_plus"
+        android:layout_alignLeft="@+id/dialog_update_plus"
         android:layout_marginTop="11dp" />
 
     <Button
@@ -58,8 +66,9 @@
         android:text="+"
         android:id="@+id/dialog_update_plus"
         android:background="@drawable/custom_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dialog_update_title"
         android:layout_alignTop="@+id/dialog_update_count"
-        android:layout_alignLeft="@+id/dialog_update_minus"
-        android:layout_alignStart="@+id/dialog_update_minus" />
+        android:layout_toRightOf="@+id/dialog_update_count" />
 
 </RelativeLayout>

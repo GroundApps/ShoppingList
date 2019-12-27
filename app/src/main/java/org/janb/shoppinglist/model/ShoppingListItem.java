@@ -13,6 +13,10 @@ public class ShoppingListItem {
         return checked;
     }
 
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
     public void toggleChecked() {
         this.checked = !this.checked;
     }
@@ -45,6 +49,12 @@ public class ShoppingListItem {
         this.itemTitle = title;
         this.itemCount = count;
         this.checked = false;
+    }
+
+ public ShoppingListItem(String title, int count, Boolean checked){
+        this.itemTitle = title;
+        this.itemCount = count;
+        this.checked = checked;
     }
 
 

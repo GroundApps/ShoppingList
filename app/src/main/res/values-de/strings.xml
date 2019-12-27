@@ -5,6 +5,7 @@
     <string name="nav_item_about">Über</string>
     <string name="nav_item_favorites">Favoriten</string>
     <string name="nav_item_home">Liste</string>
+    <string name="nav_item_cached">Gespeicherte Liste (offline)</string>
     <string name="nav_item_settings">Einstellungen</string>
     <string name="ok">OK</string>
     <string name="success">Aktion erfolgreich</string>
@@ -24,15 +25,18 @@
     <string name="error_url">Das Format der eingegebenen URL ist nicht gültig.</string>
     <string name="empty_view_cache">Bei der letzten Synchronizierung war die Liste leer.</string>
     <string name="action_clearlist">Liste leeren</string>
+    <string name="action_hidechecked">Erledigte ausblenden</string>
     <string name="error_general">Ein unerwarteter Fehler ist aufgetreten. Bitte auf GitHub melden!</string>
     <string name="cache">Gespeicherte Version</string>
     <string name="retry">Erneut versuchen</string>
     <string name="settings">Einstellungen öffnen</string>
     <string name="new_entry">Neuer Eintrag</string>
     <string name="new_entry_from_favorite">Vorlagen</string>
+    <string name="new_entry_from_qr_code">Barcode</string>
     <string name="add_custom_item">Artikel</string>
     <string name="action_share">Teilen</string>
     <string name="markFavorite">Favorit</string>
+    <string name="deleteItem">Löschen</string>
     <string name="error_no_host_configured">Bitte Host und Authkey in den Einstellungen festlegen.</string>
     <string name="error_host_not_found">Server nicht gefunden. Internetverbindung besteht?</string>
     <string name="error_backend_version">Benötigt:</string>
@@ -46,6 +50,8 @@
     <string name="preferences_action_clear_predictions">Vorschläge löschen</string>
     <string name="preferences_action_host">Host</string>
     <string name="preferences_action_scan_qr">QR Code scannen</string>
+    <string name="preferences_checkbox_scan_qr_front">Vordere Kamera verwenden</string>
+    <string name="preferences_summary_scan_qr_front">QR Code mit der vorderen Kamera scannen</string>
     <string name="preferences_action_ssl">SSL</string>
     <string name="preferences_category_auth">Authentifizierung</string>
     <string name="preferences_category_backend">Backend</string>

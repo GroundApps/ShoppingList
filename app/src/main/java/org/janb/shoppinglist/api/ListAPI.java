@@ -47,6 +47,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
     public static final  int FUNCTION_UPDATECOUNT = 5;
     public static final  int FUNCTION_DELETE_MULTIPLE = 6;
     public static final  int FUNCTION_SAVE_MULTIPLE = 7;
+    public static final  int FUNCTION_ADD_QRCODE_ITEM = 8;
 
 
     ResultsListener listener;
@@ -102,6 +103,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                 parameters.put("auth", AUTHKEY);
                 parameters.put("item",params[0]);
                 parameters.put("count",params[1]);
+                parameters.put("checked",params[2]);
                 performPostCall(URL, parameters);
                 break;
             case FUNCTION_DELETEITEM:
@@ -132,6 +134,13 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                 parameters.put("function", "saveMultiple");
                 parameters.put("auth", AUTHKEY);
                 parameters.put("jsonArray",params[0]);
+                Log.d("PARAMS", parameters.toString());
+                performPostCall(URL, parameters);
+                break;
+            case FUNCTION_ADD_QRCODE_ITEM:
+                parameters.put("function", "addQRcodeItem");
+                parameters.put("auth", AUTHKEY);
+                parameters.put("item",params[0]);
                 Log.d("PARAMS", parameters.toString());
                 performPostCall(URL, parameters);
                 break;
@@ -202,7 +211,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                         response += line;
                     }
                     Log.d("RESPONSE RAW", response);
-                    LOGGER.log(response);
+                    LOGGER.log(context.getApplicationContext(), response);
                     parseResponse(response);
                     break;
                 case HttpsURLConnection.HTTP_INTERNAL_ERROR:
@@ -249,6 +258,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                     responseHelper = gson.fromJson(response, ResponseHelper.class);
                     listener.onResponse(responseHelper);
                     break;
+/* the current backend does not return a deleted item list
                 case FUNCTION_DELETE_MULTIPLE:
                     ShoppingListItem_Multiple[] itemMultiple = gson.fromJson(response, ShoppingListItem_Multiple[].class);
                     List<ShoppingListItem_Multiple> statusList = new ArrayList<>(Arrays.asList(itemMultiple));
@@ -258,6 +268,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
                     responseHelper = new ResponseHelper(CONSTS.API_SUCCESS_DELETE,"Deleted Multiple Items");
                     listener.onResponse(responseHelper);
                     break;
+*/
             }
         } catch (Exception e) {
             listener.onError(new ResponseHelper(CONSTS.APP_ERROR_RESPONSE, context.getString(R.string.error_response_format) + response));
@@ -279,7 +290,7 @@ public class ListAPI extends AsyncTask<String, Integer, Boolean> {
             result.append("=");
             result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
         }
-        LOGGER.log(result.toString());
+        LOGGER.log(context.getApplicationContext(), result.toString());
         return result.toString();
     }
 

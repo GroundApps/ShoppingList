@@ -36,6 +36,15 @@
         android:layout_gravity="end|bottom">
 
     <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_action_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/white"
+        fab:fab_title="@string/new_entry_from_qr_code"
+        fab:fab_icon="@drawable/ic_photo_camera_black_48dp"
+        fab:fab_colorPressed="@color/white_pressed"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_action_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

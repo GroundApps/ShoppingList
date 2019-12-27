@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,12 +28,11 @@ import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.fragments.CacheListFragment;
 import org.janb.shoppinglist.fragments.FavoriteListFragment;
 import org.janb.shoppinglist.fragments.ShoppingListFragment;
+import org.janb.shoppinglist.api.BackPressedListener;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.X509TrustManager;
-
-import de.duenndns.ssl.MemorizingTrustManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 .withActionBarDrawerToggleAnimated(false)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.nav_item_home).withTag(CONSTS.TAG_LIST).withIcon(R.drawable.ic_toc_black_),
+                        new PrimaryDrawerItem().withName(R.string.nav_item_cached).withTag(CONSTS.TAG_CACHED).withIcon(R.drawable.ic_toc_black_),
                         new PrimaryDrawerItem().withName(R.string.nav_item_favorites).withTag(CONSTS.TAG_FAVORITES).withIcon(R.drawable.ic_star_rate_black)
                 )
                 .addStickyDrawerItems(
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         fragmentSelector(Integer.parseInt(drawerItem.getTag().toString()));
                         return false;
                     }
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
         switch (tag){
             case CONSTS.TAG_LIST:
                 displayList();
+                break;
+            case CONSTS.TAG_CACHED:
+                displayCached();
                 break;
             case CONSTS.TAG_FAVORITES:
                 displayFavorites();
@@ -173,13 +177,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        CacheListFragment myFragment = (CacheListFragment)getFragmentManager().findFragmentByTag("CACHE_FRAGMENT");
-        if (result != null && result.isDrawerOpen()) {
-            result.closeDrawer();
-        } else if (myFragment != null && myFragment.isVisible()) {
-            displayList();
-        } else {
-            super.onBackPressed();
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.fragment_container);
+        if (!(fragment instanceof BackPressedListener) || !((BackPressedListener) fragment).onBackPressed()) {
+            CacheListFragment myFragment = (CacheListFragment) getFragmentManager().findFragmentByTag("CACHE_FRAGMENT");
+            if (result != null && result.isDrawerOpen()) {
+                result.closeDrawer();
+            } else if (myFragment != null && myFragment.isVisible()) {
+                displayList();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -188,6 +195,15 @@ public class MainActivity extends AppCompatActivity {
         android.app.FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_container, listFR);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void displayCached() {
+        CacheListFragment cacheFR = new CacheListFragment();
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, cacheFR);
         transaction.addToBackStack(null);
         transaction.commit();
     }

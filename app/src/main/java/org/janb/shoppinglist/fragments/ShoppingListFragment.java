@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +37,8 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.gson.Gson;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import org.janb.shoppinglist.CONSTS;
 import org.janb.shoppinglist.LOGGER;
@@ -42,6 +46,7 @@ import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.api.ListAPI;
 import org.janb.shoppinglist.api.ResponseHelper;
 import org.janb.shoppinglist.api.ResultsListener;
+import org.janb.shoppinglist.api.BackPressedListener;
 import org.janb.shoppinglist.model.PredictionDbAdapterItem;
 import org.janb.shoppinglist.model.ShoppingListAdapter;
 import org.janb.shoppinglist.model.ShoppingListItem;
@@ -52,7 +57,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShoppingListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener, ResultsListener, View.OnClickListener {
+public class ShoppingListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener, ResultsListener, View.OnClickListener, BackPressedListener {
 
     ShoppingListAdapter mAdapter;
     private ListView mListView;
@@ -64,6 +69,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     private MaterialDialog dialog;
     private Boolean isImportant = false;
     private Boolean isFavorite = false;
+    private Boolean hideChecked = false;
+    private Boolean apiBusy = false;
     private ShoppingListFragment ref;
     private ShoppingListItem openedItem;
     private EditText dialogCount;
@@ -102,8 +109,15 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                             @Override
                             public void onPositive(MaterialDialog dialog) {
                                 String dialogCountText = ((EditText) dialog.findViewById(R.id.dialog_update_count)).getText().toString();
-                                if (!dialogCountText.isEmpty() && !dialogCountText.equals(openedItem.getItemCountString())) {
-                                    saveItem(item.getItemTitle(), dialogCountText);
+                                String dialogTitleText = ((EditText) dialog.findViewById(R.id.dialog_update_title)).getText().toString();
+                                if (!dialogCountText.isEmpty() && (!dialogCountText.equals(openedItem.getItemCountString()) || !dialogTitleText.equals(openedItem.getItemTitle()))) {
+                                    saveItem(dialogTitleText, dialogCountText, "false");
+                                }
+                                if (!dialogTitleText.equals(openedItem.getItemTitle())) {
+                                    List<ShoppingListItem> delItems = new ArrayList();
+                                    delItems.add(0 , new ShoppingListItem(item.getItemTitle(), 1));
+                                    Gson gson = new Gson();
+                                    deleteMultiple(gson.toJson(delItems));
                                 }
                             }
                         })
@@ -118,6 +132,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                 dialogTitle.setText(item.getItemTitle());
                 TextView fav = (TextView)dialog.findViewById(R.id.dialog_update_favorite);
                 fav.setOnClickListener(ref);
+                TextView del = (TextView)dialog.findViewById(R.id.dialog_update_delete);
+                del.setOnClickListener(ref);
                 if(getFavorites().contains(item.getItemTitle())){
                     isFavorite = true;
                     fav.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
@@ -146,10 +162,14 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         action_a.setOnClickListener(this);
         FloatingActionButton action_b = (FloatingActionButton) rootView.findViewById(R.id.main_action_b);
         action_b.setOnClickListener(this);
+        FloatingActionButton action_c = (FloatingActionButton) rootView.findViewById(R.id.main_action_c);
+        action_c.setOnClickListener(this);
         action_main = (FloatingActionsMenu) rootView.findViewById(R.id.main_multiple_actions);
         action_main.setAlpha(0.7f);
         action_a.setAlpha(0.7f);
         action_b.setAlpha(0.7f);
+        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList, hideChecked);
+        setListAdapter(mAdapter);
         getList();
         return rootView;
     }
@@ -160,12 +180,12 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
     }
 
-    private void saveItem(String itemTitle, String itemCount) {
+    private void saveItem(String itemTitle, String itemCount, String itemChecked) {
         setRefreshing();
         api = new ListAPI(context);
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_SAVEITEM);
-        api.execute(itemTitle, String.valueOf(itemCount));
+        api.execute(itemTitle, String.valueOf(itemCount), itemChecked);
     }
     private void saveMultiple(String jsonData) {
         setRefreshing();
@@ -181,6 +201,14 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_DELETE_MULTIPLE);
         api.execute(jsonData);
+    }
+
+    private void addQRcodeItem(String QRcode) {
+        setRefreshing();
+        api = new ListAPI(context);
+        api.setOnResultsListener(this);
+        ListAPI.setFunction(ListAPI.FUNCTION_ADD_QRCODE_ITEM);
+        api.execute(QRcode);
     }
 
     private void clearList() {
@@ -202,19 +230,19 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         api.setOnResultsListener(this);
         ListAPI.setFunction(ListAPI.FUNCTION_GETLIST);
         api.execute();
+        apiBusy = true;
     }
 
     @Override
     public void onListItemClick(ListView l, View view, final int position, long id) {
         super.onListItemClick(l, view, position, id);
         ShoppingListItem clickedItem = ShoppingListItemList.get(position);
+        if (clickedItem.getItemTitle().contains("***")) {
+            return;
+        }
         clickedItem.toggleChecked();
-        int index = mListView.getFirstVisiblePosition();
-        View v = mListView.getChildAt(0);
-        int top = (v == null) ? 0 : (v.getTop() - mListView.getPaddingTop());
-        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
-        setListAdapter(mAdapter);
-        mListView.setSelectionFromTop(index, top);
+        mAdapter.notifyDataSetChanged();
+        saveItem(clickedItem.getItemTitle(), Integer.toString(clickedItem.getItemCount()), clickedItem.isChecked() ? "true" : "false");
     }
 
     public void setEmptyText(CharSequence emptyText) {
@@ -245,13 +273,15 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
 
         switch(response.getType()){
             case CONSTS.API_SUCCESS_LIST:
-                ShoppingListItemList = response.getItems();
+                ShoppingListItemList.clear();
+                ShoppingListItemList.addAll(response.getItems());
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         buildList();
                     }
                 });
+                apiBusy = false;
                 break;
             case CONSTS.API_SUCCESS_LIST_EMPTY:
                 getActivity().runOnUiThread(new Runnable() {
@@ -271,7 +301,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -281,7 +312,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -290,7 +322,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -299,7 +332,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -308,7 +342,8 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     @Override
                     public void run() {
                         Toast.makeText(getActivity(), response.getContent(),Toast.LENGTH_SHORT).show();
-                        getList();
+                        if (!apiBusy)
+                            getList();
                     }
                 });
                 break;
@@ -332,8 +367,6 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         String json = gson.toJson(ShoppingListItemList);
         prefs.edit().putString("cached_list", json).apply();
 
-        mAdapter = new ShoppingListAdapter(getActivity(), ShoppingListItemList);
-        setListAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         if(mAdapter.isEmpty()){
             setEmptyText(getResources().getString(R.string.empty_view_list));
@@ -343,10 +376,10 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     //Errors thrown by app and api
     @Override
     public void onError(ResponseHelper error) {
-        if(error.getType() == CONSTS.APP_ERROR_IO) {
-            getList();
-            return;
-        }
+//        if(error.getType() == CONSTS.APP_ERROR_IO) {
+//            getList();
+//            return;
+//        }
 
         resetRefreshing();
         ErrorFragment errFR;
@@ -398,7 +431,7 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                                         TextView dialog_add_custom_how_much = (TextView) dialog.findViewById(R.id.dialog_add_count);
                                         imm.hideSoftInputFromWindow(dialog_add_custom_what.getWindowToken(), 0);
                                         if (!dialog_add_custom_what.getText().toString().isEmpty()) {
-                                            saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString());
+                                            saveItem(dialog_add_custom_what.getText().toString(), dialog_add_custom_how_much.getText().toString(), "false");
                                             dbHelperItem.addPrediction(dialog_add_custom_what.getText().toString());
                                             if (isFavorite) {
                                                 addToFavorites(dialog_add_custom_what.getText().toString());
@@ -454,6 +487,13 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                         .positiveText(getResources().getString(R.string.ok))
                         .show();
                 break;
+            case R.id.main_action_c:
+                action_main.collapse();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                int cameraId = prefs.getBoolean("scanQRfront", false) ? 1 : 0;
+                IntentIntegrator integrator = new IntentIntegrator(this);
+                integrator.initiateScan(cameraId);
+                break;
             case R.id.dialog_add_favorite:
                 TextView favoriteAdd = (TextView)dialog.findViewById(R.id.dialog_add_favorite);
                 if (isFavorite){
@@ -475,6 +515,13 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
                     favoriteUpdate.setShadowLayer(15f, 0, 0, getResources().getColor(R.color.material_deep_teal_500));
                     addToFavorites(openedItem.getItemTitle());
                 }
+                break;
+            case R.id.dialog_update_delete:
+                List<ShoppingListItem> delItems = new ArrayList();
+                delItems.add(0 , new ShoppingListItem(openedItem.getItemTitle(), 1));
+                Gson gson = new Gson();
+                deleteMultiple(gson.toJson(delItems));
+                dialog.dismiss();
                 break;
             case R.id.dialog_update_minus:
                 if(!dialogCount.getText().toString().equals("1")) {
@@ -521,6 +568,20 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         return favorites;
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null) {
+            Gson gson = new Gson();
+            try {
+                String QRcode = scanResult.getContents().toString();
+                Toast.makeText(getActivity().getApplicationContext(), QRcode, Toast.LENGTH_SHORT).show();
+                addQRcodeItem(QRcode);
+            } catch (Exception e){
+                Toast.makeText(getActivity().getApplicationContext(),"QR Code: Wrong data!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     @Override
     public void onStop(){
         super.onStop();
@@ -541,6 +602,11 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
     public boolean onOptionsItemSelected(MenuItem item) {
         List<ShoppingListItem> delItems = new ArrayList();
         switch (item.getItemId()) {
+            case R.id.action_hidechecked:
+                hideChecked = !hideChecked;
+                mAdapter.setHideChecked(hideChecked);
+                mAdapter.notifyDataSetChanged();
+                return true;
             case R.id.action_clearlist:
                 int i = 0;
                 for(ShoppingListItem SLitem:ShoppingListItemList){
@@ -589,6 +655,19 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         }
 
         return true;
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        //always
+        if (true) {
+            //exit app
+            getActivity().finishAffinity();
+            //action not popBackStack
+            return true;
+        } else {
+            return false;
+        }
     }
 
     class PredictionAdapter extends CursorAdapter

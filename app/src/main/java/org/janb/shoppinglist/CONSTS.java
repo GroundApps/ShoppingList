@@ -8,6 +8,7 @@ public class CONSTS {
     public static final int TAG_FAVORITES = 2;
     public static final int TAG_SETTINGS = 3;
     public static final int TAG_ABOUT= 4;
+    public static final int TAG_CACHED = 5;
 
     public static final int API_SUCCESS_LIST = 1000;
     public static final int API_SUCCESS_LIST_EMPTY = 1001;

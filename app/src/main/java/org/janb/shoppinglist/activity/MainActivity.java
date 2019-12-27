@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,6 +28,7 @@ import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.fragments.CacheListFragment;
 import org.janb.shoppinglist.fragments.FavoriteListFragment;
 import org.janb.shoppinglist.fragments.ShoppingListFragment;
+import org.janb.shoppinglist.api.BackPressedListener;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -175,13 +177,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        CacheListFragment myFragment = (CacheListFragment)getFragmentManager().findFragmentByTag("CACHE_FRAGMENT");
-        if (result != null && result.isDrawerOpen()) {
-            result.closeDrawer();
-        } else if (myFragment != null && myFragment.isVisible()) {
-            displayList();
-        } else {
-            super.onBackPressed();
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.fragment_container);
+        if (!(fragment instanceof BackPressedListener) || !((BackPressedListener) fragment).onBackPressed()) {
+            CacheListFragment myFragment = (CacheListFragment) getFragmentManager().findFragmentByTag("CACHE_FRAGMENT");
+            if (result != null && result.isDrawerOpen()) {
+                result.closeDrawer();
+            } else if (myFragment != null && myFragment.isVisible()) {
+                displayList();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 

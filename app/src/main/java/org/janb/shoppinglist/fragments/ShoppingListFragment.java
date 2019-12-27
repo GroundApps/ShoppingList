@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -45,6 +46,7 @@ import org.janb.shoppinglist.R;
 import org.janb.shoppinglist.api.ListAPI;
 import org.janb.shoppinglist.api.ResponseHelper;
 import org.janb.shoppinglist.api.ResultsListener;
+import org.janb.shoppinglist.api.BackPressedListener;
 import org.janb.shoppinglist.model.PredictionDbAdapterItem;
 import org.janb.shoppinglist.model.ShoppingListAdapter;
 import org.janb.shoppinglist.model.ShoppingListItem;
@@ -55,7 +57,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShoppingListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener, ResultsListener, View.OnClickListener {
+public class ShoppingListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener, ResultsListener, View.OnClickListener, BackPressedListener {
 
     ShoppingListAdapter mAdapter;
     private ListView mListView;
@@ -653,6 +655,19 @@ public class ShoppingListFragment extends ListFragment implements SwipeRefreshLa
         }
 
         return true;
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        //always
+        if (true) {
+            //exit app
+            getActivity().finishAffinity();
+            //action not popBackStack
+            return true;
+        } else {
+            return false;
+        }
     }
 
     class PredictionAdapter extends CursorAdapter
